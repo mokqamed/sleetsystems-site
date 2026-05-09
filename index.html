@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sleet Systems Inc — a New York software company building modern operating tools for independent retail. Maker of SleetPOS." />
+<title>Sleet Systems Inc — Software for Independent Retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    line-height: 1.6;
+    background: #ffffff;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    padding: 24px 0;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    z-index: 10;
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 22px; letter-spacing: -0.02em;
+    color: #0f172a; text-decoration: none;
+  }
+  .logo-mark {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 800; font-size: 16px;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    color: #475569; text-decoration: none; font-weight: 500; font-size: 15px;
+  }
+  .nav-links a:hover { color: #0f172a; }
+  .nav-cta {
+    background: #0f172a; color: white !important; padding: 10px 18px;
+    border-radius: 8px; font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: #1e293b; }
+
+  .hero {
+    padding: 96px 0 80px;
+    background: radial-gradient(ellipse at top, #eff6ff 0%, #ffffff 60%);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5.5vw, 60px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    max-width: 880px;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: #2563eb; }
+  .hero p.lead {
+    font-size: 19px;
+    color: #475569;
+    max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 24px; border-radius: 10px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    transition: transform 0.05s ease, background 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer; border: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: #2563eb; color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25); }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-secondary { background: white; color: #0f172a; border: 1px solid #cbd5e1; }
+  .btn-secondary:hover { border-color: #94a3b8; background: #f8fafc; }
+
+  section { padding: 80px 0; }
+  .section-eyebrow {
+    color: #2563eb; font-weight: 600; font-size: 14px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800; letter-spacing: -0.02em;
+    color: #0f172a; margin-bottom: 16px; max-width: 780px;
+  }
+  .section-lead {
+    font-size: 18px; color: #475569; max-width: 720px; margin-bottom: 48px;
+  }
+
+  .product-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 40px;
+    background: linear-gradient(180deg, #fafbff 0%, #ffffff 100%);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+  }
+  .product-mark {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 800; font-size: 26px;
+    flex-shrink: 0;
+  }
+  .product-info h3 {
+    font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px;
+  }
+  .product-info p {
+    font-size: 16px; color: #475569; margin-bottom: 0;
+  }
+  .product-status {
+    background: #dcfce7; color: #166534;
+    font-size: 13px; font-weight: 600; padding: 6px 14px;
+    border-radius: 999px; flex-shrink: 0;
+  }
+  .product-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #2563eb; text-decoration: none; font-weight: 600; font-size: 14px;
+    margin-top: 8px;
+  }
+  .product-link:hover { text-decoration: underline; }
+
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .principle {
+    padding: 28px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+  .principle-icon {
+    width: 44px; height: 44px;
+    background: #eff6ff; color: #2563eb;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .principle h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
+  .principle p { font-size: 15px; color: #475569; line-height: 1.6; }
+
+  .about {
+    background: #f8fafc;
+    border-radius: 24px;
+    padding: 56px;
+    margin: 0 24px;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-grid h2 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .about-grid p { font-size: 17px; color: #475569; margin-bottom: 16px; }
+  .info-list { display: grid; gap: 16px; }
+  .info-item {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 16px; background: white; border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .info-label { font-size: 13px; color: #64748b; font-weight: 500; }
+  .info-value { font-size: 15px; color: #0f172a; font-weight: 600; word-break: break-word; }
+  .info-value a { color: #2563eb; text-decoration: none; }
+  .info-value a:hover { text-decoration: underline; }
+
+  .legal-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 64px;
+  }
+  .legal-section h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .legal-doc { margin-bottom: 56px; }
+  .legal-doc h3 { font-size: 20px; font-weight: 700; margin: 24px 0 8px; color: #0f172a; }
+  .legal-doc p, .legal-doc li { font-size: 15px; color: #334155; margin-bottom: 10px; line-height: 1.7; }
+  .legal-doc ul { padding-left: 22px; margin-bottom: 16px; }
+  .legal-doc .effective-date { color: #64748b; font-size: 14px; margin-bottom: 24px; font-weight: 500; }
+
+  footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 48px 0 32px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  footer h4 { color: white; font-size: 14px; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.02em; }
+  footer a { color: #cbd5e1; text-decoration: none; display: block; margin-bottom: 8px; font-size: 14px; }
+  footer a:hover { color: white; }
+  .footer-logo { color: white; font-weight: 800; font-size: 20px; margin-bottom: 8px; }
+  .footer-tagline { font-size: 14px; max-width: 360px; margin-bottom: 12px; line-height: 1.6; }
+  .footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding-top: 24px;
+    font-size: 13px;
+    color: #64748b;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 720px) {
+    section { padding: 56px 0; }
+    .hero { padding: 64px 0 48px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .about { padding: 32px 24px; margin: 0; border-radius: 16px; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .product-card { grid-template-columns: 1fr; text-align: center; padding: 28px; }
+    .product-mark { margin: 0 auto; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <div class="logo-mark">S</div>
+        Sleet Systems
+      </a>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:sleetpostech@gmail.com" class="nav-cta">Get in touch</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">Sleet Systems Inc · Yonkers, NY</span>
+    <h1>We build operating software for <span>independent retail.</span></h1>
+    <p class="lead">Sleet Systems is a New York software company. We make tools that replace aging, locked-in legacy systems with modern, tablet-first software designed around how store owners actually work.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-primary">See our products →</a>
+      <a href="mailto:sleetpostech@gmail.com" class="btn btn-secondary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="container">
+    <div class="section-eyebrow">Our products</div>
+    <h2 class="section-title">What we build.</h2>
+    <p class="section-lead">Today we make one product. We're building it carefully — and we're going to build many more.</p>
+
+    <div class="product-card">
+      <div class="product-mark">P</div>
+      <div class="product-info">
+        <h3>SleetPOS</h3>
+        <p>Modern point-of-sale software for small and mid-size retailers. Tablet-first checkout, real-time inventory, customer marketing, and end-to-end compliance — without the per-terminal lock-in of legacy POS vendors. Live in production with paying merchants.</p>
+        <a href="https://sleetpos.com" class="product-link" rel="noopener">
+          Visit sleetpos.com
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <span class="product-status">Live</span>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-eyebrow">How we build</div>
+    <h2 class="section-title">The principles behind our software.</h2>
+    <p class="section-lead">A small set of beliefs that guide everything we ship.</p>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Trust by default</h3>
+        <p>Every transaction is hash-chained for cryptographic integrity. Append-only ledgers mean audit-ready records, every day, without effort.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Speed at the counter</h3>
+        <p>Every interaction is built for the busiest minute of the busiest hour. If it doesn't make a cashier faster, it doesn't ship.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Compliant communication</h3>
+        <p>Customer messaging is opt-in, auditable, and revocable. STOP keywords work. Quiet hours are honored. The audit trail is complete.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>No lock-in</h3>
+        <p>Hardware-agnostic. Processor-agnostic. Your data is yours. Switching off our software should be as fair as switching to it was.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about-grid">
+        <div>
+          <h2>About Sleet Systems</h2>
+          <p>Sleet Systems Inc is a Corporation registered in the State of New York, headquartered in Yonkers. We are an independent software vendor (ISV) — we build and license software, we do not sell hardware.</p>
+          <p>We work with retailers who own their own terminals, peripherals, and customer relationships, and want software that respects all three. Today our flagship product is SleetPOS. Tomorrow there will be more.</p>
+          <p>If you're a retailer interested in switching to SleetPOS, or if you'd like to talk to us about something else entirely, we'd love to hear from you.</p>
+        </div>
+        <div id="contact">
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-label">Legal entity</span>
+              <span class="info-value">Sleet Systems Inc</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Chief Executive Officer</span>
+              <span class="info-value">Mohammed Alkaifi<br/><a href="mailto:developer@sleetsystems.com">developer@sleetsystems.com</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Headquarters</span>
+              <span class="info-value">218 Roberts Avenue<br/>Yonkers, NY 10703<br/>United States</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">General inquiries</span>
+              <span class="info-value"><a href="mailto:sleetpostech@gmail.com">sleetpostech@gmail.com</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Industry</span>
+              <span class="info-value">Retail technology / B2B SaaS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="legal-section" id="legal">
+  <div class="container">
+    <h2>Legal &amp; Compliance</h2>
+    <p class="section-lead" style="margin-bottom:48px;">The policies governing how we and our products handle your information.</p>
+
+    <article class="legal-doc" id="privacy">
+      <h2>Privacy Policy</h2>
+      <p class="effective-date">Effective: April 30, 2026</p>
+      <p>Sleet Systems Inc ("Sleet Systems," "we," "our," or "us") operates SleetPOS, point-of-sale software licensed to retail merchants ("Merchants") who use it to process transactions and communicate with their own customers ("End Customers"). This Privacy Policy describes how we collect, use, and disclose information when Merchants and End Customers interact with our products and services.</p>
+
+      <h3>Information We Collect</h3>
+      <p><strong>From Merchants:</strong> business name, owner name, email address, phone number, business address, EIN, payment processor credentials, and store configuration data.</p>
+      <p><strong>From End Customers (collected by Merchants and processed on their behalf):</strong> name, phone number, email address, transaction history, loyalty data, and SMS/email consent records.</p>
+      <p><strong>Automatically:</strong> device identifiers, IP address, app version, error logs, and usage analytics necessary to operate and secure the service.</p>
+
+      <h3>How We Use Information</h3>
+      <ul>
+        <li>To operate, maintain, and improve our products</li>
+        <li>To process transactions on behalf of Merchants</li>
+        <li>To deliver SMS and email messages that End Customers have opted in to receive</li>
+        <li>To enforce our Terms of Service and applicable law (CAN-SPAM, TCPA, A2P 10DLC compliance)</li>
+        <li>To communicate with Merchants about their account and our service</li>
+      </ul>
+
+      <h3>Sharing</h3>
+      <p>We do not sell End Customer personal information. We share data only with: (a) service providers under contract who help us deliver the service (Twilio for SMS, Resend for email, Google Firebase for hosting and authentication), (b) authorities when legally required, and (c) successors in the event of a corporate transaction.</p>
+
+      <h3>Your Rights</h3>
+      <p>End Customers may request access to, correction of, or deletion of their personal information by contacting the Merchant they transacted with, or by emailing <a href="mailto:sleetpostech@gmail.com">sleetpostech@gmail.com</a>. Merchants honor these requests through tooling we provide, which records soft-deletes and revocation events on an append-only audit log.</p>
+
+      <h3>Retention</h3>
+      <p>We retain transaction records and consent logs for as long as required by law or contract, after which they are anonymized or deleted.</p>
+
+      <h3>Contact</h3>
+      <p>Privacy questions: <a href="mailto:sleetpostech@gmail.com">sleetpostech@gmail.com</a></p>
+    </article>
+
+    <article class="legal-doc" id="terms">
+      <h2>Terms of Service</h2>
+      <p class="effective-date">Effective: April 30, 2026</p>
+
+      <h3>Acceptance</h3>
+      <p>By using software made by Sleet Systems Inc, you agree to these Terms. If you do not agree, do not use the service.</p>
+
+      <h3>The Service</h3>
+      <p>Our software is licensed to Merchants. Merchants are solely responsible for: (a) the goods and services they sell, (b) the accuracy of pricing, tax, and inventory data they enter, (c) compliance with laws applicable to their business, and (d) obtaining valid consent from End Customers before sending them SMS or email.</p>
+
+      <h3>Acceptable Use</h3>
+      <p>You will not use our software to send unsolicited messages, transmit unlawful content, attempt to gain unauthorized access to other Merchants' data, or reverse-engineer the software.</p>
+
+      <h3>Fees</h3>
+      <p>Subscription fees, if any, are disclosed at sign-up and billed in accordance with the order form between Sleet Systems and the Merchant.</p>
+
+      <h3>Disclaimer of Warranties</h3>
+      <p>The service is provided "as is." To the maximum extent permitted by law, we disclaim all warranties, including merchantability and fitness for a particular purpose.</p>
+
+      <h3>Limitation of Liability</h3>
+      <p>To the maximum extent permitted by law, Sleet Systems' aggregate liability arising out of or relating to these Terms or the service will not exceed the fees paid by the Merchant in the twelve months preceding the claim.</p>
+
+      <h3>Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of New York. Any dispute will be resolved in the state or federal courts located in Westchester County, New York.</p>
+
+      <h3>Contact</h3>
+      <p>Questions about these Terms: <a href="mailto:sleetpostech@gmail.com">sleetpostech@gmail.com</a></p>
+    </article>
+
+    <article class="legal-doc" id="sms-disclosure">
+      <h2>SMS Messaging Disclosure</h2>
+      <p class="effective-date">Effective: April 30, 2026</p>
+
+      <h3>What you'll receive</h3>
+      <p>If you opt in at the point of sale of a SleetPOS-enabled merchant, you may receive: (a) <strong>transactional messages</strong> such as digital receipts, refund confirmations, and loyalty point updates, and (b) if you separately opt in to marketing, <strong>promotional messages</strong> such as discounts and new-product announcements.</p>
+
+      <h3>Frequency</h3>
+      <p>Transactional messages are sent at the time of each qualifying transaction. Marketing message frequency varies by merchant and is typically 0–4 messages per month.</p>
+
+      <h3>Cost</h3>
+      <p>Message and data rates may apply, charged by your mobile carrier. Sleet Systems does not charge End Customers for SMS.</p>
+
+      <h3>How to stop</h3>
+      <p>Reply <strong>STOP</strong> to any message at any time to opt out of all SMS — both transactional and marketing — from that merchant. Reply <strong>HELP</strong> to receive contact information.</p>
+
+      <h3>Privacy</h3>
+      <p>Phone numbers and consent records are handled in accordance with our Privacy Policy. We do not sell your phone number to third parties.</p>
+
+      <h3>Carriers</h3>
+      <p>Carriers are not liable for delayed or undelivered messages. Service may not be available on all carriers.</p>
+
+      <h3>Contact</h3>
+      <p>Questions about SMS messaging: <a href="mailto:sleetpostech@gmail.com">sleetpostech@gmail.com</a></p>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Sleet Systems Inc</div>
+        <p class="footer-tagline">A New York software company building modern operating tools for independent retail.</p>
+        <p class="footer-tagline" style="font-size:13px;color:#64748b;">218 Roberts Avenue, Yonkers, NY 10703</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <a href="https://sleetpos.com" rel="noopener">SleetPOS →</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="mailto:sleetpostech@gmail.com">Contact</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/sms-disclosure">SMS Disclosure</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
+      <span>Made in New York.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
