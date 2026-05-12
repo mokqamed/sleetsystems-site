@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sign up to receive SMS messages from SleetPOS-enabled merchants — transactional and promotional texts with consent." />
+<title>SMS Sign-Up — Sleet Systems Inc</title>
+<link rel="canonical" href="https://sleetsystems.com/sms-signup" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #0f172a; line-height: 1.6; background: #ffffff;
+  }
+  .container { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+  header {
+    padding: 24px 0; border-bottom: 1px solid #e2e8f0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; color: #0f172a; text-decoration: none; }
+  .logo-mark { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #2563eb, #0ea5e9); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 16px; }
+  .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; }
+  .nav-links a { color: #475569; text-decoration: none; font-weight: 500; }
+  .nav-links a:hover { color: #0f172a; }
+
+  main { padding: 56px 0 96px; }
+  .breadcrumbs { font-size: 13px; color: #64748b; margin-bottom: 18px; }
+  .breadcrumbs a { color: #2563eb; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+
+  h1.doc-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; color: #0f172a; margin-bottom: 12px; }
+  .intro { color: #475569; font-size: 17px; margin-bottom: 32px; }
+
+  .signup-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-weight: 600; font-size: 14px; color: #0f172a; margin-bottom: 8px; }
+  .field input[type="text"], .field input[type="tel"], .field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    background: #ffffff;
+    color: #0f172a;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  .consent {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.6;
+  }
+  .consent label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+  .consent input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; width: 18px; height: 18px; accent-color: #2563eb; }
+  .consent strong { color: #0f172a; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.05s ease, box-shadow 0.2s ease;
+  }
+  .submit-btn:hover { box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35); }
+  .submit-btn:active { transform: translateY(1px); }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+  .confirmation {
+    display: none;
+    margin-top: 24px;
+    padding: 20px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 12px;
+    color: #065f46;
+    font-size: 15px;
+  }
+  .confirmation.show { display: block; }
+  .confirmation strong { color: #064e3b; }
+
+  .disclosure {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.65;
+  }
+  .disclosure p { margin-bottom: 8px; font-size: 13px; color: #64748b; }
+  .disclosure strong { color: #334155; }
+  .disclosure a { color: #2563eb; }
+
+  h2 { font-size: 18px; font-weight: 700; color: #0f172a; margin: 24px 0 8px; }
+
+  .legal-nav {
+    margin-top: 48px; padding: 24px;
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+    display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px;
+  }
+  .legal-nav a { color: #475569; text-decoration: none; font-weight: 600; }
+  .legal-nav a:hover { color: #0f172a; }
+  .legal-nav .current { color: #0f172a; }
+
+  footer { background: #0f172a; color: #cbd5e1; padding: 40px 0 24px; font-size: 14px; }
+  footer .container { max-width: 1100px; }
+  .footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: #94a3b8; }
+
+  @media (max-width: 720px) {
+    .nav-links a:not(.nav-links-show) { display: none; }
+    .footer-bottom { flex-direction: column; }
+    .signup-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a class="logo" href="/"><span class="logo-mark">S</span> Sleet Systems</a>
+    <div class="nav-links">
+      <a href="/" class="nav-links-show">Home</a>
+      <a href="mailto:developer@sleetsystems.com">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="/">Sleet Systems</a> &nbsp;&rsaquo;&nbsp;
+      <span>SMS Sign-Up</span>
+    </div>
+
+    <h1 class="doc-title">SMS Sign-Up</h1>
+    <p class="intro">Opt in to receive text messages from a SleetPOS-enabled merchant — digital receipts, order updates, loyalty rewards, and occasional promotions.</p>
+
+    <form class="signup-card" id="smsSignupForm" novalidate>
+      <div class="field">
+        <label for="merchant">Merchant</label>
+        <input type="text" id="merchant" name="merchant" placeholder="The store you shopped at (e.g. Main Street Market)" required />
+      </div>
+
+      <div class="field">
+        <label for="phone">Mobile phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" required />
+      </div>
+
+      <div class="consent">
+        <label>
+          <input type="checkbox" id="consent" name="consent" required />
+          <span>By checking this box and providing my phone number, I agree to receive recurring <strong>transactional and promotional text messages</strong> from this merchant via the <strong>SleetPOS SMS</strong> program operated by Sleet Systems, Inc. Message frequency varies (typically 0–4 promotional messages per month, plus transactional messages per qualifying purchase). <strong>Message and data rates may apply.</strong> Consent is not a condition of purchase. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. View our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Sign me up</button>
+
+      <div class="confirmation" id="confirmation">
+        <strong>You're signed up.</strong> You'll receive a confirmation text shortly. Reply <strong>STOP</strong> at any time to opt out, or <strong>HELP</strong> for help.
+      </div>
+    </form>
+
+    <div class="disclosure">
+      <h2>Program details</h2>
+      <p><strong>Program name:</strong> SleetPOS SMS</p>
+      <p><strong>What you'll receive:</strong> Transactional notifications (receipts, order confirmations, loyalty updates) and merchant-initiated promotional messages.</p>
+      <p><strong>Frequency:</strong> Transactional messages are sent per qualifying purchase. Promotional messages are typically 0–4 per month per merchant.</p>
+      <p><strong>Cost:</strong> Message and data rates may apply, charged by your mobile carrier. Sleet Systems does not charge for SMS.</p>
+      <p><strong>How to stop:</strong> Reply <strong>STOP</strong> to any message to opt out. Reply <strong>HELP</strong> for assistance.</p>
+      <p><strong>Support:</strong> <a href="mailto:developer@sleetsystems.com">developer@sleetsystems.com</a></p>
+      <p>You may also sign up in person at the point of sale of any participating SleetPOS merchant by providing your mobile number and giving verbal or on-screen consent.</p>
+      <p>For full details, see our <a href="/sms-disclosure">SMS Messaging Disclosure</a>.</p>
+    </div>
+
+    <div class="legal-nav">
+      <a href="/privacy">Privacy Policy</a> ·
+      <a href="/terms">Terms of Service</a> ·
+      <a href="/sms-disclosure">SMS Messaging Disclosure</a> ·
+      <span class="current">SMS Sign-Up</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
+      <span>Made in New York.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('smsSignupForm');
+    var btn = document.getElementById('submitBtn');
+    var confirmation = document.getElementById('confirmation');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var merchant = document.getElementById('merchant').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var consent = document.getElementById('consent').checked;
+      if (!merchant || !phone || !consent) {
+        alert('Please enter the merchant name, your phone number, and check the consent box.');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      setTimeout(function () {
+        confirmation.classList.add('show');
+        btn.textContent = 'Signed up';
+      }, 400);
+    });
+  })();
+</script>
+</body>
+</html>
