@@ -173,10 +173,19 @@
 
       <div class="consent">
         <label>
-          <input type="checkbox" id="consent" name="consent" required />
-          <span>By checking this box and providing my phone number, I agree to receive recurring <strong>transactional and promotional text messages</strong> from this merchant via the <strong>SleetPOS SMS</strong> program operated by Sleet Systems, Inc. Message frequency varies (typically 0–4 promotional messages per month, plus transactional messages per qualifying purchase). <strong>Message and data rates may apply.</strong> Consent is not a condition of purchase. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. View our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+          <input type="checkbox" id="consentTransactional" name="consentTransactional" required />
+          <span><strong>Transactional messages (required to receive receipts and order updates).</strong> I agree to receive recurring transactional text messages from this merchant via the <strong>SleetPOS SMS</strong> program operated by Sleet Systems, Inc. — including digital receipts, order confirmations, pickup notifications, and loyalty balance updates. Frequency: per qualifying transaction. <strong>Message and data rates may apply.</strong> Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help.</span>
         </label>
       </div>
+
+      <div class="consent">
+        <label>
+          <input type="checkbox" id="consentMarketing" name="consentMarketing" />
+          <span><strong>Promotional messages (optional).</strong> I also agree to receive recurring promotional text messages from this merchant via the SleetPOS SMS program — including sales, discounts, and special offers. Frequency: typically 0–4 messages per month. <strong>Consent is not a condition of any purchase.</strong> Message and data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help.</span>
+        </label>
+      </div>
+
+      <p style="font-size: 13px; color: #64748b; margin: 16px 0 20px;">By submitting, you confirm the above and acknowledge our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
 
       <button type="submit" class="submit-btn" id="submitBtn">Sign me up</button>
 
@@ -224,9 +233,9 @@
       e.preventDefault();
       var merchant = document.getElementById('merchant').value.trim();
       var phone = document.getElementById('phone').value.trim();
-      var consent = document.getElementById('consent').checked;
-      if (!merchant || !phone || !consent) {
-        alert('Please enter the merchant name, your phone number, and check the consent box.');
+      var consentTransactional = document.getElementById('consentTransactional').checked;
+      if (!merchant || !phone || !consentTransactional) {
+        alert('Please enter the merchant name, your phone number, and agree to receive transactional messages.');
         return;
       }
       btn.disabled = true;
