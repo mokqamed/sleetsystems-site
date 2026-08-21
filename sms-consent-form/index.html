@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="SMS Messaging Disclosure — what messages SleetPOS-enabled merchants may send and how to opt out." />
-<title>SMS Messaging Disclosure — Sleet Systems Inc</title>
-<link rel="canonical" href="https://sleetsystems.com/sms-disclosure" />
+<meta name="description" content="Text messaging consent form — the optional SMS consent section of the Sleet Systems service agreement." />
+<title>Text Messaging Consent Form — Sleet Systems Inc</title>
+<link rel="canonical" href="https://sleetsystems.com/sms-consent-form" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -35,20 +35,30 @@
   .breadcrumbs a:hover { text-decoration: underline; }
   h1.doc-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; color: #0f172a; margin-bottom: 8px; }
   .effective-date { color: #64748b; font-size: 14px; margin-bottom: 32px; font-weight: 500; }
-  h2 { font-size: 22px; font-weight: 700; color: #0f172a; margin: 32px 0 10px; letter-spacing: -0.01em; }
   p, li { font-size: 16px; color: #334155; margin-bottom: 12px; line-height: 1.7; }
-  ul { padding-left: 24px; margin-bottom: 18px; }
   a { color: #2563eb; }
+  .form-card { border: 2px solid #0f172a; border-radius: 12px; padding: 28px; margin: 24px 0; }
+  .form-card h2 { font-size: 22px; font-weight: 700; color: #0f172a; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .checkbox-row { display: flex; align-items: flex-start; gap: 12px; margin: 20px 0 24px; }
+  .checkbox { flex: 0 0 auto; width: 22px; height: 22px; border: 2px solid #0f172a; border-radius: 4px; margin-top: 3px; }
+  .field-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+  .field { font-size: 15px; color: #334155; }
+  .blank { display: inline-block; border-bottom: 1.5px solid #0f172a; height: 1em; vertical-align: bottom; }
   .legal-nav { margin-top: 56px; padding: 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; }
   .legal-nav a { color: #475569; text-decoration: none; font-weight: 600; }
   .legal-nav a:hover { color: #0f172a; }
-  .legal-nav .current { color: #0f172a; }
   footer { background: #0f172a; color: #cbd5e1; padding: 40px 0 24px; font-size: 14px; }
   footer .container { max-width: 1100px; }
   .footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: #94a3b8; }
   @media (max-width: 720px) {
     .nav-links a:not(.nav-links-show) { display: none; }
     .footer-bottom { flex-direction: column; }
+  }
+  @media print {
+    header, footer, .legal-nav, .breadcrumbs, .page-note { display: none; }
+    main { padding: 0; }
+    .form-card { border-color: #000; }
+    p, li, .field { color: #000; }
   }
 </style>
 </head>
@@ -67,38 +77,44 @@
   <div class="container">
     <div class="breadcrumbs">
       <a href="/">Sleet Systems</a> &nbsp;&rsaquo;&nbsp;
-      <span>SMS Messaging Disclosure</span>
+      <span>Text Messaging Consent Form</span>
     </div>
 
-    <h1 class="doc-title">SMS Messaging Disclosure</h1>
-    <p class="effective-date">Effective: April 30, 2026</p>
+    <h1 class="doc-title">Text Messaging Consent Form</h1>
+    <p class="effective-date">Effective: August 21, 2026</p>
 
-    <h2>What you'll receive</h2>
-    <p>If you opt in at the point of sale of a SleetPOS-enabled merchant, you may receive: (a) <strong>transactional messages</strong> such as digital receipts, refund confirmations, and loyalty point updates, and (b) if you separately opt in to marketing, <strong>promotional messages</strong> such as discounts and new-product announcements.</p>
+    <p class="page-note">This is the text messaging consent section of the Sleet Systems service agreement. Every customer completes this section on paper when purchasing SleetPOS. It is published here so the consent language is publicly viewable exactly as customers see it.</p>
 
-    <h2>Frequency</h2>
-    <p>Transactional messages are sent at the time of each qualifying transaction. Marketing message frequency varies by merchant and is typically 0–4 messages per month.</p>
+    <div class="form-card">
+      <h2>Text messaging consent (optional)</h2>
 
-    <h2>Cost</h2>
-    <p>Message and data rates may apply, charged by your mobile carrier. Sleet Systems does not charge End Customers for SMS.</p>
+      <p><strong>Program: Sleet Systems account and service alerts (SleetPOS).</strong></p>
 
-    <h2>How to stop</h2>
-    <p>Reply <strong>STOP</strong> to any message at any time to opt out of all SMS — both transactional and marketing — from that merchant. Reply <strong>HELP</strong> to receive contact information.</p>
+      <p>Sleet Systems can send you text messages about your SleetPOS service &mdash; for example billing confirmations, scheduled maintenance and outage alerts, and software update notices. Message frequency varies. <strong>Message and data rates may apply.</strong></p>
 
-    <h2>Privacy</h2>
-    <p>Phone numbers and consent records are handled in accordance with our <a href="/privacy">Privacy Policy</a>. We do not sell your phone number to third parties.</p>
+      <p>Receiving these messages is <strong>optional. It is not a condition of purchasing or using SleetPOS.</strong> Leave this section blank if you do not want text messages; your service is not affected.</p>
 
-    <h2>Carriers</h2>
-    <p>Carriers are not liable for delayed or undelivered messages. Service may not be available on all carriers.</p>
+      <p>You can opt out at any time by replying <strong>STOP</strong> to any message. Reply <strong>HELP</strong> to any message or email <a href="mailto:support@sleetsystems.com">support@sleetsystems.com</a> for help. Your phone number and consent are never shared with third parties or affiliates for marketing purposes. Full program terms: <a href="/terms">sleetsystems.com/terms</a> and <a href="/sms-disclosure">sleetsystems.com/sms-disclosure</a>. Privacy policy: <a href="/privacy">sleetsystems.com/privacy</a>.</p>
 
-    <h2>Contact</h2>
-    <p>Questions about SMS messaging: <a href="mailto:support@sleetsystems.com">support@sleetsystems.com</a></p>
-    <p>Sleet Systems Inc · 218 Roberts Avenue, Yonkers, NY 10703</p>
+      <div class="checkbox-row">
+        <span class="checkbox" aria-hidden="true"></span>
+        <p style="margin: 0;"><strong>Yes</strong>, send me account and service text messages at the mobile number below.</p>
+      </div>
+
+      <div class="field-row">
+        <span class="field">Mobile number: <span class="blank" style="width: 180px;"></span></span>
+        <span class="field">Name: <span class="blank" style="width: 180px;"></span></span>
+      </div>
+      <div class="field-row" style="margin-top: 18px;">
+        <span class="field">Initials: <span class="blank" style="width: 70px;"></span></span>
+        <span class="field">Date: <span class="blank" style="width: 140px;"></span></span>
+      </div>
+    </div>
 
     <div class="legal-nav">
       <a href="/privacy">Privacy Policy</a> ·
       <a href="/terms">Terms of Service</a> ·
-      <span class="current">SMS Messaging Disclosure</span>
+      <a href="/sms-disclosure">SMS Messaging Disclosure</a>
     </div>
   </div>
 </main>
