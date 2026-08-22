@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /product/
+Disallow: /api/
+
+Sitemap: https://sleetsystems.com/sitemap.xml
