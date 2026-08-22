@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sleet Systems Inc — a New York software company building modern operating tools for independent retail. Maker of SleetPOS." />
+<title>Sleet Systems — SleetPOS, the modern register for independent stores</title>
+<link rel="canonical" href="https://www.sleetpos.com/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    overflow-x: clip;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    line-height: 1.6;
+    background: #ffffff;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .container-wide { max-width: none; width: 100%; margin: 0; padding: 0 clamp(28px, 6vw, 108px); }
+
+  /* ---------- Header ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  header.nav-hidden { transform: translateY(-100%); }
+  /* Clover-style: see-through over the hero video, solid after scrolling past */
+  header { transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.3s ease, border-color 0.3s ease; }
+  header.transparent {
+    background: transparent !important;
+    border-bottom-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  header.transparent .nav-top { color: rgba(255, 255, 255, 0.85); }
+  header.transparent li:hover > .nav-top,
+  header.transparent .nav-top:focus-visible { color: #ffffff; }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 20px; letter-spacing: -0.02em;
+    color: #ffffff; text-decoration: none;
+  }
+  .logo img { height: 34px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 8px; align-items: center; list-style: none; }
+  .nav-links li { position: relative; }
+  .nav-top {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #475569; text-decoration: none; font-weight: 500; font-size: 14.5px;
+    padding: 10px 12px; border-radius: 8px;
+    position: relative;
+    transition: color 0.18s ease;
+  }
+  /* Clover-style sliding underline */
+  .nav-top::after {
+    content: "";
+    position: absolute;
+    left: 12px; right: 12px; bottom: 4px;
+    height: 2px;
+    background: #60a5fa;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  li:hover > .nav-top, .nav-top:focus-visible { color: #0f172a; }
+  li:hover > .nav-top::after, .nav-top:focus-visible::after { transform: scaleX(1); }
+  .chev { transition: transform 0.22s ease; margin-top: 1px; opacity: 0.7; }
+  li:hover .chev { transform: rotate(180deg); opacity: 1; }
+
+  /* dropdown panels */
+  .panel {
+    position: absolute; top: calc(100% + 10px); left: 0;
+    min-width: 280px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22), 0 4px 12px rgba(15, 23, 42, 0.1);
+    padding: 8px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    transform-origin: top left;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  /* invisible bridge so the pointer can travel from the tab to the panel */
+  .panel::before {
+    content: "";
+    position: absolute;
+    top: -12px; left: 0; right: 0; height: 12px;
+  }
+  li:hover > .panel, li:focus-within > .panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .panel-item {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: background 0.14s ease;
+  }
+  .panel-item:hover { background: #eff6ff; }
+  .panel-title {
+    display: block;
+    color: #0f172a; font-weight: 600; font-size: 14.5px;
+    transition: color 0.14s ease;
+  }
+  .panel-item:hover .panel-title { color: #2563eb; }
+  .panel-desc {
+    display: block;
+    color: #64748b; font-size: 13px; line-height: 1.45;
+    margin-top: 1px;
+  }
+  .nav-cta {
+    background: #2563eb; color: #ffffff !important; padding: 9px 16px;
+    border-radius: 8px; font-weight: 600 !important; font-size: 14.5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+  /* ---------- Hero: full-bleed background video ---------- */
+  .hero {
+    position: relative;
+    min-height: min(92vh, 820px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #060a14;
+    color: #ffffff;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 60% center;
+  }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(4, 8, 18, 0.82) 0%, rgba(4, 8, 18, 0.55) 42%, rgba(4, 8, 18, 0.18) 75%, rgba(4, 8, 18, 0.3) 100%),
+      linear-gradient(180deg, rgba(4, 8, 18, 0.45) 0%, rgba(4, 8, 18, 0) 30%, rgba(4, 8, 18, 0) 70%, rgba(4, 8, 18, 0.5) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    width: 100%;
+    padding: 140px 0 96px;
+  }
+  .hero-copy { max-width: 560px; }
+  .hero-copy h1 { max-width: none; width: max-content; }
+  .hero h1 {
+    font-size: clamp(38px, 4.8vw, 60px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 24px rgba(4, 8, 18, 0.45);
+  }
+  .hero h1 .rotline {
+    display: inline-block;
+    white-space: nowrap;
+    transform-origin: left bottom;
+  }
+  .hero h1 .rotator {
+    color: #60a5fa;
+    display: inline-block;
+    transition: opacity 0.26s ease, transform 0.26s ease;
+  }
+  .hero h1 .rotator.swap { opacity: 0; transform: translateY(14px); }
+  .hero p.lead {
+    font-size: 18px;
+    color: #e2e8f0;
+    max-width: 480px;
+    margin-bottom: 32px;
+    text-shadow: 0 1px 16px rgba(4, 8, 18, 0.5);
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 24px; border-radius: 10px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
+    cursor: pointer; border: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: #2563eb; color: white; box-shadow: 0 6px 24px rgba(37, 99, 235, 0.45); }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-secondary { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.14); }
+  .hero-note { font-size: 14px; color: #94a3b8; font-weight: 500; }
+
+
+  /* load-in animation */
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { opacity: 0; transform: translateY(14px); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+    .rise-1 { animation-delay: 0.05s; }
+    .rise-2 { animation-delay: 0.15s; }
+    .rise-3 { animation-delay: 0.25s; }
+    .rise-4 { animation-delay: 0.35s; }
+    .rise-5 { animation-delay: 0.45s; }
+    .hero-bg { opacity: 0; animation: fadeIn 1.2s ease 0.1s forwards; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+  }
+
+  /* ---------- Sections (light) ---------- */
+  section { scroll-margin-top: 80px; }
+  .section-eyebrow {
+    color: #2563eb; font-weight: 600; font-size: 14px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800; letter-spacing: -0.02em;
+    color: #0f172a; margin-bottom: 16px; max-width: 780px;
+    line-height: 1.15;
+  }
+  .section-lead {
+    font-size: 18px; color: #475569; max-width: 640px;
+  }
+
+  /* ---------- Industries band ---------- */
+  .industries {
+    background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+    padding: 88px 0;
+  }
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .industry {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 22px 12px 18px;
+    text-decoration: none;
+    color: #0f172a;
+    font-weight: 600; font-size: 14.5px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .industry:hover {
+    transform: translateY(-3px);
+    border-color: #93c5fd;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.14);
+  }
+  .industry svg { color: #2563eb; }
+  @media (max-width: 1000px) {
+    .industry-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 620px) {
+    .industries { padding: 56px 0; }
+    .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- Feature sections ---------- */
+  .feature { padding: 96px 0; }
+  .feature.alt { background: #f8fafc; }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 72px;
+    align-items: center;
+  }
+  .feature-grid.flip .feature-copy { order: 2; }
+  .feature-grid.flip .feature-visual { order: 1; }
+  /* visual column takes more room (60/40) whichever side it is on */
+  .feature-grid.big { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 48px; }
+  .feature-grid.big.flip { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  .feature-copy h2 { margin-bottom: 14px; }
+  .feature-copy p { font-size: 17px; color: #475569; max-width: 480px; }
+  .feature-visual { line-height: 0; }
+  .feature-visual img {
+    width: 100%; height: auto;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  }
+  .feature-visual.bare img { border: none; box-shadow: none; border-radius: 0; }
+  .feature-visual.phone { display: flex; justify-content: center; }
+  .feature-visual.phone img { max-height: 620px; width: auto; }
+
+  /* ---------- Hardware ---------- */
+  .hardware {
+    background: #000000;
+    color: #ffffff;
+    padding: 104px 0;
+    overflow: hidden;
+  }
+  .hardware-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 48px;
+    align-items: center;
+  }
+  .hardware .section-eyebrow { color: #60a5fa; }
+  .hardware .section-title { color: #ffffff; }
+  .hardware .section-lead { color: #94a3b8; }
+  .hardware-points { display: grid; gap: 20px; margin-top: 36px; }
+  .hardware-point { display: flex; gap: 14px; align-items: flex-start; }
+  .hardware-point-icon {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    background: rgba(37, 99, 235, 0.16);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hardware-point h3 { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 2px; }
+  .hardware-point p { font-size: 14.5px; color: #94a3b8; line-height: 1.55; }
+  .hardware-visual { line-height: 0; }
+  .hardware-visual img { width: 100%; height: auto; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band {
+    background: linear-gradient(120deg, #1d4ed8 0%, #2563eb 55%, #0ea5e9 100%);
+    color: #ffffff;
+    padding: 84px 0;
+    text-align: center;
+  }
+  .cta-band h2 {
+    font-size: clamp(30px, 3.8vw, 44px);
+    font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .cta-band p { font-size: 18px; color: #dbeafe; max-width: 560px; margin: 0 auto 32px; }
+  .cta-band .btn-white {
+    background: #ffffff; color: #1d4ed8;
+    box-shadow: 0 8px 28px rgba(4, 8, 18, 0.25);
+  }
+  .cta-band .btn-white:hover { background: #eff6ff; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #060a14;
+    color: #94a3b8;
+    padding: 64px 0 36px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 44px;
+  }
+  .footer-logo img { height: 34px; width: auto; display: block; margin-bottom: 16px; }
+  .footer-tagline { font-size: 14.5px; max-width: 320px; line-height: 1.6; margin-bottom: 14px; }
+  .footer-address { font-size: 13.5px; color: #64748b; line-height: 1.6; }
+  footer h4 {
+    color: #ffffff; font-size: 13.5px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    color: #cbd5e1; text-decoration: none;
+    font-size: 14.5px;
+    margin-bottom: 10px;
+    transition: color 0.14s ease;
+  }
+  .footer-col a:hover { color: #ffffff; }
+  .footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding-top: 26px;
+    font-size: 13px;
+    color: #64748b;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 860px) {
+    .hardware { padding: 64px 0; }
+    .hardware-grid { grid-template-columns: 1fr; gap: 24px; }
+    .cta-band { padding: 60px 0; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  @media (max-width: 860px) {
+    .feature { padding: 56px 0; }
+    .feature-grid, .feature-grid.big, .feature-grid.big.flip { grid-template-columns: 1fr; gap: 32px; }
+    .feature-grid.flip .feature-copy { order: 1; }
+    .feature-grid.flip .feature-visual { order: 2; }
+  }
+
+  @media (max-width: 860px) {
+    .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
+    .logo img { height: 27px; }
+    .container-wide { padding: 0 18px; }
+    .nav-top { padding: 10px 8px; font-size: 14px; }
+    .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
+    .hero { min-height: min(88vh, 700px); }
+    /* the video file has a blurred border baked in (desktop zoom-out look);
+       phones fit by height, so scale it back up to push the blur off-screen */
+    .hero-bg { transform: scale(1.19); }
+    .hero-copy h1 { width: auto; }
+    .hero h1 { font-size: 31px; }
+    .hero-inner { padding: 120px 0 72px; }
+    .hero p.lead { font-size: 17px; }
+    .hero-scrim {
+      background:
+        linear-gradient(180deg, rgba(4, 8, 18, 0.08) 0%, rgba(4, 8, 18, 0.3) 22%, rgba(4, 8, 18, 0.48) 50%, rgba(4, 8, 18, 0.66) 100%);
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container container-wide">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <img src="/assets/sleetpos-logo-dark-nav.png" alt="SleetPOS — powered by Sleet Systems" />
+      </a>
+      <ul class="nav-links">
+        <li class="has-panel">
+          <a href="#product" class="nav-top">Product<svg class="chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="panel">
+            <a class="panel-item" href="#product">
+              <span class="panel-title">The Register</span>
+              <span class="panel-desc">Dual-screen point of sale for the counter</span>
+            </a>
+            <a class="panel-item" href="#pricing">
+              <span class="panel-title">Customer Display</span>
+              <span class="panel-desc">Prices and promos facing your customer</span>
+            </a>
+            <a class="panel-item" href="#dashboard">
+              <span class="panel-title">Owner Dashboard</span>
+              <span class="panel-desc">Run the store from any browser</span>
+            </a>
+            <a class="panel-item" href="#iphone">
+              <span class="panel-title">iPhone App</span>
+              <span class="panel-desc">Inventory and scanning in your pocket</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-panel">
+          <a href="/features/" class="nav-top">Features<svg class="chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="panel">
+            <a class="panel-item" href="/features/#checkout">
+              <span class="panel-title">Fast checkout</span>
+              <span class="panel-desc">Scan, ring up, and pay in seconds</span>
+            </a>
+            <a class="panel-item" href="/features/#pricing">
+              <span class="panel-title">Cash &amp; card pricing</span>
+              <span class="panel-desc">Both prices shown on every sale</span>
+            </a>
+            <a class="panel-item" href="/features/#inventory">
+              <span class="panel-title">Live inventory</span>
+              <span class="panel-desc">Counts update with every sale</span>
+            </a>
+            <a class="panel-item" href="/features/">
+              <span class="panel-title">Invoice scanning</span>
+              <span class="panel-desc">Photograph an invoice, products sort themselves</span>
+            </a>
+          </div>
+        </li>
+        <li><a href="/partnerships/" class="nav-top">Partnerships</a></li>
+        <li><a href="/support" class="nav-top">Support</a></li>
+        <li><a href="https://sleetpos.com/login" class="nav-top">Log in</a></li>
+        <li><a href="/signup/" class="nav-cta">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <video class="hero-bg" autoplay muted loop playsinline preload="auto"
+         poster="/assets/register_scan_poster.jpg"
+         aria-label="A cashier scanning items on a SleetPOS register in a real store">
+    <source src="/assets/register_scan_1920.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-scrim"></div>
+  <div class="container container-wide">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 class="rise rise-2">The modern register<br /><span class="rotline" id="rotline">for <span class="rotator" id="rotator">bodegas.</span></span></h1>
+        <p class="lead rise rise-3">SleetPOS is a complete point of sale: fast checkout, live inventory, cash and card pricing, and a second screen that faces your customer.</p>
+        <div class="hero-actions rise rise-4">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="/features/" class="btn btn-secondary">See it in action</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="section-eyebrow reveal">Industries</div>
+    <h2 class="section-title reveal">Built for your kind of store.</h2>
+    <p class="section-lead reveal">Pick your store and see how sign-up works — it takes about a minute.</p>
+    <div class="industry-grid">
+      <a class="industry reveal" href="/signup/?type=Bodega%20%2F%20C-Store">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg>
+        Bodegas &amp; C-Stores
+      </a>
+      <a class="industry reveal" href="/signup/?type=Grocery%20%2F%20Supermarket">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Grocery &amp; Supermarkets
+      </a>
+      <a class="industry reveal" href="/signup/?type=Coffee%20shop">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Coffee shops
+      </a>
+      <a class="industry reveal" href="/signup/?type=Boutique%20%2F%20Clothing">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+        Boutiques &amp; Clothing
+      </a>
+      <a class="industry reveal" href="/signup/?type=Smoke%20shop">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H2v4h16z"/><path d="M22 8c0-2-2-2-2-4"/><path d="M22 16v-4"/><path d="M18 8c0-1.5-1.5-1.5-1.5-3"/></svg>
+        Smoke shops
+      </a>
+      <a class="industry reveal" href="/signup/?type=Liquor%20store">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v5l2 3v11a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10l2-3z"/><line x1="8" y1="15" x2="16" y2="15"/></svg>
+        Liquor stores
+      </a>
+      <a class="industry reveal" href="/signup/?type=Deli">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1z"/><path d="M4 15l1 5h14l1-5"/><path d="M5 11c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+        Delis
+      </a>
+      <a class="industry reveal" href="/signup/?type=Wholesale">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        Wholesale
+      </a>
+      <a class="industry reveal" href="/signup/?type=Gift%20shop">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        Gift shops
+      </a>
+      <a class="industry reveal" href="/signup/?type=other">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Something else
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="features" style="scroll-margin-top: 80px;"></div>
+
+<section class="feature" id="checkout">
+  <div class="container">
+    <div class="feature-grid big">
+      <div class="feature-copy reveal">
+        <div class="section-eyebrow">Checkout</div>
+        <h2 class="section-title">Everything you need accessible from one screen.</h2>
+        <p>Scan, tap, or search up items within seconds. Speeding up your checkout lines means more business.</p>
+      </div>
+      <div class="feature-visual reveal">
+        <img src="/assets/ui_register.webp" width="1600" height="900" loading="lazy" alt="The SleetPOS register screen with a cart of items, keypad, and payment buttons" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature alt" id="pricing">
+  <div class="container">
+    <div class="feature-grid flip big">
+      <div class="feature-copy reveal">
+        <div class="section-eyebrow">Cash &amp; card pricing</div>
+        <h2 class="section-title">Two prices. No surprises.</h2>
+        <p>Every sale shows the cash price and the card price side by side — right on the screen your customer is watching. They pick how to pay, and the register charges exactly what the screen says.</p>
+      </div>
+      <div class="feature-visual reveal">
+        <img src="/assets/ui_customer_display.webp" width="1600" height="871" loading="lazy" alt="The customer-facing screen showing a cart with a cash price and a card price side by side, and a panel for the store's own advertisement" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="feature" id="iphone">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-copy reveal">
+        <div class="section-eyebrow">iPhone app</div>
+        <h2 class="section-title">Your store, in your pocket.</h2>
+        <p>Check today's sales, your top sellers, and the whole week from anywhere. Scan barcodes with your phone's camera to update products and restock — right from the aisle.</p>
+      </div>
+      <div class="feature-visual bare phone reveal">
+        <img src="/assets/iphone_dashboard.webp" width="1000" height="2026" loading="lazy" alt="The SleetPOS iPhone app showing today's sales, the week's totals, and top-selling products" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hardware" id="product">
+  <div class="container">
+    <div class="hardware-grid">
+      <div class="reveal">
+        <div class="section-eyebrow">The Register</div>
+        <h2 class="section-title">Hardware that means business.</h2>
+        <p class="section-lead">A dual-screen register built for the counter — one screen for your cashier, one facing your customer.</p>
+        <div class="hardware-points">
+          <div class="hardware-point">
+            <div class="hardware-point-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <h3>Two screens</h3>
+              <p>Your cashier rings up the sale while your customer watches the cart, the prices, and your promotions.</p>
+            </div>
+          </div>
+          <div class="hardware-point">
+            <div class="hardware-point-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+            </div>
+            <div>
+              <h3>Works with your counter gear</h3>
+              <p>Receipt printer, barcode scanner, cash drawer, label printer — it connects to the equipment a real store runs on.</p>
+            </div>
+          </div>
+          <div class="hardware-point">
+            <div class="hardware-point-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h3>Ready on arrival</h3>
+              <p>We set it up before it reaches your counter. Turn it on, log in, and ring your first sale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hardware-visual reveal">
+        <img src="/assets/hero_2200.webp"
+             srcset="/assets/hero_1100.webp 1100w, /assets/hero_2200.webp 2200w"
+             sizes="(max-width: 860px) 100vw, 55vw"
+             width="2200" height="2037" loading="lazy"
+             alt="The black SleetPOS dual-screen register with a sale on screen" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="reveal">See SleetPOS in your store.</h2>
+    <p class="reveal">Sign up in about a minute. We set everything up and you ring your first sale.</p>
+    <a href="/signup/" class="btn btn-white reveal">Sign up</a>
+    <p class="reveal" style="margin: 18px 0 0; font-size: 15px;"><a href="/book/" style="color: #dbeafe; font-weight: 600; text-decoration: underline;">Or book a live demo</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="/assets/sleetpos-logo-white-nav.png" alt="SleetPOS — powered by Sleet Systems" />
+        </div>
+        <p class="footer-tagline">A New York software company building modern operating tools for independent retail.</p>
+        <p class="footer-address">Sleet Systems Inc<br />218 Roberts Avenue<br />Yonkers, NY 10703</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#product">The Register</a>
+        <a href="#features">Features</a>
+        <a href="#industries">Industries</a>
+        <a href="https://sleetpos.com/login">Log in</a>
+        <a href="/signup/">Sign up</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/book/">Book a demo</a>
+        <a href="/partnerships/">Partnerships</a>
+        <a href="/support">Support</a>
+        <a href="mailto:support@sleetsystems.com">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/sms-disclosure">SMS Disclosure</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
+      <span>Made in New York.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var words = [
+      "bodegas.", "grocery stores.", "coffee shops.", "boutiques.",
+      "C-Stores.", "smoke shops.", "delis.", "liquor stores.",
+      "wholesalers.", "gift shops.", "your store."
+    ];
+    var el = document.getElementById("rotator");
+    var line = document.getElementById("rotline");
+    var copy = document.querySelector(".hero-copy");
+    var i = 0;
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // the line may stretch across the whole hero at full size;
+    // it only scales down if it would run off the screen (small phones)
+    function fitLine() {
+      line.style.transform = "";
+      var cont = document.querySelector(".hero .container-wide");
+      var cs = getComputedStyle(cont);
+      var max = cont.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      var w = line.scrollWidth;
+      if (w > max) line.style.transform = "scale(" + (max / w) + ")";
+    }
+    function setWord() {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      fitLine();
+    }
+    fitLine();
+    window.addEventListener("resize", fitLine);
+    setInterval(function () {
+      if (reduced) { setWord(); return; }
+      el.classList.add("swap");
+      setTimeout(function () {
+        setWord();
+        el.classList.remove("swap");
+      }, 270);
+    }, 1400);
+  })();
+
+  (function () {
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  })();
+
+
+  // some phones (Low Power Mode, data saver) block video autoplay —
+  // retry play() after load and on the first touch
+  (function () {
+    var v = document.querySelector(".hero-bg");
+    if (!v) return;
+    function tryPlay() {
+      if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    }
+    window.addEventListener("load", tryPlay);
+    document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) tryPlay();
+    });
+  })();
+
+  // banner is see-through over the hero video, solid past it
+  (function () {
+    var header = document.querySelector("header");
+    var hero = document.querySelector(".hero");
+    var logo = document.querySelector(".logo img");
+    if (!hero || !header || !logo) return;
+    var DARK = "/assets/sleetpos-logo-dark-nav.png";
+    var WHITE = "/assets/sleetpos-logo-white-nav.png";
+    new Image().src = WHITE; // make sure the swap is instant
+    function update() {
+      var over = window.scrollY < hero.offsetHeight - 68;
+      header.classList.toggle("transparent", over);
+      var want = over ? WHITE : DARK;
+      if (!logo.src.endsWith(want)) logo.src = want;
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  })();
+
+  // banner hides scrolling down, returns scrolling up
+  (function () {
+    var header = document.querySelector("header");
+    var lastY = window.scrollY;
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y > lastY && y > 90) header.classList.add("nav-hidden");
+        else if (y < lastY) header.classList.remove("nav-hidden");
+        lastY = y;
+        ticking = false;
+      });
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

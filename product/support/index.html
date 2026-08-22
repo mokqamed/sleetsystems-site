@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="SleetPOS support — reach a real person by email, usually within 24 hours." />
+<title>Support — SleetPOS</title>
+<link rel="canonical" href="https://www.sleetpos.com/support" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    line-height: 1.6;
+    background: #ffffff;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  header.nav-hidden { transform: translateY(-100%); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: flex; align-items: center; text-decoration: none; }
+  .logo img { height: 34px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 8px; align-items: center; list-style: none; }
+  .nav-links li { position: relative; }
+  .nav-top {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #475569; text-decoration: none; font-weight: 500; font-size: 14.5px;
+    padding: 10px 12px; border-radius: 8px;
+    position: relative;
+    transition: color 0.18s ease;
+  }
+  .nav-top::after {
+    content: "";
+    position: absolute;
+    left: 12px; right: 12px; bottom: 4px;
+    height: 2px;
+    background: #60a5fa;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  li:hover > .nav-top, .nav-top:focus-visible { color: #0f172a; }
+  li:hover > .nav-top::after, .nav-top:focus-visible::after { transform: scaleX(1); }
+  .nav-top.active { color: #0f172a; }
+  .nav-top.active::after { transform: scaleX(1); }
+  .nav-cta {
+    background: #2563eb; color: #ffffff !important; padding: 9px 16px;
+    border-radius: 8px; font-weight: 600 !important; font-size: 14.5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+  .page-intro {
+    background: #060a14;
+    color: #ffffff;
+    padding: 72px 0 64px;
+  }
+  .page-eyebrow {
+    color: #60a5fa; font-weight: 600; font-size: 14px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .page-intro h1 {
+    font-size: clamp(34px, 4.2vw, 52px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
+    margin-bottom: 16px;
+  }
+  .page-intro .lead {
+    font-size: 18px; color: #94a3b8; max-width: 620px;
+  }
+
+  .support-body { background: #f8fafc; padding: 64px 0 96px; }
+
+  .contact-card {
+    display: flex; gap: 18px; align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 26px 28px;
+    text-decoration: none;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.07);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-2px);
+    border-color: #93c5fd;
+    box-shadow: 0 16px 44px rgba(37, 99, 235, 0.13);
+  }
+  .contact-icon {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    background: #eff6ff; color: #2563eb;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-label { font-size: 13px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  .contact-value { font-size: 19px; color: #0f172a; font-weight: 700; }
+  .contact-sub { font-size: 14px; color: #64748b; margin-top: 2px; }
+
+  .turnaround {
+    background: #ecfdf5; border: 1px solid #a7f3d0;
+    color: #065f46; padding: 15px 18px; border-radius: 12px;
+    font-size: 14.5px; margin: 20px 0 0;
+  }
+  .turnaround strong { color: #064e3b; }
+
+  .support-body h2 {
+    font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+    color: #0f172a;
+    margin: 48px 0 14px;
+  }
+  .support-body p, .support-body li { font-size: 15.5px; color: #334155; line-height: 1.7; }
+  .support-body p { margin-bottom: 14px; }
+  .support-body ul { padding-left: 22px; margin-bottom: 14px; }
+  .support-body li { margin-bottom: 6px; }
+  .support-body a { color: #2563eb; text-decoration: none; font-weight: 500; }
+  .support-body a:hover { text-decoration: underline; }
+  .faq-list { display: grid; gap: 10px; }
+  .faq {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .faq[open] { border-color: #93c5fd; box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08); }
+  .faq summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    list-style: none;
+    cursor: pointer;
+    padding: 17px 20px;
+    font-size: 15.5px; font-weight: 600; color: #0f172a;
+    transition: background 0.13s ease;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:hover { background: #f8fafc; }
+  .faq-chev { flex-shrink: 0; color: #64748b; transition: transform 0.22s ease; }
+  .faq[open] .faq-chev { transform: rotate(180deg); color: #2563eb; }
+  .faq-a {
+    padding: 0 20px 17px;
+    font-size: 15px; color: #475569; line-height: 1.65;
+  }
+
+  footer {
+    background: #060a14;
+    color: #94a3b8;
+    padding: 36px 0;
+    font-size: 14px;
+  }
+  .footer-logo { display: inline-block; margin-bottom: 18px; }
+  .footer-logo img { height: 30px; width: auto; display: block; }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer a { color: #cbd5e1; text-decoration: none; margin-left: 18px; }
+  footer a:hover { color: #ffffff; }
+
+  @media (max-width: 860px) {
+    .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
+    .logo img { height: 27px; }
+    .nav-top { padding: 10px 8px; font-size: 14px; }
+    .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
+    .page-intro { padding: 48px 0 44px; }
+    .support-body { padding: 48px 0 64px; }
+    .contact-card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <img src="/assets/sleetpos-logo-dark-nav.png" alt="SleetPOS — powered by Sleet Systems" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#product" class="nav-top">Product</a></li>
+        <li><a href="/features/" class="nav-top">Features</a></li>
+        <li><a href="/partnerships/" class="nav-top">Partnerships</a></li>
+        <li><a href="/support" class="nav-top active">Support</a></li>
+        <li><a href="https://sleetpos.com/login" class="nav-top">Log in</a></li>
+        <li><a href="/signup/" class="nav-cta">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="page-intro">
+  <div class="container">
+    <div class="page-eyebrow">Support</div>
+    <h1>We read every message.</h1>
+    <p class="lead">Need help with SleetPOS? Reach out — a real person responds, usually within 24 hours.</p>
+  </div>
+</div>
+
+<section class="support-body">
+  <div class="container-narrow">
+
+    <a class="contact-card" href="mailto:support@sleetsystems.com">
+      <div class="contact-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Email support</div>
+        <div class="contact-value">support@sleetsystems.com</div>
+        <div class="contact-sub">Best for account questions, bug reports, and anything that is not urgent.</div>
+      </div>
+    </a>
+
+    <div class="turnaround">
+      <strong>Typical response time:</strong> within 24 hours, Monday through Friday. Urgent issues affecting active sales are addressed same-day.
+    </div>
+
+    <h2>What to include</h2>
+    <p>Please include the following so we can help you faster:</p>
+    <ul>
+      <li><strong>Store name and email</strong> on the SleetPOS account</li>
+      <li><strong>Device:</strong> the register, the iPhone app, or the web dashboard</li>
+      <li><strong>What happened:</strong> the action you took and what you saw</li>
+      <li><strong>Screenshot or screen recording</strong> if the issue is visual</li>
+      <li><strong>Approximate time</strong> the issue happened, so we can pull logs</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-list">
+      <details class="faq">
+        <summary>I can't sign in to the iPhone app.<svg class="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-a">Try the "Forgot password?" link on the login screen — it sends a reset email. If that doesn't work, email support with the email address on the account and we'll reset it manually.</div>
+      </details>
+      <details class="faq">
+        <summary>My products don't show on the iPhone app even though they're on the dashboard.<svg class="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-a">If you don't see your products, your store may not be linked to the email you signed in with. Email support so we can verify the link.</div>
+      </details>
+      <details class="faq">
+        <summary>Text-message receipts aren't being sent to my customers.<svg class="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-a">Text messaging requires carrier brand approval, which is set up per store. If your dashboard's Marketing &amp; Compliance settings show "Brand registration pending," your registration is still in review. Approval typically takes 24–48 hours but can be longer for new businesses.</div>
+      </details>
+      <details class="faq">
+        <summary>Where is my data stored?<svg class="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-a">On Google Cloud servers in the United States. Your data is yours — we never sell it or share it with third parties for advertising. See our <a href="/privacy">Privacy Policy</a> for details.</div>
+      </details>
+    </div>
+
+    <h2>Mailing address</h2>
+    <p>Sleet Systems Inc<br />
+    218 Roberts Avenue<br />
+    Yonkers, NY 10703</p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/" class="footer-logo"><img src="/assets/sleetpos-logo-white-nav.png" alt="SleetPOS — powered by Sleet Systems" /></a>
+    <div class="footer-row">
+      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
+      <span>
+        <a href="/">Home</a>
+        <a href="/partnerships/">Partnerships</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // banner hides scrolling down, returns scrolling up
+  (function () {
+    var header = document.querySelector("header");
+    var lastY = window.scrollY;
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y > lastY && y > 90) header.classList.add("nav-hidden");
+        else if (y < lastY) header.classList.remove("nav-hidden");
+        lastY = y;
+        ticking = false;
+      });
+    }, { passive: true });
+  })();
+</script>
+</body>
+</html>

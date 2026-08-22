@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Partner with Sleet Systems — sell SleetPOS, refer store owners, or integrate your product with our point of sale." />
+<title>Partnerships — Sleet Systems</title>
+<link rel="canonical" href="https://www.sleetpos.com/partnerships" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    line-height: 1.6;
+    background: #ffffff;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header (same nav as the front page, solid dark) ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  header.nav-hidden { transform: translateY(-100%); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 20px; letter-spacing: -0.02em;
+    color: #ffffff; text-decoration: none;
+  }
+  .logo img { height: 34px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 8px; align-items: center; list-style: none; }
+  .nav-links li { position: relative; }
+  .nav-top {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #475569; text-decoration: none; font-weight: 500; font-size: 14.5px;
+    padding: 10px 12px; border-radius: 8px;
+    position: relative;
+    transition: color 0.18s ease;
+  }
+  .nav-top::after {
+    content: "";
+    position: absolute;
+    left: 12px; right: 12px; bottom: 4px;
+    height: 2px;
+    background: #60a5fa;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  li:hover > .nav-top, .nav-top:focus-visible { color: #0f172a; }
+  li:hover > .nav-top::after, .nav-top:focus-visible::after { transform: scaleX(1); }
+  .nav-top.active { color: #0f172a; }
+  .nav-top.active::after { transform: scaleX(1); }
+  .nav-cta {
+    background: #2563eb; color: #ffffff !important; padding: 9px 16px;
+    border-radius: 8px; font-weight: 600 !important; font-size: 14.5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+  /* ---------- Page intro band ---------- */
+  .page-intro {
+    background: #060a14;
+    color: #ffffff;
+    padding: 72px 0 64px;
+  }
+  .page-eyebrow {
+    color: #60a5fa; font-weight: 600; font-size: 14px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .page-intro h1 {
+    font-size: clamp(34px, 4.2vw, 52px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
+    margin-bottom: 16px;
+  }
+  .page-intro .lead {
+    font-size: 18px; color: #94a3b8; max-width: 620px;
+  }
+
+  /* ---------- Content ---------- */
+  .partnerships { background: #f8fafc; padding: 80px 0 96px; }
+  .partner-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+  .partner-points { display: grid; gap: 22px; }
+  .partner-point { display: flex; gap: 16px; align-items: flex-start; }
+  .partner-point-icon {
+    flex-shrink: 0;
+    width: 42px; height: 42px;
+    background: #eff6ff; color: #2563eb;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .partner-point h3 { font-size: 16.5px; font-weight: 700; color: #0f172a; margin-bottom: 3px; }
+  .partner-point p { font-size: 15px; color: #475569; line-height: 1.55; }
+
+  .partner-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 36px;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.07);
+    position: sticky;
+    top: 92px;
+  }
+  .partner-card h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: #0f172a; margin-bottom: 6px; }
+  .partner-card .card-sub { font-size: 14.5px; color: #64748b; margin-bottom: 26px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 13.5px; font-weight: 600; color: #334155; margin-bottom: 6px; }
+  .field input, .field textarea {
+    width: 100%;
+    font: inherit; font-size: 15px;
+    color: #0f172a;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 24px; border-radius: 10px;
+    font-weight: 600; font-size: 15.5px; text-decoration: none;
+    transition: transform 0.05s ease, background 0.15s ease;
+    cursor: pointer; border: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: #2563eb; color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25); }
+  .btn-primary:hover { background: #1d4ed8; }
+  .form-submit { width: 100%; justify-content: center; }
+  .form-status { margin-top: 14px; font-size: 14.5px; font-weight: 500; display: none; }
+  .form-status.ok { display: block; color: #166534; }
+  .form-status.err { display: block; color: #b91c1c; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #060a14;
+    color: #94a3b8;
+    padding: 36px 0;
+    font-size: 14px;
+  }
+  .footer-logo { display: inline-block; margin-bottom: 18px; }
+  .footer-logo img { height: 30px; width: auto; display: block; }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer a { color: #cbd5e1; text-decoration: none; margin-left: 18px; }
+  footer a:hover { color: #ffffff; }
+
+  @media (max-width: 860px) {
+    .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
+    .logo img { height: 27px; }
+    .nav-top { padding: 10px 8px; font-size: 14px; }
+    .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
+    .page-intro { padding: 48px 0 44px; }
+    .partnerships { padding: 56px 0 64px; }
+    .partner-grid { grid-template-columns: 1fr; gap: 40px; }
+    .partner-card { padding: 26px; position: static; }
+    .field-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <img src="/assets/sleetpos-logo-dark-nav.png" alt="SleetPOS — powered by Sleet Systems" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#product" class="nav-top">Product</a></li>
+        <li><a href="/features/" class="nav-top">Features</a></li>
+        <li><a href="/partnerships/" class="nav-top active">Partnerships</a></li>
+        <li><a href="/support" class="nav-top">Support</a></li>
+        <li><a href="https://sleetpos.com/login" class="nav-top">Log in</a></li>
+        <li><a href="/signup/" class="nav-cta">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="page-intro">
+  <div class="container">
+    <div class="page-eyebrow">Partnerships</div>
+    <h1>Grow with SleetPOS.</h1>
+    <p class="lead">We are looking for people who can sell, people who know store owners ready for a better register, and products that want to connect with ours.</p>
+  </div>
+</div>
+
+<section class="partnerships">
+  <div class="container">
+    <div class="partner-grid">
+      <div class="partner-points">
+        <div class="partner-point">
+          <div class="partner-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9m9 5h-9m9 5h-9M5 7l-1 1 1 1m-1 4l1 1-1 1"/><circle cx="5" cy="12" r="0.5"/></svg>
+          </div>
+          <div>
+            <h3>Sell SleetPOS</h3>
+            <p>You bring the store owners. We handle the software, the setup, and the support. SleetPOS runs in real stores today — what you show an owner is what they get at the counter.</p>
+          </div>
+        </div>
+        <div class="partner-point">
+          <div class="partner-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3>Know a store owner?</h3>
+            <p>You do not have to be a salesperson. If you know someone who owns a store and needs a new register, an introduction is enough — we will take it from there.</p>
+          </div>
+        </div>
+        <div class="partner-point">
+          <div class="partner-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <div>
+            <h3>Integrations</h3>
+            <p>If you make software or hardware for stores and want it to work with SleetPOS, we want to hear about it. Tell us what your product does and how you picture the two connecting.</p>
+          </div>
+        </div>
+        <div class="partner-point">
+          <div class="partner-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <h3>Independent contract work</h3>
+            <p>Selling and referral partnerships are 1099 contract work, not employment. You set your own pace, and we agree on terms up front before anything starts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="partner-card">
+        <h3>Become a partner</h3>
+        <p class="card-sub">Tell us about yourself. This goes straight to our team, and we reply by email.</p>
+        <form id="partnerForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="p-name">Your name</label>
+              <input id="p-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="p-company">Company</label>
+              <input id="p-company" name="company" type="text" autocomplete="organization" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="p-email">Email</label>
+              <input id="p-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="p-phone">Phone (optional)</label>
+              <input id="p-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="p-message">Tell us about yourself — selling, an introduction, or an integration?</label>
+            <textarea id="p-message" name="message" required></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="p-website">Website</label>
+            <input id="p-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="partnerSubmit">Send</button>
+          <p class="form-status" id="partnerStatus" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/" class="footer-logo"><img src="/assets/sleetpos-logo-white-nav.png" alt="SleetPOS — powered by Sleet Systems" /></a>
+    <div class="footer-row">
+      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
+      <span>
+        <a href="/">Home</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById("partnerForm");
+    var btn = document.getElementById("partnerSubmit");
+    var status = document.getElementById("partnerStatus");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var data = {
+        name: form.name.value.trim(),
+        company: form.company.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        message: form.message.value.trim(),
+        website: form.website.value
+      };
+      status.className = "form-status";
+      if (!data.name || !data.email || !data.message) {
+        status.textContent = "Please fill in your name, email, and message.";
+        status.className = "form-status err";
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      fetch("/api/partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        if (!r.ok) throw new Error("bad status " + r.status);
+        return r.json();
+      }).then(function () {
+        status.textContent = "Sent. We will get back to you by email.";
+        status.className = "form-status ok";
+        btn.textContent = "Sent";
+        form.reset();
+      }).catch(function () {
+        status.textContent = "Something went wrong. You can email us directly at support@sleetsystems.com.";
+        status.className = "form-status err";
+        btn.disabled = false;
+        btn.textContent = "Send";
+      });
+    });
+  })();
+
+  // banner hides scrolling down, returns scrolling up
+  (function () {
+    var header = document.querySelector("header");
+    var lastY = window.scrollY;
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y > lastY && y > 90) header.classList.add("nav-hidden");
+        else if (y < lastY) header.classList.remove("nav-hidden");
+        lastY = y;
+        ticking = false;
+      });
+    }, { passive: true });
+  })();
+</script>
+</body>
+</html>
