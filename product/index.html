@@ -543,12 +543,28 @@
     .container-wide { padding: 0 18px; }
     .nav-top { padding: 10px 8px; font-size: 14px; }
     .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
-    .hero { min-height: min(88vh, 700px); }
+    /* phones: the video is its own block with the nav merged over it, and the
+       copy sits beneath it on the hero's own dark ground — no overlap */
+    .hero {
+      display: block;
+      min-height: 0;
+      padding-bottom: 4px;
+    }
+    .hero-bg {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      display: block;
+    }
+    .hero-scrim { display: none; }
+    .hero-inner { position: relative; }
     /* portrait crops hard into a 16:9 frame — bias toward the register */
-    .hero-bg { object-position: 50% 34%; }
+    .hero-bg { object-position: center; }
     .hero-copy h1 { width: auto; }
     .hero h1 { font-size: 31px; }
-    .hero-inner { padding: 120px 0 72px; }
+    .hero-inner { padding: 30px 0 56px; }
     .hero p.lead { font-size: 17px; }
     .hero p.lead-sub { font-size: 14.5px; }
     .hero-scrim {
@@ -628,6 +644,17 @@
          aria-label="A sale being rung up on a SleetPOS register at a real store counter">
     <source src="/assets/hero_counter_1920.mp4" type="video/mp4" />
   </video>
+  <script>
+    (function () {
+      var v = document.currentScript.previousElementSibling;
+      if (window.matchMedia("(max-width: 860px) and (orientation: portrait)").matches) {
+        v.innerHTML = "";
+        v.poster = "/assets/hero_counter_poster_portrait.jpg";
+        v.src = "/assets/hero_counter_portrait.mp4";
+        v.load();
+      }
+    })();
+  </script>
   <div class="hero-scrim"></div>
   <div class="container container-wide">
     <div class="hero-inner">
