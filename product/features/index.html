@@ -156,6 +156,133 @@
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 
+
+
+
+  /* ---------- Feature library — Swiss grid, one accent, no ornament ---------- */
+  .lib { background: #ffffff; padding: 72px 0 104px; }
+  .lib-layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 72px;
+    align-items: start;
+  }
+
+  /* index rail */
+  .lib-nav { position: sticky; top: 96px; }
+  .lib-nav-label {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #94a3b8; padding-bottom: 12px; border-bottom: 1px solid #1e293b;
+    margin-bottom: 4px;
+  }
+  .lib-nav a {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    padding: 13px 0; border-bottom: 1px solid #e2e8f0;
+    font-size: 14.5px; font-weight: 500; color: #475569; text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .lib-nav a span { font-size: 12px; color: #94a3b8; font-variant-numeric: tabular-nums; }
+  .lib-nav a:hover { color: #0f172a; }
+  .lib-nav a.on { color: #2563eb; font-weight: 600; }
+  .lib-nav a.on span { color: #2563eb; }
+
+  /* groups */
+  .lib-group { margin-bottom: 72px; scroll-margin-top: 96px; }
+  .lib-group:last-child { margin-bottom: 0; }
+  .lib-group > h2 {
+    font-size: clamp(24px, 2.6vw, 30px); font-weight: 800;
+    letter-spacing: -0.025em; color: #0f172a; margin-bottom: 8px;
+  }
+  .lib-note { font-size: 16px; color: #64748b; margin-bottom: 26px; max-width: 52ch; }
+  .lib-list { border-top: 1px solid #1e293b; }
+
+  /* rows */
+  .ft { border-bottom: 1px solid #e2e8f0; }
+  .ft-q {
+    display: grid; grid-template-columns: 48px minmax(0, 1fr) 28px;
+    align-items: baseline; gap: 16px;
+    width: 100%; min-height: 48px;
+    text-align: left; background: none; border: 0; cursor: pointer;
+    padding: 20px 0; font-family: inherit;
+    transition: opacity 0.2s ease;
+  }
+  .ft-q:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+  .ft-idx {
+    font-size: 13px; font-weight: 600; color: #94a3b8;
+    font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+  .ft-name {
+    display: block; font-size: 18px; font-weight: 650; letter-spacing: -0.015em;
+    color: #0f172a; transition: color 0.2s ease;
+  }
+  .ft-sum { display: block; font-size: 15px; color: #64748b; margin-top: 3px; max-width: 58ch; }
+  .ft-q:hover .ft-name { color: #2563eb; }
+  .ft.open .ft-name, .ft.open .ft-idx { color: #2563eb; }
+  /* a plus that becomes a minus — one line rotates, nothing else moves */
+  .ft-plus { position: relative; width: 14px; height: 14px; justify-self: end; align-self: center; }
+  .ft-plus::before, .ft-plus::after {
+    content: ""; position: absolute; background: #475569;
+    transition: transform 0.24s ease, background 0.2s ease;
+  }
+  .ft-plus::before { top: 6px; left: 0; width: 14px; height: 2px; }
+  .ft-plus::after { left: 6px; top: 0; width: 2px; height: 14px; }
+  .ft.open .ft-plus::after { transform: scaleY(0); }
+  .ft.open .ft-plus::before, .ft.open .ft-plus::after { background: #2563eb; }
+
+  .ft-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
+  .ft.open .ft-a { grid-template-rows: 1fr; }
+  .ft-a > div { overflow: hidden; }
+  .ft-body {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: 40px; align-items: start;
+    padding: 0 0 30px 64px;
+  }
+  .ft-body.solo { grid-template-columns: minmax(0, 62ch); }
+  .ft-body p { font-size: 16px; line-height: 1.7; color: #475569; }
+  .ft-body ul { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid #e2e8f0; }
+  .ft-body li {
+    font-size: 15px; color: #475569; line-height: 1.5;
+    padding: 10px 0 10px 0; border-bottom: 1px solid #e2e8f0;
+  }
+  .ft-media {
+    border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; background: #f8fafc;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.05), 0 10px 28px rgba(15,23,42,0.07);
+  }
+  .ft-media video, .ft-media img { width: 100%; height: auto; display: block; }
+
+  /* surface marker — which screens a feature lives on */
+  .ft-where {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.11em;
+    text-transform: uppercase; color: #94a3b8; margin-bottom: 5px;
+  }
+  .ft.open .ft-where { color: #60a5fa; }
+  /* two stills in one frame, separated by a hairline */
+  .ft-fig + .ft-fig { border-top: 1px solid #e2e8f0; }
+  .ft-cap {
+    font-size: 12px; line-height: 1.4; color: #64748b; background: #f8fafc;
+    padding: 9px 14px; border-top: 1px solid #eef2f7;
+  }
+
+  @media (max-width: 1000px) {
+    .lib-layout { grid-template-columns: 1fr; gap: 34px; }
+    .lib-nav { position: static; display: flex; flex-wrap: wrap; gap: 0 22px; }
+    .lib-nav-label { display: none; }
+    .lib-nav a { border-bottom: 0; padding: 6px 0; }
+  }
+  @media (max-width: 860px) {
+    .lib { padding: 42px 0 60px; }
+    .lib-group { margin-bottom: 48px; }
+    .ft-q { grid-template-columns: 34px minmax(0,1fr) 22px; gap: 12px; padding: 17px 0; }
+    .ft-name { font-size: 16.5px; }
+    .ft-sum { font-size: 14px; }
+    .ft-body { grid-template-columns: 1fr; gap: 20px; padding: 0 0 24px 46px; }
+    .ft-body.solo { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ft-a, .ft-plus::before, .ft-plus::after, .ft-name, .ft-idx { transition: none; }
+  }
+
   .cta-band {
     background: linear-gradient(120deg, #1d4ed8 0%, #2563eb 55%, #0ea5e9 100%);
     color: #ffffff;
@@ -237,65 +364,180 @@
   </div>
 </div>
 
-<section class="demo" id="checkout">
+<section class="lib" id="library">
   <div class="container">
-    <div class="demo-grid">
-      <div class="demo-copy reveal">
-        <div class="section-eyebrow">Checkout</div>
-        <h2 class="section-title">Everything you need accessible from one screen.</h2>
-        <p>Scan, tap, or search up items within seconds. Speeding up your checkout lines means more business.</p>
-      </div>
-      <div class="demo-media reveal">
-        <video autoplay muted loop playsinline preload="metadata"
-               poster="/assets/register_scan_poster.jpg"
-               aria-label="Items being scanned on a SleetPOS register in a real store">
-          <source src="/assets/register_scan_1920.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="demo alt" id="pricing">
-  <div class="container">
-    <div class="demo-grid flip">
-      <div class="demo-copy reveal">
-        <div class="section-eyebrow">Cash &amp; card pricing</div>
-        <h2 class="section-title">Two prices. No surprises.</h2>
-        <p>Every sale shows the cash price and the card price side by side — right on the screen your customer is watching. They pick how to pay, and the register charges exactly what the screen says.</p>
-      </div>
-      <div class="demo-media reveal">
-        <img src="/assets/ui_customer_display.webp" width="1600" height="871" loading="lazy" alt="The customer-facing screen showing a cart with a cash price and a card price side by side" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="demo" id="inventory">
-  <div class="container">
-    <div class="demo-grid">
-      <div class="demo-copy reveal">
-        <div class="section-eyebrow">Inventory</div>
-        <h2 class="section-title">Counts that keep themselves.</h2>
-        <p>Every sale updates your stock on its own. Check what you have, what is running low, and what sold today — from the register, the dashboard, or your phone.</p>
-      </div>
-      <div class="demo-media reveal">
-        <img src="/assets/ui_register.webp" width="1600" height="900" loading="lazy" alt="The SleetPOS register screen with products, categories, and a live cart" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="demo alt" id="iphone">
-  <div class="container">
-    <div class="demo-grid flip">
-      <div class="demo-copy reveal">
-        <div class="section-eyebrow">iPhone app</div>
-        <h2 class="section-title">Your store, in your pocket.</h2>
-        <p>Check today's sales, your top sellers, and the whole week from anywhere. Scan barcodes with your phone's camera to update products and restock — right from the aisle.</p>
-      </div>
-      <div class="demo-media phone reveal">
-        <img src="/assets/iphone_dashboard.webp" width="1000" height="2026" loading="lazy" alt="The SleetPOS iPhone app showing today's sales, the week's totals, and top-selling products" />
+    <div class="lib-layout">
+      <nav class="lib-nav" aria-label="Feature groups">
+        <div class="lib-nav-label">Contents</div>
+        <a href="#g-register" data-g="g-register">At the register <span>05</span></a>
+        <a href="#g-owner" data-g="g-owner">For the owner <span>07</span></a>
+        <a href="#g-staff" data-g="g-staff">For your staff <span>02</span></a>
+      </nav>
+      <div class="lib-main">
+      <section class="lib-group" id="g-register">
+        <h2>At the register</h2>
+        <p class="lib-note">The counter screen your cashier works on all day.</p>
+        <div class="lib-list">
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-1">
+              <span class="ft-idx">01</span>
+              <span class="ft-txt"><span class="ft-name">Checkout and scanning</span><span class="ft-sum">Scan, tap or search — the ticket adds itself up</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-1"><div><div class="ft-body">
+              <div><p>Scan an item, tap a product tile, or search by name. Deals, discounts and tax are applied as you go, so the total on the screen is always the total you charge.</p><ul><li>Barcode scanning straight into the ticket</li><li>Product tiles with pictures for anything without a barcode</li><li>Deals and discounts applied automatically</li></ul></div>
+              <div class="ft-media" data-video="/assets/register_scan_1920.mp4" data-poster="/assets/register_scan_poster.jpg"></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-2">
+              <span class="ft-idx">02</span>
+              <span class="ft-txt"><span class="ft-name">Cash and card pricing</span><span class="ft-sum">Both prices on the shelf, on both screens, and on the receipt</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-2"><div><div class="ft-body">
+              <div><p>Every item carries a cash price and a card price. Both show on your screen and on the one facing your customer, and both get printed on the shelf label — so the price the customer reads on the shelf is the price the register charges.</p><ul><li>Shelf labels with the item name, barcode and both prices</li><li>Print at the register, or send them from the dashboard or your phone</li><li>Reprint a whole shelf after a price change without retyping anything</li></ul></div>
+              <div class="ft-media">
+                <div class="ft-fig"><img src="/assets/shelf_after_1000.webp" loading="lazy" alt="Shelf labels showing a cash price and a card price for each item" /><div class="ft-cap">Printed shelf labels — cash and card price on every tag</div></div>
+                <div class="ft-fig"><img src="/assets/ui_customer_prices.webp" loading="lazy" alt="The customer-facing screen showing a cash total and a card total" /><div class="ft-cap">The same two prices on the customer screen</div></div>
+              </div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-3">
+              <span class="ft-idx">03</span>
+              <span class="ft-txt"><span class="ft-name">The customer-facing screen</span><span class="ft-sum">Your customer watches the sale build</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-3"><div><div class="ft-body solo">
+              <div><p>The second screen shows the cart, the running total and both prices while you ring items up. Between sales it shows your own promotions.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-4">
+              <span class="ft-idx">04</span>
+              <span class="ft-txt"><span class="ft-name">Clocking in and out</span><span class="ft-sum">Staff start and end their shifts at the register</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-4"><div><div class="ft-body solo">
+              <div><p>Each person clocks in at the register when they start and clocks out when they finish. The hours collect in one place, so you are not reading a paper sheet at the end of the week.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-5">
+              <span class="ft-idx">05</span>
+              <span class="ft-txt"><span class="ft-name">Shift and day reports</span><span class="ft-sum">What came in, and how it was paid</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-5"><div><div class="ft-body solo">
+              <div><p>Close out a shift or a day and get the totals broken down by how customers paid, including refunds — printed at the counter or read later in the dashboard.</p></div>
+            </div></div></div>
+          </article>
+        </div>
+      </section>
+      <section class="lib-group" id="g-owner">
+        <h2>For the owner</h2>
+        <p class="lib-note">The same store, from your phone or from any browser — whichever you have open.</p>
+        <div class="lib-list">
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-6">
+              <span class="ft-idx">06</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Sales history</span><span class="ft-sum">Every sale you have ever rung up, searchable</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-6"><div><div class="ft-body solo">
+              <div><p>Look up any day, any register, any single ticket — what was on it, who rang it, how it was paid and whether any of it came back as a refund.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-7">
+              <span class="ft-idx">07</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">What is selling</span><span class="ft-sum">Top sellers, slow movers, busiest hours</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-7"><div><div class="ft-body">
+              <div><p>See which items are moving and which are sitting, how today compares to last week, and when your busy hours actually are — so you order and staff around what the store really does.</p></div>
+              <div class="ft-media"><img src="/assets/iphone_dashboard.webp" loading="lazy" alt="The SleetPOS app on an iPhone showing store totals" /></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-8">
+              <span class="ft-idx">08</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Invoice scanning</span><span class="ft-sum">Photograph an invoice, the products fill in</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-8"><div><div class="ft-body solo">
+              <div><p>Take a picture of a supplier invoice with your phone, or upload it in the dashboard, and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you carry. You approve it before anything in your store changes.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-9">
+              <span class="ft-idx">09</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Products and inventory</span><span class="ft-sum">One product list behind every screen</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-9"><div><div class="ft-body solo">
+              <div><p>Add products, set prices, and watch counts move as sales happen. Change something here and the register has it.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-10">
+              <span class="ft-idx">10</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Staff and permissions</span><span class="ft-sum">Who can do what, on the register and off it</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-10"><div><div class="ft-body solo">
+              <div><p>Give each person their own login and decide what they can reach — the register, refunds, reports, or the dashboard itself.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-11">
+              <span class="ft-idx">11</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Wholesale accounts</span><span class="ft-sum">A second price list for the trade</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-11"><div><div class="ft-body solo">
+              <div><p>Give wholesale customers their own pricing and account numbers, and keep those sales separate in your reports.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-12">
+              <span class="ft-idx">12</span>
+              <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Ordering and receiving</span><span class="ft-sum">Build an order from the shelf, check it in when it lands</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-12"><div><div class="ft-body solo">
+              <div><p>Walk the aisle scanning what is low and the order builds itself, grouped by vendor. Save it as a draft or send it, then check the delivery in against it when it arrives. Creating an order is yours and your managers' — cashiers can help receive it.</p></div>
+            </div></div></div>
+          </article>
+        </div>
+      </section>
+      <section class="lib-group" id="g-staff">
+        <h2>For your staff</h2>
+        <p class="lib-note">What your team can do from their own phone, without reaching anything you would rather they did not.</p>
+        <div class="lib-list">
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-13">
+              <span class="ft-idx">13</span>
+              <span class="ft-txt"><span class="ft-where">Phone</span><span class="ft-name">Counting and receiving</span><span class="ft-sum">Scan a shelf to check it, check a delivery in</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-13"><div><div class="ft-body solo">
+              <div><p>Your team point their phone at a barcode to pull the product up, check the count against the shelf and correct it on the spot. When a delivery arrives they can check it in against the order without walking back to the register.</p></div>
+            </div></div></div>
+          </article>
+          <article class="ft">
+            <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-14">
+              <span class="ft-idx">14</span>
+              <span class="ft-txt"><span class="ft-where">Phone</span><span class="ft-name">Their own hours</span><span class="ft-sum">Each person can see their shift and their hours</span></span>
+              <span class="ft-plus" aria-hidden="true"></span>
+            </button>
+            <div class="ft-a" id="ft-14"><div><div class="ft-body solo">
+              <div><p>Staff can see whether they are currently clocked in and look back at the shifts they have worked, without being able to see the rest of the store.</p></div>
+            </div></div></div>
+          </article>
+        </div>
+      </section>
       </div>
     </div>
   </div>
@@ -327,6 +569,53 @@
 </footer>
 
 <script>
+
+
+  // index rail follows the group in view
+  (function () {
+    var links = [].slice.call(document.querySelectorAll(".lib-nav a"));
+    if (!links.length || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle("on", a.dataset.g === e.target.id); });
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    document.querySelectorAll(".lib-group").forEach(function (g) { io.observe(g); });
+  })();
+
+  // feature library: one row open at a time; videos load only when opened
+  (function () {
+    var rows = [].slice.call(document.querySelectorAll(".ft"));
+    if (!rows.length) return;
+    rows.forEach(function (row) {
+      var btn = row.querySelector(".ft-q");
+      btn.addEventListener("click", function () {
+        var open = row.classList.contains("open");
+        rows.forEach(function (o) {
+          o.classList.remove("open");
+          o.querySelector(".ft-q").setAttribute("aria-expanded", "false");
+          var v = o.querySelector("video");
+          if (v) v.pause();
+        });
+        if (open) return;
+        row.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+        var slot = row.querySelector(".ft-media[data-video]");
+        if (slot && !slot.dataset.loaded) {
+          slot.dataset.loaded = "1";
+          var v = document.createElement("video");
+          v.src = slot.dataset.video;
+          if (slot.dataset.poster) v.poster = slot.dataset.poster;
+          v.controls = true; v.muted = true; v.playsInline = true; v.preload = "metadata";
+          slot.appendChild(v);
+        }
+        var vid = row.querySelector("video");
+        if (vid) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      });
+    });
+  })();
+
   (function () {
     if (!("IntersectionObserver" in window)) {
       document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });

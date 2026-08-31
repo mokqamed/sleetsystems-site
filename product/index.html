@@ -259,11 +259,13 @@
   /* ---------- Hero: full-bleed background video ---------- */
   .hero {
     position: relative;
-    min-height: min(92vh, 820px);
+    /* fill the viewport on landing — nothing of the next section peeks in */
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: #060a14;
+    background: #ffffff;
     color: #ffffff;
   }
   .hero-bg {
@@ -348,6 +350,75 @@
     @keyframes fadeIn { to { opacity: 1; } }
   }
 
+
+  /* hero entrance: each headline line rises out of its own mask */
+  .hero-title { }
+  .hero-title .line { display: block; overflow: hidden; padding-bottom: 2px; }
+  .hero-title .line-in { display: inline-block; will-change: transform; }
+  .hero-title.uncage .line { overflow: visible; }
+  .hero-copy { will-change: transform, opacity; }
+
+  /* a thin rail with a dot falling down it — the cue to keep scrolling */
+  .scroll-cue {
+    position: absolute; bottom: 30px; left: 50%;
+    width: 1px; height: 48px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.22);
+    overflow: hidden;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .scroll-cue-dot {
+    position: absolute; left: -2px; top: -8px;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.9);
+  }
+  .hero.scrolled .scroll-cue { opacity: 0; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-title .line-in { transform: translateY(112%); animation: lineRise 0.95s cubic-bezier(0.16, 0.9, 0.24, 1) forwards; }
+    .hero-title .line:nth-child(1) .line-in { animation-delay: 0.12s; }
+    .hero-title .line:nth-child(2) .line-in { animation-delay: 0.26s; }
+    @keyframes lineRise { to { transform: translateY(0); } }
+    .scroll-cue-dot { animation: cueFall 2.1s cubic-bezier(0.45, 0, 0.25, 1) infinite; }
+    @keyframes cueFall {
+      0%   { transform: translateY(0);    opacity: 0; }
+      15%  { opacity: 1; }
+      75%  { opacity: 1; }
+      100% { transform: translateY(56px); opacity: 0; }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .scroll-cue { display: none; }
+  }
+
+
+  /* the hero holds still for one extra screen while the footage shrinks into
+     a rounded card, then hands off to the section below */
+  .hero-stage { height: 200vh; position: relative; background: #ffffff; }
+  .hero-stage > .hero { position: sticky; top: 0; height: 100vh; height: 100dvh; }
+  .hero-media {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    will-change: transform, border-radius;
+    transform-origin: 50% 42%;
+    backface-visibility: hidden;
+  }
+  .hero-media .hero-bg, .hero-media .hero-scrim { position: absolute; inset: 0; }
+
+  @media (max-width: 860px) {
+    .hero-stage { height: auto; }
+    .hero-stage > .hero { position: static; height: auto; }
+    .hero-media { position: static; overflow: visible; transform: none !important; border-radius: 0 !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-stage { height: auto; }
+    .hero-stage > .hero { position: static; }
+  }
+
   /* ---------- Sections (light) ---------- */
   section { scroll-margin-top: 80px; }
   .section-eyebrow {
@@ -402,6 +473,103 @@
     .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
+
+  /* industry cards pop in one after another as the band arrives */
+  .industry.pop {
+    opacity: 0;
+    transform: translateY(20px) scale(0.94);
+    transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.18, 0.9, 0.28, 1.25),
+                box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .industry.pop.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .industry.pop { opacity: 1; transform: none; transition: none; }
+  }
+
+
+
+  /* ---------- Checkout → customer side: one scroll-driven block ---------- */
+  .duo { position: relative; height: 300vh; background: #ffffff; }
+  .duo-pin {
+    position: sticky; top: 0;
+    height: 100vh; height: 100dvh;
+    display: grid; align-items: center;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 3.3fr);
+    gap: 48px;
+    max-width: 1260px; margin: 0 auto; padding: 0 24px;
+    overflow: hidden;
+  }
+  .duo-copy { position: relative; min-height: 260px; }
+  .duo-text {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+  }
+  .duo-text.on { opacity: 1; transform: none; pointer-events: auto; }
+  .duo-text p { font-size: 17px; color: #475569; max-width: 460px; }
+  .duo-stage { perspective: 2000px; perspective-origin: 50% 45%; position: relative; }
+  /* soft ground shadow so the card never leaves a hole while it is edge-on */
+  .duo-stage::before {
+    content: ""; position: absolute; inset: 8% 6%;
+    border-radius: 24px;
+    background: radial-gradient(ellipse at 50% 60%, rgba(15, 23, 42, 0.13), rgba(15, 23, 42, 0) 72%);
+    filter: blur(8px);
+    pointer-events: none;
+  }
+  .duo-card {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .duo-face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.16);
+  }
+  .duo-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .duo-back { transform: rotateY(180deg); }
+  .duo-tag {
+    position: absolute; left: 14px; bottom: 14px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(4, 8, 18, 0.72); color: #e2e8f0; line-height: 1.4;
+  }
+  .duo-back .duo-tag { background: rgba(37, 99, 235, 0.92); color: #ffffff; }
+  .duo-dots {
+    position: absolute; left: 24px; bottom: 34px;
+    display: flex; gap: 7px;
+  }
+  .duo-dot { width: 7px; height: 7px; border-radius: 50%; background: #cbd5e1; transition: background 0.3s ease, transform 0.3s ease; }
+  .duo-dot.on { background: #2563eb; transform: scale(1.25); }
+  #pricing { position: absolute; top: 55%; left: 0; width: 1px; height: 1px; }
+
+  @media (max-width: 860px) {
+    .duo { height: 260vh; }
+    .duo-pin {
+      grid-template-columns: 1fr;
+      align-content: center;
+      gap: 26px;
+      padding: 0 18px;
+    }
+    .duo-copy { min-height: 210px; order: 2; }
+    .duo-stage { order: 1; }
+    .duo-dots { left: 18px; bottom: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .duo { height: auto; }
+    .duo-pin { position: static; height: auto; padding: 56px 24px; }
+    .duo-copy { min-height: 0; }
+    .duo-text { position: static; opacity: 1; transform: none; margin-bottom: 24px; }
+    .duo-card { transform: none !important; }
+  }
+
   /* ---------- Feature sections ---------- */
   .feature { padding: 96px 0; }
   .feature.alt { background: #f8fafc; }
@@ -428,6 +596,156 @@
   .feature-visual.bare img { border: none; box-shadow: none; border-radius: 0; }
   .feature-visual.phone { display: flex; justify-content: center; }
   .feature-visual.phone img { max-height: 620px; width: auto; }
+
+
+
+
+  /* ---------- Invoice scanning demo ---------- */
+  .inv { background: #f8fafc; padding: 100px 0; }
+  .inv-grid {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 60px; align-items: center;
+  }
+  .inv-copy p { font-size: 17px; color: #475569; max-width: 460px; }
+  .inv-copy .fine { font-size: 14.5px; color: #64748b; margin-top: 14px; }
+  .inv-demo { display: grid; grid-template-columns: 0.85fr 1fr; gap: 22px; align-items: start; }
+
+  .inv-paper {
+    position: relative; overflow: hidden;
+    background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+    padding: 18px 16px 22px;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10);
+    transform: rotate(-1.4deg);
+  }
+  .inv-paper-head {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em;
+    color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .inv-l { height: 7px; border-radius: 3px; background: #e8edf4; margin-bottom: 9px; }
+  .inv-l.s { width: 58%; }
+  .inv-l.m { width: 82%; }
+  .inv-l.t { width: 40%; background: #dbe3ee; }
+  .inv-scan {
+    position: absolute; left: 0; right: 0; top: -30%;
+    height: 34%;
+    background: linear-gradient(180deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.16) 55%, rgba(37,99,235,0) 100%);
+    border-bottom: 2px solid rgba(37, 99, 235, 0.55);
+    opacity: 0;
+  }
+  .inv-demo.go .inv-scan { animation: invScan 2.1s cubic-bezier(0.4, 0, 0.3, 1) 0.2s 1 forwards; }
+  @keyframes invScan {
+    0%   { top: -34%; opacity: 0; }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  .inv-out { display: grid; gap: 9px; }
+  .inv-row {
+    display: flex; align-items: center; gap: 10px;
+    background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 11px 13px;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+    opacity: 0; transform: translateX(14px);
+    transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.2, 0.85, 0.25, 1.1);
+  }
+  .inv-demo.go .inv-row { opacity: 1; transform: none; }
+  .inv-demo.go .inv-row:nth-child(1) { transition-delay: 0.85s; }
+  .inv-demo.go .inv-row:nth-child(2) { transition-delay: 1.15s; }
+  .inv-demo.go .inv-row:nth-child(3) { transition-delay: 1.45s; }
+  .inv-demo.go .inv-row:nth-child(4) { transition-delay: 1.75s; }
+  .inv-tick {
+    flex-shrink: 0; width: 19px; height: 19px; border-radius: 50%;
+    background: #dcfce7; color: #16a34a;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .inv-row > span:nth-of-type(2) { min-width: 0; }
+  .inv-name { display: block; font-size: 13.5px; font-weight: 600; color: #0f172a; line-height: 1.3; }
+  .inv-meta { display: block; font-size: 12px; color: #64748b; margin-top: 2px; }
+  .inv-cost { margin-left: auto; font-size: 13.5px; font-weight: 700; color: #0f172a; }
+  .inv-foot {
+    grid-column: 1 / -1;
+    margin-top: 4px; font-size: 13px; color: #64748b;
+    display: flex; align-items: center; gap: 8px;
+    opacity: 0; transition: opacity 0.5s ease 2.1s;
+  }
+  .inv-demo.go .inv-foot { opacity: 1; }
+
+  @media (max-width: 860px) {
+    .inv { padding: 58px 0; }
+    .inv-grid { grid-template-columns: 1fr; gap: 30px; }
+    .inv-demo { grid-template-columns: 0.8fr 1fr; gap: 14px; }
+    .inv-name { font-size: 12.5px; }
+    .inv-cost { font-size: 12.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .inv-scan { display: none; }
+    .inv-row, .inv-foot { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- Before / after slider ---------- */
+  .compare-band { background: #060a14; color: #ffffff; padding: 96px 0; }
+  .compare-band .section-eyebrow { color: #60a5fa; }
+  .compare-band .section-title { color: #ffffff; }
+  .compare-head { max-width: 700px; margin-bottom: 40px; }
+  .compare-head p { font-size: 17px; color: #94a3b8; }
+  .ba {
+    position: relative;
+    --pos: 50%;
+    border-radius: 16px;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    touch-action: pan-y;
+  }
+  .ba img { width: 100%; height: auto; display: block; user-select: none; -webkit-user-drag: none; }
+  .ba-after {
+    position: absolute; inset: 0;
+    clip-path: inset(0 0 0 var(--pos));
+  }
+  .ba-line {
+    position: absolute; top: 0; bottom: 0; left: var(--pos);
+    width: 2px; background: rgba(255,255,255,0.9);
+    transform: translateX(-1px);
+    pointer-events: none;
+  }
+  .ba-knob {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px; height: 46px; border-radius: 50%;
+    background: #ffffff; color: #0f172a;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+  .ba-range {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    margin: 0; opacity: 0; cursor: ew-resize;
+    -webkit-appearance: none; appearance: none; background: transparent;
+  }
+  .ba-range:focus-visible + .ba-line .ba-knob { outline: 3px solid #60a5fa; outline-offset: 3px; }
+  .ba-tag {
+    position: absolute; top: 16px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 7px 13px; border-radius: 999px;
+    background: rgba(4, 8, 18, 0.72);
+    color: #e2e8f0;
+    line-height: 1.4;
+    pointer-events: none;
+  }
+  .ba-tag-l { left: 16px; }
+  .ba-tag-r { right: 16px; background: rgba(37, 99, 235, 0.9); color: #ffffff; }
+  .compare-note { margin-top: 18px; font-size: 14.5px; color: #64748b; }
+
+  @media (max-width: 860px) {
+    .compare-band { padding: 56px 0; }
+    .compare-head { margin-bottom: 26px; }
+    .ba-knob { width: 38px; height: 38px; }
+    .ba-tag { font-size: 11px; padding: 5px 10px; top: 10px; }
+    .ba-tag-l { left: 10px; }
+    .ba-tag-r { right: 10px; }
+  }
 
   /* ---------- Hardware ---------- */
   .hardware {
@@ -460,6 +778,126 @@
   .hardware-point p { font-size: 14.5px; color: #94a3b8; line-height: 1.55; }
   .hardware-visual { line-height: 0; }
   .hardware-visual img { width: 100%; height: auto; }
+
+
+
+
+  /* ---------- Getting started ---------- */
+  .steps-band { background: #f8fafc; padding: 104px 0; }
+  .steps-head { max-width: 720px; margin-bottom: 56px; }
+  .steps-head p { font-size: 17.5px; color: #475569; margin-top: 14px; }
+  .steps {
+    position: relative;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+  /* the rule that joins the three steps, drawn as the band arrives */
+  .steps-rule {
+    position: absolute; top: 34px; left: 8%; right: 8%;
+    height: 2px; background: #e2e8f0; border-radius: 2px; overflow: hidden;
+  }
+  .steps-rule::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+  }
+  .steps.drawn .steps-rule::after { transform: scaleX(1); }
+  .step { position: relative; padding-top: 0; }
+  .step-num {
+    position: relative; z-index: 1;
+    width: 68px; height: 68px; border-radius: 50%;
+    background: #ffffff; border: 2px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800; color: #94a3b8; letter-spacing: -0.02em;
+    margin-bottom: 26px;
+    transition: border-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+  .steps.drawn .step:nth-child(1) .step-num { transition-delay: 0.35s; }
+  .steps.drawn .step:nth-child(2) .step-num { transition-delay: 0.85s; }
+  .steps.drawn .step:nth-child(3) .step-num { transition-delay: 1.35s; }
+  .steps.drawn .step-num {
+    border-color: #2563eb; color: #2563eb;
+    box-shadow: 0 10px 26px rgba(37, 99, 235, 0.18);
+    transform: translateY(-2px);
+  }
+  .step h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a; margin-bottom: 10px; }
+  .step p { font-size: 16px; color: #475569; line-height: 1.65; max-width: 320px; }
+
+  @media (max-width: 860px) {
+    .steps-band { padding: 60px 0; }
+    .steps-head { margin-bottom: 32px; }
+    .steps { grid-template-columns: 1fr; gap: 30px; }
+    .steps-rule { display: none; }
+    .step-num { width: 54px; height: 54px; font-size: 18px; margin-bottom: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .steps-rule::after { transform: scaleX(1); transition: none; }
+    .step-num { transition: none; border-color: #2563eb; color: #2563eb; }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-band { background: #ffffff; padding: 112px 0 104px; }
+  .faq-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+  .faq-head .section-eyebrow { margin-bottom: 14px; }
+  .faq-head .section-title { margin: 0 auto; }
+  .faq-list { max-width: 880px; margin: 0 auto; border-top: 1px solid #e9eef5; }
+  .qa { border-bottom: 1px solid #e9eef5; }
+  .qa-q {
+    position: relative;
+    display: flex; align-items: baseline; gap: 22px;
+    width: 100%; text-align: left;
+    background: none; border: 0; cursor: pointer;
+    padding: 30px 44px 30px 0;
+    font-family: inherit;
+    font-size: clamp(18px, 2vw, 21px); font-weight: 650; letter-spacing: -0.015em;
+    color: #0f172a;
+    transition: color 0.22s ease;
+  }
+  .qa-q:hover { color: #2563eb; }
+  .qa-q:focus-visible { outline: 2px solid #60a5fa; outline-offset: 4px; border-radius: 6px; }
+  .qa.open .qa-q { color: #2563eb; }
+  /* thin chevron that turns as the answer opens */
+  .qa-mark {
+    position: absolute; right: 6px; top: 50%;
+    width: 13px; height: 13px;
+    margin-top: -7px;
+    border-right: 1.8px solid #94a3b8;
+    border-bottom: 1.8px solid #94a3b8;
+    transform: rotate(45deg);
+    transform-origin: 60% 60%;
+    transition: transform 0.42s cubic-bezier(0.2, 0.85, 0.2, 1), border-color 0.22s ease;
+  }
+  .qa.open .qa-mark { transform: rotate(-135deg); border-color: #2563eb; }
+  /* a hairline that draws itself down the side of an open answer */
+  .qa-a {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows 0.44s cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+  .qa.open .qa-a { grid-template-rows: 1fr; }
+  .qa-a > div { overflow: hidden; }
+  .qa-a p {
+    position: relative;
+    margin: 0; padding: 0 56px 32px 0;
+    max-width: 660px;
+    font-size: 16.5px; line-height: 1.7; color: #475569;
+    opacity: 0; transform: translateY(-6px);
+    transition: opacity 0.32s ease 0.06s, transform 0.32s ease 0.06s;
+  }
+  .qa.open .qa-a p { opacity: 1; transform: none; }
+  .faq-foot { text-align: center; margin-top: 44px; font-size: 16px; color: #64748b; }
+  .faq-foot a { color: #2563eb; font-weight: 600; text-decoration: none; }
+  .faq-foot a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .faq-band { padding: 60px 0 56px; }
+    .faq-head { margin-bottom: 30px; }
+    .qa-q { padding: 22px 34px 22px 0; gap: 14px; }
+    .qa-a p { padding: 0 24px 24px 0; font-size: 15.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .qa-a, .qa-a p, .qa-mark { transition: none; }
+  }
 
   /* ---------- CTA band ---------- */
   .cta-band {
@@ -575,6 +1013,70 @@
 </style>
 <meta name="google-site-verification" content="xqmrzdfFpGR3f4cwdjIoa0PygFE5FzW4LtJEWn3XnU0" />
 <script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How soon can I start selling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We set the register up before it reaches your counter. Turn it on, log in, and ring your first sale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be technical to use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If someone can use a phone, they can run the counter on their first shift. Nothing about it assumes you have done this before."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my internet goes down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You keep ringing up sales. The register keeps working and everything syncs once the connection is back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with the equipment I already have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — receipt printer, barcode scanner, cash drawer and label printer. It connects to the gear a real store runs on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check on my store when I am not there?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The owner dashboard opens in any browser, and the iPhone app puts today's sales, your top sellers and your inventory in your pocket."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do the cash and card prices work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every sale shows both prices side by side, on your screen and on the one facing your customer. They pick how to pay and the register charges exactly what the screen says."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who do I talk to when something goes wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The people who build SleetPOS. Email support and a real person replies — no ticket queues, no call centre."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -638,7 +1140,9 @@
 
 <main>
 
+<div class="hero-stage">
 <section class="hero">
+  <div class="hero-media">
   <video class="hero-bg" autoplay muted loop playsinline preload="auto"
          poster="/assets/hero_counter_poster.jpg"
          aria-label="A sale being rung up on a SleetPOS register at a real store counter">
@@ -656,10 +1160,14 @@
     })();
   </script>
   <div class="hero-scrim"></div>
+  </div>
   <div class="container container-wide">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1 class="rise rise-2">The modern register<br /><span class="rotline" id="rotline">for <span class="rotator" id="rotator">bodegas.</span></span></h1>
+        <h1 class="hero-title">
+          <span class="line"><span class="line-in">The modern register</span></span>
+          <span class="line"><span class="line-in"><span class="rotline" id="rotline">for <span class="rotator" id="rotator">bodegas.</span></span></span></span>
+        </h1>
         <p class="lead rise rise-3">SleetPOS is an all-in-one point of sale (POS) system: fast checkout, live inventory, cash and card pricing, and a second screen that faces your customer.</p>
         <p class="lead-sub rise rise-3">Built in New York for bodegas, grocery stores, smoke shops, delis, boutiques and more.</p>
         <div class="hero-actions rise rise-4">
@@ -669,7 +1177,9 @@
       </div>
     </div>
   </div>
+  <div class="scroll-cue" aria-hidden="true"><span class="scroll-cue-dot"></span></div>
 </section>
+</div>
 
 <section class="industries" id="industries">
   <div class="container">
@@ -677,43 +1187,43 @@
     <h2 class="section-title reveal">Built for your kind of store.</h2>
     <p class="section-lead reveal">Pick your store and see how sign-up works — it takes about a minute.</p>
     <div class="industry-grid">
-      <a class="industry reveal" href="/signup/?type=Bodega%20%2F%20C-Store">
+      <a class="industry pop" href="/signup/?type=Bodega%20%2F%20C-Store">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg>
         Bodegas &amp; C-Stores
       </a>
-      <a class="industry reveal" href="/signup/?type=Grocery%20%2F%20Supermarket">
+      <a class="industry pop" href="/signup/?type=Grocery%20%2F%20Supermarket">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         Grocery &amp; Supermarkets
       </a>
-      <a class="industry reveal" href="/signup/?type=Coffee%20shop">
+      <a class="industry pop" href="/signup/?type=Coffee%20shop">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         Coffee shops
       </a>
-      <a class="industry reveal" href="/signup/?type=Boutique%20%2F%20Clothing">
+      <a class="industry pop" href="/signup/?type=Boutique%20%2F%20Clothing">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
         Boutiques &amp; Clothing
       </a>
-      <a class="industry reveal" href="/signup/?type=Smoke%20shop">
+      <a class="industry pop" href="/signup/?type=Smoke%20shop">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H2v4h16z"/><path d="M22 8c0-2-2-2-2-4"/><path d="M22 16v-4"/><path d="M18 8c0-1.5-1.5-1.5-1.5-3"/></svg>
         Smoke shops
       </a>
-      <a class="industry reveal" href="/signup/?type=Liquor%20store">
+      <a class="industry pop" href="/signup/?type=Liquor%20store">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v5l2 3v11a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10l2-3z"/><line x1="8" y1="15" x2="16" y2="15"/></svg>
         Liquor stores
       </a>
-      <a class="industry reveal" href="/signup/?type=Deli">
+      <a class="industry pop" href="/signup/?type=Deli">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1z"/><path d="M4 15l1 5h14l1-5"/><path d="M5 11c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
         Delis
       </a>
-      <a class="industry reveal" href="/signup/?type=Wholesale">
+      <a class="industry pop" href="/signup/?type=Wholesale">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         Wholesale
       </a>
-      <a class="industry reveal" href="/signup/?type=Gift%20shop">
+      <a class="industry pop" href="/signup/?type=Gift%20shop">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
         Gift shops
       </a>
-      <a class="industry reveal" href="/signup/?type=other">
+      <a class="industry pop" href="/signup/?type=other">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         Something else
       </a>
@@ -723,36 +1233,37 @@
 
 <div id="features" style="scroll-margin-top: 80px;"></div>
 
-<section class="feature" id="checkout">
-  <div class="container">
-    <div class="feature-grid big">
-      <div class="feature-copy reveal">
+
+<section class="duo" id="checkout">
+  <span id="pricing" aria-hidden="true"></span>
+  <div class="duo-pin">
+    <div class="duo-copy">
+      <div class="duo-text" data-i="0">
         <div class="section-eyebrow">Checkout</div>
         <h2 class="section-title">Everything you need accessible from one screen.</h2>
         <p>Scan, tap, or search up items within seconds. Speeding up your checkout lines means more business.</p>
       </div>
-      <div class="feature-visual reveal">
-        <img src="/assets/ui_register.webp" width="1600" height="900" loading="lazy" alt="The SleetPOS register screen with a cart of items, keypad, and payment buttons" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="feature alt" id="pricing">
-  <div class="container">
-    <div class="feature-grid flip big">
-      <div class="feature-copy reveal">
+      <div class="duo-text" data-i="1">
         <div class="section-eyebrow">Cash &amp; card pricing</div>
         <h2 class="section-title">Two prices. No surprises.</h2>
         <p>Every sale shows the cash price and the card price side by side — right on the screen your customer is watching. They pick how to pay, and the register charges exactly what the screen says.</p>
       </div>
-      <div class="feature-visual reveal">
-        <img src="/assets/ui_customer_display.webp" width="1600" height="871" loading="lazy" alt="The customer-facing screen showing a cart with a cash price and a card price side by side, and a panel for the store's own advertisement" />
+      <div class="duo-dots" aria-hidden="true"><span class="duo-dot on"></span><span class="duo-dot"></span></div>
+    </div>
+    <div class="duo-stage">
+      <div class="duo-card" id="duoCard">
+        <div class="duo-face duo-front">
+          <img src="/assets/ui_register.webp" width="1600" height="900" loading="lazy" alt="The SleetPOS register screen with a cart of items, keypad, and payment buttons" />
+          <span class="duo-tag">Your side</span>
+        </div>
+        <div class="duo-face duo-back">
+          <img src="/assets/ui_customer_display.webp" width="1600" height="871" loading="lazy" alt="The customer-facing screen showing the same sale with the cash price and the card price" />
+          <span class="duo-tag">Your customer's side</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 
 <section class="feature" id="iphone">
   <div class="container">
@@ -770,6 +1281,80 @@
 </section>
 
 
+
+<section class="inv" id="invoices">
+  <div class="container">
+    <div class="inv-grid">
+      <div class="inv-copy reveal">
+        <div class="section-eyebrow">Invoice scanning</div>
+        <h2 class="section-title">Photograph the invoice. The products fill themselves in.</h2>
+        <p>Take a picture of a supplier invoice and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you already carry.</p>
+        <p class="fine">You look it over and approve it before anything in your store changes.</p>
+      </div>
+      <div class="inv-demo reveal" id="invDemo" aria-hidden="true">
+        <div class="inv-paper">
+          <div class="inv-paper-head">Supplier invoice</div>
+          <div class="inv-l m"></div><div class="inv-l s"></div>
+          <div class="inv-l"></div><div class="inv-l m"></div>
+          <div class="inv-l s"></div><div class="inv-l"></div>
+          <div class="inv-l m"></div><div class="inv-l t"></div>
+          <div class="inv-scan"></div>
+        </div>
+        <div class="inv-out">
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Red Bull Sugar Free 12 fl oz</span><span class="inv-meta">24 units · matched</span></span>
+            <span class="inv-cost">$1.85</span>
+          </div>
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Kit Kat King Size</span><span class="inv-meta">36 units · matched</span></span>
+            <span class="inv-cost">$1.12</span>
+          </div>
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Pepsi Cola Soda 20 fl oz</span><span class="inv-meta">24 units · matched</span></span>
+            <span class="inv-cost">$0.98</span>
+          </div>
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Romaine Lettuce</span><span class="inv-meta">12 units · matched</span></span>
+            <span class="inv-cost">$0.74</span>
+          </div>
+        </div>
+        <div class="inv-foot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Every line waits for your review before it updates your stock.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare-band" id="shelf-labels">
+  <div class="container">
+    <div class="compare-head reveal">
+      <div class="section-eyebrow">Shelf labels</div>
+      <h2 class="section-title">Every price on the shelf, printed from the comfort of your home.</h2>
+      <p>Send shelf labels from the dashboard or your phone and the register at the store prints them — item name, barcode, and both the cash and card price. Change a price and reprint in seconds.</p>
+    </div>
+
+    <div class="ba reveal" id="shelfCompare">
+      <img src="/assets/shelf_before_1600.webp" srcset="/assets/shelf_before_1000.webp 1000w, /assets/shelf_before_1600.webp 1600w" sizes="(max-width: 860px) 100vw, 1100px" width="1600" height="1146" loading="lazy" alt="A candy shelf with no price labels" />
+      <div class="ba-after">
+        <img src="/assets/shelf_after_1600.webp" srcset="/assets/shelf_after_1000.webp 1000w, /assets/shelf_after_1600.webp 1600w" sizes="(max-width: 860px) 100vw, 1100px" width="1600" height="1146" loading="lazy" alt="The same shelf with printed SleetPOS labels showing cash and card prices" />
+      </div>
+      <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1"
+             aria-label="Drag to compare the shelf before and after printed labels" />
+      <div class="ba-line"><span class="ba-knob">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 3 12 9 18"/><polyline points="15 6 21 12 15 18"/></svg>
+      </span></div>
+      <span class="ba-tag ba-tag-l">Before</span>
+      <span class="ba-tag ba-tag-r">With SleetPOS</span>
+    </div>
+    <p class="compare-note reveal">Drag the handle. Same shelf, same day — labels sent from home, printed at the store.</p>
+  </div>
+</section>
 
 <section class="hardware" id="product">
   <div class="container">
@@ -816,6 +1401,88 @@
              alt="The black SleetPOS dual-screen register with a sale on screen" />
       </div>
     </div>
+  </div>
+</section>
+
+<section class="steps-band" id="getting-started">
+  <div class="container">
+    <div class="steps-head reveal">
+      <div class="section-eyebrow">Getting started</div>
+      <h2 class="section-title">From sign-up to your first sale.</h2>
+      <p>No long install, no consultant, no week of downtime while you learn a new system.</p>
+    </div>
+    <div class="steps" id="steps">
+      <div class="steps-rule" aria-hidden="true"></div>
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Tell us about your store</h3>
+        <p>A minute of questions — what you sell, how many registers you need, and when you want to start.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>We come in and set it up</h3>
+        <p>We come to your store and put your whole product list in for you — every item, its price, and a picture of it — so the register is ready before you ring up your first customer.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>You start selling</h3>
+        <p>Turn it on, log in, ring the first sale. We stay a message away for as long as you need us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-band" id="faq">
+  <div class="container">
+    <div class="faq-head reveal">
+      <div class="section-eyebrow">Questions</div>
+      <h2 class="section-title">The things store owners ask us first.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-0">
+          How soon can I start selling?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-0"><div><p>We set the register up before it reaches your counter. Turn it on, log in, and ring your first sale.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-1">
+          Do I need to be technical to use it?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-1"><div><p>No. If someone can use a phone, they can run the counter on their first shift. Nothing about it assumes you have done this before.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-2">
+          What happens if my internet goes down?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-2"><div><p>You keep ringing up sales. The register keeps working and everything syncs once the connection is back.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-3">
+          Does it work with the equipment I already have?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-3"><div><p>Yes — receipt printer, barcode scanner, cash drawer and label printer. It connects to the gear a real store runs on.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-4">
+          Can I check on my store when I am not there?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-4"><div><p>Yes. The owner dashboard opens in any browser, and the iPhone app puts today's sales, your top sellers and your inventory in your pocket.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-5">
+          How do the cash and card prices work?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-5"><div><p>Every sale shows both prices side by side, on your screen and on the one facing your customer. They pick how to pay and the register charges exactly what the screen says.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-6">
+          Who do I talk to when something goes wrong?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-6"><div><p>The people who build SleetPOS. Email support and a real person replies — no ticket queues, no call centres.</p></div></div>
+      </div>
+    </div>
+    <p class="faq-foot reveal">Still wondering about something? <a href="/support">Ask us directly</a> — the people who build SleetPOS answer.</p>
   </div>
 </section>
 
@@ -938,6 +1605,178 @@
     document.addEventListener("visibilitychange", function () {
       if (!document.hidden) tryPlay();
     });
+  })();
+
+
+
+  // hero: release the headline masks after the entrance, then let scroll
+  // shrink the footage into a rounded card and hand off to the next section
+  (function () {
+    var stage = document.querySelector(".hero-stage");
+    var hero = document.querySelector(".hero");
+    if (!hero) return;
+    var title = hero.querySelector(".hero-title");
+    var copy = hero.querySelector(".hero-copy");
+    var media = hero.querySelector(".hero-media");
+    if (title) setTimeout(function () { title.classList.add("uncage"); }, 1400);
+
+    var wide = window.matchMedia("(min-width: 861px)");
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var ticking = false;
+
+    function frame() {
+      ticking = false;
+      var y = window.scrollY;
+      hero.classList.toggle("scrolled", y > 40);
+      if (!stage || !wide.matches || still.matches) {
+        if (media) { media.style.transform = ""; media.style.borderRadius = ""; }
+        if (copy) { copy.style.transform = ""; copy.style.opacity = ""; }
+        return;
+      }
+      var span = stage.offsetHeight - window.innerHeight;
+      var p = span > 0 ? Math.min(1, Math.max(0, y / span)) : 0;
+      // ease so it settles softly instead of tracking the wheel 1:1
+      var e = p * p * (3 - 2 * p);
+      if (media) {
+        media.style.transform = "scale(" + (1 - 0.26 * e).toFixed(4) + ")";
+        media.style.borderRadius = (26 * e).toFixed(1) + "px";
+      }
+      if (copy) {
+        copy.style.transform = "translateY(" + (-70 * e).toFixed(1) + "px)";
+        copy.style.opacity = String(Math.max(0, 1 - e * 1.9));
+      }
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+    }, { passive: true });
+    window.addEventListener("resize", frame);
+    frame();
+  })();
+
+
+  // industry cards pop in one after another, and the checkout screen turns
+  // over to the customer's side once the section is centred
+  (function () {
+    var grid = document.querySelector(".industry-grid");
+    if (grid && "IntersectionObserver" in window) {
+      var cards = [].slice.call(grid.querySelectorAll(".pop"));
+      var gio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          cards.forEach(function (c, i) {
+            c.style.transitionDelay = (i * 65) + "ms";
+            c.classList.add("in");
+          });
+          gio.disconnect();
+        });
+      }, { threshold: 0.15 });
+      gio.observe(grid);
+    } else if (grid) {
+      [].forEach.call(grid.querySelectorAll(".pop"), function (c) { c.classList.add("in"); });
+    }
+
+  })();
+
+
+  // checkout → customer side: one pinned block where scrolling physically
+  // turns the terminal around, copy swapping with it
+  (function () {
+    var sec = document.querySelector(".duo");
+    var card = document.getElementById("duoCard");
+    if (!sec || !card) return;
+    var texts = [].slice.call(sec.querySelectorAll(".duo-text"));
+    var dots = [].slice.call(sec.querySelectorAll(".duo-dot"));
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var ticking = false;
+
+    function frame() {
+      ticking = false;
+      if (still.matches) return;
+      var r = sec.getBoundingClientRect();
+      var span = sec.offsetHeight - window.innerHeight;
+      if (span <= 0) return;
+      var p = Math.min(1, Math.max(0, -r.top / span));
+
+      // the turn happens through the middle of the block
+      var t = Math.min(1, Math.max(0, (p - 0.28) / 0.44));
+      var e = t * t * (3 - 2 * t);              // ease in and out
+      var lift = Math.sin(Math.PI * e);          // peaks halfway through
+
+      card.style.transform =
+        "translateZ(" + (-190 * lift).toFixed(1) + "px)" +
+        " rotateY(" + (180 * e).toFixed(2) + "deg)" +
+        " rotateX(" + (7 * lift).toFixed(2) + "deg)" +
+        " scale(" + (1 - 0.10 * lift).toFixed(4) + ")";
+
+      var back = e > 0.5;
+      texts.forEach(function (el, i) { el.classList.toggle("on", (i === 1) === back); });
+      dots.forEach(function (el, i) { el.classList.toggle("on", (i === 1) === back); });
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+    }, { passive: true });
+    window.addEventListener("resize", frame);
+    texts[0].classList.add("on");
+    frame();
+  })();
+
+
+
+
+  // run the invoice demo once it scrolls into view
+  (function () {
+    var demo = document.getElementById("invDemo");
+    if (!demo) return;
+    if (!("IntersectionObserver" in window)) { demo.classList.add("go"); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { demo.classList.add("go"); io.disconnect(); }
+      });
+    }, { threshold: 0.4 });
+    io.observe(demo);
+  })();
+
+  // draw the line between the getting-started steps as the band arrives
+  (function () {
+    var steps = document.getElementById("steps");
+    if (!steps) return;
+    if (!("IntersectionObserver" in window)) { steps.classList.add("drawn"); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { steps.classList.add("drawn"); io.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(steps);
+  })();
+
+  // FAQ: smooth open/close, one answer expanding at a time
+  (function () {
+    var items = [].slice.call(document.querySelectorAll(".faq-list .qa"));
+    if (!items.length) return;
+    items.forEach(function (item) {
+      var btn = item.querySelector(".qa-q");
+      btn.addEventListener("click", function () {
+        var open = item.classList.contains("open");
+        items.forEach(function (o) {
+          o.classList.remove("open");
+          o.querySelector(".qa-q").setAttribute("aria-expanded", "false");
+        });
+        if (!open) {
+          item.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  })();
+
+  // before/after slider
+  (function () {
+    var box = document.getElementById("shelfCompare");
+    if (!box) return;
+    var range = box.querySelector(".ba-range");
+    function apply() { box.style.setProperty("--pos", range.value + "%"); }
+    range.addEventListener("input", apply);
+    apply();
   })();
 
   // banner is see-through over the hero video, solid past it
