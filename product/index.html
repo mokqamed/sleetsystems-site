@@ -410,9 +410,18 @@
   .hero-media .hero-bg, .hero-media .hero-scrim { position: absolute; inset: 0; }
 
   @media (max-width: 860px) {
-    .hero-stage { height: auto; }
-    .hero-stage > .hero { position: static; height: auto; }
+    .hero-stage { height: auto; background: #05070c; }
+    .hero-stage > .hero { position: static; height: auto; background: #05070c; }
     .hero-media { position: static; overflow: visible; transform: none !important; border-radius: 0 !important; }
+    /* the .hero-media wrapper's descendant selectors outrank the phone
+       block layout below — restate it at equal strength: video is its own
+       block, copy on the dark ground beneath, nothing overlaps */
+    .hero-media .hero-bg {
+      position: relative; inset: auto;
+      width: 100%; height: auto; aspect-ratio: 4 / 3;
+      display: block; object-fit: cover; object-position: center;
+    }
+    .hero-media .hero-scrim { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-stage { height: auto; }
