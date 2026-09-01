@@ -748,36 +748,51 @@
   }
 
   /* ---------- Hardware ---------- */
-  .hardware {
-    background: #000000;
-    color: #ffffff;
-    padding: 104px 0;
-    overflow: hidden;
+  /* ---------- scroll film — the register, turned in your hands ---------- */
+  .film-stage { height: 380vh; position: relative; background: #05070c; }
+  .film-pin {
+    position: sticky; top: 0; height: 100vh; height: 100dvh;
+    overflow: hidden; background: #05070c;
   }
-  .hardware-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    gap: 48px;
-    align-items: center;
+  .film-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .film-copy {
+    position: absolute; z-index: 2; left: 0; right: 0; bottom: 9vh;
   }
-  .hardware .section-eyebrow { color: #60a5fa; }
-  .hardware .section-title { color: #ffffff; }
-  .hardware .section-lead { color: #94a3b8; }
-  .hardware-points { display: grid; gap: 20px; margin-top: 36px; }
-  .hardware-point { display: flex; gap: 14px; align-items: flex-start; }
-  .hardware-point-icon {
-    flex-shrink: 0;
-    width: 40px; height: 40px;
-    background: rgba(37, 99, 235, 0.16);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: #60a5fa;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
+  .film-beat {
+    position: absolute; bottom: 0; left: 24px; right: 24px;
+    max-width: 560px; margin: 0 auto; text-align: center;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
   }
-  .hardware-point h3 { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 2px; }
-  .hardware-point p { font-size: 14.5px; color: #94a3b8; line-height: 1.55; }
-  .hardware-visual { line-height: 0; }
-  .hardware-visual img { width: 100%; height: auto; }
+  @media (min-width: 861px) {
+    .film-beat { left: 6vw; right: auto; margin: 0; text-align: left; }
+  }
+  .film-beat.on { opacity: 1; transform: none; }
+  .film-beat .section-eyebrow { color: #60a5fa; }
+  .film-beat h2 {
+    font-size: clamp(26px, 3.4vw, 42px); font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.08; color: #ffffff; margin-bottom: 10px;
+  }
+  .film-beat p { font-size: clamp(15px, 1.35vw, 17.5px); color: #a7b3c4; line-height: 1.6; max-width: 46ch; }
+  .film-mobile, .film-still { display: none; }
+  @media (max-width: 860px) {
+    .film-stage { height: auto; }
+    .film-pin { position: static; height: auto; overflow: visible; padding: 52px 0 26px; }
+    .film-canvas { display: none; }
+    .film-mobile { display: block; width: 100%; height: auto; }
+    .film-copy { position: static; }
+    .film-beat { position: static; opacity: 1; transform: none; margin: 26px auto 0; }
+    .film-beat h2 { font-size: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .film-stage { height: auto; }
+    .film-pin { position: static; height: auto; padding: 52px 0 26px; }
+    .film-canvas, .film-mobile { display: none !important; }
+    .film-still { display: block; width: 100%; height: auto; }
+    .film-copy { position: static; }
+    .film-beat { position: static; opacity: 1; transform: none; margin: 26px auto 0; }
+  }
 
 
 
@@ -1044,6 +1059,22 @@
     },
     {
       "@type": "Question",
+      "name": "Can I run more than one register?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A store can run SleetPOS on more than one register, and every sale lands in the same product list and the same reports."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I have more than one store?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We set up multiple locations the same way we set up one — we come in, load your products, and get every counter running."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does it work with the equipment I already have?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -1289,7 +1320,7 @@
         <div class="section-eyebrow">Invoice scanning</div>
         <h2 class="section-title">Photograph the invoice. The products fill themselves in.</h2>
         <p>Take a picture of a supplier invoice and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you already carry.</p>
-        <p class="fine">You look it over and approve it before anything in your store changes.</p>
+        <p class="fine">You look it over and approve it before anything changes — and it remembers your answers, so the next invoice from that supplier fills in on its own.</p>
       </div>
       <div class="inv-demo reveal" id="invDemo" aria-hidden="true">
         <div class="inv-paper">
@@ -1356,49 +1387,28 @@
   </div>
 </section>
 
-<section class="hardware" id="product">
-  <div class="container">
-    <div class="hardware-grid">
-      <div class="reveal">
-        <div class="section-eyebrow">The Register</div>
-        <h2 class="section-title">Hardware that means business.</h2>
-        <p class="section-lead">A dual-screen register built for the counter — one screen for your cashier, one facing your customer.</p>
-        <div class="hardware-points">
-          <div class="hardware-point">
-            <div class="hardware-point-icon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div>
-              <h3>Two screens</h3>
-              <p>Your cashier rings up the sale while your customer watches the cart, the prices, and your promotions.</p>
-            </div>
-          </div>
-          <div class="hardware-point">
-            <div class="hardware-point-icon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-            </div>
-            <div>
-              <h3>Works with your counter gear</h3>
-              <p>Receipt printer, barcode scanner, cash drawer, label printer — it connects to the equipment a real store runs on.</p>
-            </div>
-          </div>
-          <div class="hardware-point">
-            <div class="hardware-point-icon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div>
-              <h3>Ready on arrival</h3>
-              <p>We set it up before it reaches your counter. Turn it on, log in, and ring your first sale.</p>
-            </div>
-          </div>
+<section id="product" aria-label="The register">
+  <div class="film-stage" id="filmStage">
+    <div class="film-pin">
+      <canvas class="film-canvas" id="filmCanvas" aria-hidden="true"></canvas>
+      <video class="film-mobile" src="/assets/film_mobile8.mp4" poster="/assets/film_poster8.jpg" muted loop playsinline autoplay preload="metadata"></video>
+      <img class="film-still" src="/assets/film_poster8.jpg" alt="The black SleetPOS dual-screen register, seen from the customer's side" />
+      <div class="film-copy">
+        <div class="film-beat" data-beat="0">
+          <div class="section-eyebrow">The Register</div>
+          <h2>One machine on your counter.</h2>
+          <p>A screen for your cashier, a screen facing your customer, and everything you sell behind both.</p>
         </div>
-      </div>
-      <div class="hardware-visual reveal">
-        <img src="/assets/hero_2200.webp"
-             srcset="/assets/hero_1100.webp 1100w, /assets/hero_2200.webp 2200w"
-             sizes="(max-width: 860px) 100vw, 55vw"
-             width="2200" height="2037" loading="lazy"
-             alt="The black SleetPOS dual-screen register with a sale on screen" />
+        <div class="film-beat" data-beat="1">
+          <div class="section-eyebrow">The Register</div>
+          <h2>Built for the counter.</h2>
+          <p>Receipt printer, barcode scanner, cash drawer, label printer — your counter gear plugs straight in. It arrives already set up for your store.</p>
+        </div>
+        <div class="film-beat" data-beat="2">
+          <div class="section-eyebrow">The customer screen</div>
+          <h2>This screen sells for you.</h2>
+          <p>Between sales, it plays your own ads. Your pizza special, what your bakery just pulled out of the oven, or anything you put on sale — you choose what your customers see while they wait.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1456,6 +1466,18 @@
           What happens if my internet goes down?<span class="qa-mark" aria-hidden="true"></span>
         </button>
         <div class="qa-a" id="qa-a-2"><div><p>You keep ringing up sales. The register keeps working and everything syncs once the connection is back.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-multi">
+          Can I run more than one register?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-multi"><div><p>Yes. A store can run SleetPOS on more than one register, and every sale lands in the same product list and the same reports.</p></div></div>
+      </div>
+      <div class="qa">
+        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-stores">
+          What if I have more than one store?<span class="qa-mark" aria-hidden="true"></span>
+        </button>
+        <div class="qa-a" id="qa-a-stores"><div><p>We set up multiple locations the same way we set up one — we come in, load your products, and get every counter running. Talk to us about your setup.</p></div></div>
       </div>
       <div class="qa">
         <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-3">
@@ -1818,5 +1840,113 @@
   })();
 </script>
 
+
+<script>
+// scroll film: baked frames scrubbed by scroll; a per-frame register map
+// keeps the whole machine in view and biases it right, opposite the copy
+(function () {
+  var stage = document.getElementById("filmStage");
+  if (!stage) return;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobile = window.matchMedia("(max-width: 860px)").matches;
+  var beats = [].slice.call(stage.querySelectorAll(".film-beat"));
+  function showBeat(i) {
+    beats.forEach(function (b, j) { b.classList.toggle("on", j === i); });
+  }
+  if (mobile || reduced) { showBeat(-1); return; }
+
+  var canvas = document.getElementById("filmCanvas");
+  var ctx = canvas.getContext("2d");
+  var N = 148, FW = 1920, FH = 1080;
+  var BBOX = [[0.332,0.081,0.297,0.827],[0.331,0.082,0.299,0.829],[0.329,0.082,0.301,0.831],[0.327,0.083,0.304,0.834],[0.325,0.083,0.307,0.836],[0.323,0.084,0.31,0.835],[0.321,0.085,0.314,0.837],[0.318,0.086,0.319,0.837],[0.315,0.086,0.324,0.833],[0.312,0.087,0.329,0.834],[0.309,0.088,0.335,0.833],[0.305,0.09,0.341,0.832],[0.302,0.091,0.347,0.828],[0.299,0.092,0.354,0.825],[0.295,0.093,0.361,0.822],[0.292,0.095,0.369,0.82],[0.288,0.096,0.376,0.815],[0.285,0.098,0.384,0.808],[0.282,0.099,0.392,0.805],[0.279,0.101,0.4,0.798],[0.278,0.103,0.407,0.793],[0.276,0.105,0.414,0.794],[0.275,0.107,0.421,0.787],[0.275,0.109,0.426,0.783],[0.275,0.111,0.43,0.776],[0.276,0.114,0.434,0.772],[0.278,0.116,0.437,0.766],[0.273,0.114,0.435,0.748],[0.268,0.111,0.435,0.73],[0.264,0.108,0.435,0.738],[0.259,0.105,0.434,0.748],[0.255,0.102,0.433,0.735],[0.25,0.1,0.431,0.721],[0.245,0.097,0.43,0.708],[0.24,0.095,0.43,0.69],[0.234,0.092,0.429,0.675],[0.228,0.087,0.434,0.663],[0.221,0.083,0.44,0.651],[0.215,0.078,0.446,0.64],[0.208,0.073,0.453,0.628],[0.207,0.071,0.463,0.63],[0.207,0.071,0.47,0.629],[0.206,0.071,0.477,0.607],[0.206,0.071,0.483,0.584],[0.205,0.07,0.489,0.584],[0.205,0.07,0.495,0.584],[0.205,0.068,0.5,0.585],[0.205,0.067,0.505,0.61],[0.205,0.066,0.51,0.638],[0.205,0.067,0.508,0.661],[0.205,0.068,0.506,0.683],[0.205,0.069,0.505,0.705],[0.205,0.071,0.503,0.726],[0.205,0.072,0.502,0.746],[0.206,0.074,0.503,0.766],[0.206,0.077,0.505,0.786],[0.206,0.079,0.507,0.805],[0.207,0.082,0.51,0.824],[0.207,0.085,0.513,0.842],[0.208,0.088,0.517,0.861],[0.209,0.091,0.52,0.856],[0.209,0.094,0.524,0.849],[0.21,0.097,0.529,0.844],[0.211,0.1,0.533,0.841],[0.212,0.103,0.536,0.838],[0.213,0.105,0.539,0.835],[0.215,0.108,0.54,0.833],[0.216,0.11,0.539,0.83],[0.217,0.113,0.537,0.828],[0.218,0.115,0.535,0.827],[0.219,0.117,0.536,0.827],[0.22,0.118,0.534,0.828],[0.22,0.118,0.532,0.83],[0.22,0.118,0.531,0.834],[0.219,0.117,0.531,0.839],[0.218,0.115,0.529,0.845],[0.217,0.113,0.531,0.851],[0.215,0.11,0.531,0.858],[0.213,0.107,0.532,0.865],[0.211,0.104,0.533,0.872],[0.209,0.101,0.534,0.88],[0.208,0.098,0.537,0.887],[0.206,0.094,0.541,0.893],[0.207,0.094,0.539,0.895],[0.208,0.09,0.54,0.9],[0.21,0.086,0.541,0.905],[0.212,0.083,0.542,0.882],[0.214,0.08,0.542,0.885],[0.216,0.078,0.543,0.86],[0.218,0.081,0.542,0.831],[0.22,0.083,0.543,0.828],[0.222,0.086,0.545,0.826],[0.224,0.088,0.548,0.823],[0.225,0.091,0.551,0.821],[0.226,0.092,0.553,0.794],[0.227,0.096,0.554,0.793],[0.225,0.095,0.558,0.795],[0.223,0.093,0.562,0.774],[0.221,0.092,0.566,0.752],[0.219,0.09,0.57,0.781],[0.217,0.089,0.574,0.783],[0.215,0.087,0.578,0.812],[0.213,0.081,0.583,0.822],[0.211,0.075,0.587,0.805],[0.209,0.068,0.591,0.811],[0.207,0.062,0.595,0.818],[0.204,0.055,0.6,0.824],[0.202,0.049,0.604,0.856],[0.2,0.042,0.609,0.863],[0.198,0.036,0.614,0.869],[0.195,0.034,0.618,0.896],[0.193,0.032,0.623,0.922],[0.191,0.03,0.628,0.924],[0.188,0.029,0.633,0.925],[0.186,0.027,0.638,0.927],[0.183,0.025,0.643,0.952],[0.181,0.023,0.648,0.977],[0.178,0.021,0.653,0.979],[0.175,0.019,0.659,0.981],[0.173,0.017,0.664,0.983],[0.17,0.015,0.67,0.985],[0.167,0.013,0.675,0.987],[0.165,0.011,0.681,0.989],[0.162,0.009,0.687,0.991],[0.159,0.008,0.692,0.992],[0.156,0.006,0.698,0.994],[0.153,0.005,0.704,0.995],[0.15,0.004,0.71,0.996],[0.148,0.003,0.716,0.997],[0.145,0.002,0.722,0.998],[0.142,0.001,0.729,0.999],[0.139,0.001,0.735,0.999],[0.136,0.0,0.741,1.0],[0.133,0.0,0.747,1.0],[0.13,0.0,0.754,1.0],[0.127,0.0,0.76,1.0],[0.124,0.0,0.767,1.0],[0.12,0.0,0.773,1.0],[0.117,0.0,0.78,1.0],[0.114,0.0,0.787,1.0],[0.111,0.0,0.794,1.0],[0.108,0.004,0.8,0.996],[0.105,0.008,0.807,0.992],[0.102,0.012,0.812,0.988],[0.1,0.017,0.817,0.983],[0.098,0.021,0.822,0.979],[0.096,0.025,0.826,0.975],[0.094,0.029,0.83,0.971]];
+  var frames = new Array(N), started = false, current = -1;
+
+  function preload() {
+    if (started) return; started = true;
+    for (var i = 0; i < N; i++) (function (i) {
+      var im = new Image();
+      im.onload = function () { if (i === shown) { current = -1; drawFrame(shown); } };
+      im.src = "/assets/film8/f" + ("00" + i).slice(-3) + ".webp";
+      frames[i] = im;
+    })(i);
+  }
+  function frameFor() {
+    var r = stage.getBoundingClientRect();
+    var span = r.height - window.innerHeight;
+    var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+    return Math.round(p * (N - 1));
+  }
+  function viewFor(f, cw, ch) {
+    var cover = Math.max(cw / FW, ch / FH);
+    if (f >= 85) {
+      return { sc: cover, dx: Math.round((cw - FW * cover) / 2), dy: Math.round((ch - FH * cover) / 2) };
+    }
+    var b = BBOX[f] || [0, 0, 1, 1];
+    var t = Math.min(1, Math.max(0, (f - 72) / 12));
+    var e = 1 - t * t * (3 - 2 * t);
+    var sc = cover;
+    var bx = (b[0] + b[2] / 2) * FW * sc, by = (b[1] + b[3] / 2) * FH * sc;
+    var dx = cw * (0.5 + 0.07 * e) - bx;
+    var dy = ch * 0.5 - by;
+    dx = dx * e + ((cw - FW * sc) / 2) * (1 - e);
+    dy = dy * e + ((ch - FH * sc) / 2) * (1 - e);
+    dx = Math.min(0, Math.max(cw - FW * sc, dx));
+    dy = Math.min(0, Math.max(ch - FH * sc, dy));
+    dx = Math.min(dx, cw * 0.99 - (b[0] + b[2]) * FW * sc);
+    dx = Math.max(dx, cw * 0.01 - b[0] * FW * sc);
+    dy = Math.min(dy, ch * 0.99 - (b[1] + b[3]) * FH * sc);
+    dy = Math.max(dy, ch * 0.01 - b[1] * FH * sc);
+    return { sc: sc, dx: Math.round(dx), dy: Math.round(dy) };
+  }
+  function drawFrame(f) {
+    showBeat(f < 31 ? 0 : f < 87 ? 1 : 2);
+    var im = frames[f];
+    if (!im || !im.complete || f === current) return;
+    current = f;
+    var cw = canvas.clientWidth, ch = canvas.clientHeight;
+    var v = viewFor(f, cw, ch);
+    var r = cw > 0 ? canvas.width / cw : 1;
+    ctx.fillStyle = "#05070c"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(im, v.dx * r, v.dy * r, FW * v.sc * r, FH * v.sc * r);
+  }
+  // the seam (SA..SB) can never be rested on: scroll positions inside it
+  // resolve to the far edge, and the film steps through at its own pace
+  var SA = 84, SB = 92;
+  var shown = -1, lastRaw = -1, dir = 1, lastStep = 0, rafId = 0, running = false;
+  function loop(ts) {
+    rafId = running ? requestAnimationFrame(loop) : 0;
+    var raw = frameFor();
+    if (raw !== lastRaw) { dir = raw > lastRaw ? 1 : -1; lastRaw = raw; }
+    var t = (raw > SA && raw < SB) ? (dir > 0 ? SB : SA) : raw;
+    if (shown === -1) { shown = t; drawFrame(shown); return; }
+    if (t === shown) return;
+    if (t > shown) {
+      if (shown < SA) shown = Math.min(t, SA);
+      else if (shown >= SB) shown = t;
+      else { if (ts - lastStep < 28) return; shown++; lastStep = ts; }
+    } else {
+      if (shown > SB) shown = Math.max(t, SB);
+      else if (shown <= SA) shown = t;
+      else { if (ts - lastStep < 28) return; shown--; lastStep = ts; }
+    }
+    drawFrame(shown);
+  }
+  function setRunning(on) {
+    if (on && !running) { running = true; rafId = requestAnimationFrame(loop); }
+    if (!on && running) { running = false; if (rafId) cancelAnimationFrame(rafId); rafId = 0; }
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { preload(); setRunning(true); } else { setRunning(false); } });
+  }, { rootMargin: "1200px 0px" });
+  io.observe(stage);
+  function size() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = canvas.clientWidth * dpr; canvas.height = canvas.clientHeight * dpr;
+    current = -1; if (shown >= 0) drawFrame(shown);
+  }
+  window.addEventListener("resize", size);
+  size();
+})();
+</script>
 </body>
 </html>
