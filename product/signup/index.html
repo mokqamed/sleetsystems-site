@@ -410,8 +410,8 @@
                   <input id="s-email" name="email" type="email" autocomplete="email" required />
                 </div>
                 <div class="field">
-                  <label for="s-phone">Phone (optional)</label>
-                  <input id="s-phone" name="phone" type="tel" autocomplete="tel" />
+                  <label for="s-phone">Phone</label>
+                  <input id="s-phone" name="phone" type="tel" autocomplete="tel" required />
                 </div>
               </div>
               <div class="field-row">
@@ -445,6 +445,11 @@
           </div>
           <h3 style="margin-bottom:8px;">Account created.</h3>
           <p style="color:#475569;font-size:15px;max-width:340px;margin:0 auto;">We are setting up your store. We will email you at <strong id="doneEmail"></strong> as soon as it is ready.</p>
+          <div style="margin:26px auto 0;max-width:360px;padding:18px 20px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc;">
+            <p style="color:#0f172a;font-size:15px;font-weight:600;margin:0 0 6px;">Want to get going today?</p>
+            <p style="color:#475569;font-size:14px;margin:0 0 14px;">Book a quick call and we will walk you through everything — your products, your hardware, your first sale.</p>
+            <a href="/book" class="btn btn-primary" style="width:100%;justify-content:center;">Book a meeting</a>
+          </div>
         </div>
 
         <div class="card-foot" id="cardFoot">
@@ -547,8 +552,13 @@
         timeline: answers.timeline || ""
       };
       status.className = "form-status";
-      if (!data.name || !data.store || !data.email || !data.password) {
-        status.textContent = "Please fill in your name, store name, email, and password.";
+      if (!data.name || !data.store || !data.email || !data.phone || !data.password) {
+        status.textContent = "Please fill in your name, store name, email, phone, and password.";
+        status.className = "form-status err";
+        return;
+      }
+      if (data.phone.replace(/[^0-9]/g, "").length < 10) {
+        status.textContent = "That phone number looks too short — we use it to call you and get your store set up.";
         status.className = "form-status err";
         return;
       }
@@ -630,6 +640,24 @@
       });
     }, { passive: true });
   })();
+</script>
+
+<script>
+// phone formats itself as (555) 123-4567 while they type
+(function () {
+  var el = document.getElementById("s-phone");
+  if (!el) return;
+  el.addEventListener("input", function () {
+    var d = el.value.replace(/[^0-9]/g, "");
+    if (d.length === 11 && d.charAt(0) === "1") d = d.slice(1);
+    d = d.slice(0, 10);
+    var out = d;
+    if (d.length > 6) out = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+    else if (d.length > 3) out = "(" + d.slice(0, 3) + ") " + d.slice(3);
+    else if (d.length > 0) out = "(" + d;
+    el.value = out;
+  });
+})();
 </script>
 </body>
 </html>

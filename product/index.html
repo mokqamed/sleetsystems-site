@@ -560,7 +560,7 @@
     padding: 6px 12px; border-radius: 999px;
     background: rgba(4, 8, 18, 0.72); color: #e2e8f0; line-height: 1.4;
   }
-  .duo-back .duo-tag { background: rgba(37, 99, 235, 0.92); color: #ffffff; }
+  .duo-back .duo-tag { background: rgba(37, 99, 235, 0.92); color: #ffffff; left: auto; right: 14px; }
   .duo-dots {
     position: absolute; left: 24px; bottom: 34px;
     display: flex; gap: 7px;
@@ -1209,7 +1209,7 @@
         <p class="lead rise rise-3">SleetPOS is an all-in-one point of sale (POS) system: fast checkout, live inventory, cash and card pricing, and a second screen that faces your customer.</p>
         <p class="lead-sub rise rise-3">Built in New York for bodegas, grocery stores, smoke shops, delis, boutiques and more.</p>
         <div class="hero-actions rise rise-4">
-          <a href="/book" class="btn btn-primary">Get in touch</a>
+          <a href="/signup/" class="btn btn-primary">Get in touch</a>
           <a href="/features/" class="btn btn-secondary">See it in action</a>
         </div>
       </div>
@@ -1269,6 +1269,55 @@
   </div>
 </section>
 
+<section class="inv" id="invoices">
+  <div class="container">
+    <div class="inv-grid">
+      <div class="inv-copy reveal">
+        <div class="section-eyebrow">Invoice scanning</div>
+        <h2 class="section-title">Photograph the invoice. The products fill themselves in.</h2>
+        <p>Take a picture of a supplier invoice and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you already carry.</p>
+        <p class="fine">You look it over and approve it before anything changes — and it remembers your answers, so the next invoice from that supplier fills in on its own.</p>
+      </div>
+      <div class="inv-demo reveal" id="invDemo" aria-hidden="true">
+        <div class="inv-paper">
+          <div class="inv-paper-head">Supplier invoice</div>
+          <div class="inv-l m"></div><div class="inv-l s"></div>
+          <div class="inv-l"></div><div class="inv-l m"></div>
+          <div class="inv-l s"></div><div class="inv-l"></div>
+          <div class="inv-l m"></div><div class="inv-l t"></div>
+          <div class="inv-scan"></div>
+        </div>
+        <div class="inv-out">
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Red Bull Sugar Free 12 fl oz</span><span class="inv-meta">24 units · matched</span></span>
+            <span class="inv-cost">$1.85</span>
+          </div>
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Kit Kat King Size</span><span class="inv-meta">36 units · matched</span></span>
+            <span class="inv-cost">$1.12</span>
+          </div>
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Pepsi Cola Soda 20 fl oz</span><span class="inv-meta">24 units · matched</span></span>
+            <span class="inv-cost">$0.98</span>
+          </div>
+          <div class="inv-row">
+            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><span class="inv-name">Romaine Lettuce</span><span class="inv-meta">12 units · matched</span></span>
+            <span class="inv-cost">$0.74</span>
+          </div>
+        </div>
+        <div class="inv-foot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Every line waits for your review before it updates your stock.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div id="features" style="scroll-margin-top: 80px;"></div>
 
 
@@ -1319,55 +1368,6 @@
 </section>
 
 
-
-<section class="inv" id="invoices">
-  <div class="container">
-    <div class="inv-grid">
-      <div class="inv-copy reveal">
-        <div class="section-eyebrow">Invoice scanning</div>
-        <h2 class="section-title">Photograph the invoice. The products fill themselves in.</h2>
-        <p>Take a picture of a supplier invoice and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you already carry.</p>
-        <p class="fine">You look it over and approve it before anything changes — and it remembers your answers, so the next invoice from that supplier fills in on its own.</p>
-      </div>
-      <div class="inv-demo reveal" id="invDemo" aria-hidden="true">
-        <div class="inv-paper">
-          <div class="inv-paper-head">Supplier invoice</div>
-          <div class="inv-l m"></div><div class="inv-l s"></div>
-          <div class="inv-l"></div><div class="inv-l m"></div>
-          <div class="inv-l s"></div><div class="inv-l"></div>
-          <div class="inv-l m"></div><div class="inv-l t"></div>
-          <div class="inv-scan"></div>
-        </div>
-        <div class="inv-out">
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Red Bull Sugar Free 12 fl oz</span><span class="inv-meta">24 units · matched</span></span>
-            <span class="inv-cost">$1.85</span>
-          </div>
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Kit Kat King Size</span><span class="inv-meta">36 units · matched</span></span>
-            <span class="inv-cost">$1.12</span>
-          </div>
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Pepsi Cola Soda 20 fl oz</span><span class="inv-meta">24 units · matched</span></span>
-            <span class="inv-cost">$0.98</span>
-          </div>
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Romaine Lettuce</span><span class="inv-meta">12 units · matched</span></span>
-            <span class="inv-cost">$0.74</span>
-          </div>
-        </div>
-        <div class="inv-foot">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          Every line waits for your review before it updates your stock.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="compare-band" id="shelf-labels">
   <div class="container">
@@ -1713,7 +1713,8 @@
 
 
   // checkout → customer side: one pinned block where scrolling physically
-  // turns the terminal around, copy swapping with it
+  // turns the terminal around, copy swapping with it. The displayed angle
+  // chases the scroll target so fast flicks glide instead of snapping.
   (function () {
     var sec = document.querySelector(".duo");
     var card = document.getElementById("duoCard");
@@ -1721,41 +1722,43 @@
     var texts = [].slice.call(sec.querySelectorAll(".duo-text"));
     var dots = [].slice.call(sec.querySelectorAll(".duo-dot"));
     var still = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var ticking = false;
+    var cur = 0, target = 0, rafId = 0;
 
-    function frame() {
-      ticking = false;
-      if (still.matches) return;
+    function targetT() {
       var r = sec.getBoundingClientRect();
       var span = sec.offsetHeight - window.innerHeight;
-      if (span <= 0) return;
+      if (span <= 0) return 0;
       var p = Math.min(1, Math.max(0, -r.top / span));
-
-      // the turn happens through the middle of the block
-      var t = Math.min(1, Math.max(0, (p - 0.28) / 0.44));
-      var e = t * t * (3 - 2 * t);              // ease in and out
-      var lift = Math.sin(Math.PI * e);          // peaks halfway through
-
+      return Math.min(1, Math.max(0, (p - 0.24) / 0.54));
+    }
+    function render(t) {
+      var e = t * t * t * (t * (t * 6 - 15) + 10);   // quintic ease, gentle at both ends
+      var lift = Math.sin(Math.PI * e);
       card.style.transform =
         "translateZ(" + (-190 * lift).toFixed(1) + "px)" +
         " rotateY(" + (180 * e).toFixed(2) + "deg)" +
         " rotateX(" + (7 * lift).toFixed(2) + "deg)" +
         " scale(" + (1 - 0.10 * lift).toFixed(4) + ")";
-
       var back = e > 0.5;
       texts.forEach(function (el, i) { el.classList.toggle("on", (i === 1) === back); });
       dots.forEach(function (el, i) { el.classList.toggle("on", (i === 1) === back); });
     }
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
-    }, { passive: true });
-    window.addEventListener("resize", frame);
+    function loop() {
+      target = targetT();
+      cur += (target - cur) * 0.12;
+      if (Math.abs(target - cur) < 0.0008) cur = target;
+      render(cur);
+      rafId = cur === target ? 0 : requestAnimationFrame(loop);
+    }
+    function kick() {
+      if (still.matches) { cur = targetT(); render(cur); return; }
+      if (!rafId) rafId = requestAnimationFrame(loop);
+    }
+    window.addEventListener("scroll", kick, { passive: true });
+    window.addEventListener("resize", kick);
     texts[0].classList.add("on");
-    frame();
+    cur = targetT(); render(cur);
   })();
-
-
-
 
   // run the invoice demo once it scrolls into view
   (function () {
@@ -1962,7 +1965,9 @@
 </script>
 
 <script>
-// phone hero: land tight on the register, scroll pulls back to the wide shot
+// phone hero: land tight on the register, scroll pulls back to the wide
+// shot. The displayed zoom chases the scroll position so the pull-back
+// glides instead of tracking every scroll step.
 (function () {
   if (!window.matchMedia("(max-width: 860px)").matches) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -1973,15 +1978,19 @@
   var hero = stage && stage.querySelector(".hero");
   var scrim = stage && stage.querySelector(".hero-scrim");
   if (!stage || !video || !media || !hero) return;
-  var REG_CX = 0.4727, W0 = 0.28125, AR = 1440 / 2560;
-  function draw() {
+  var REG_CX = 0.4727, W0 = 0.28125;
+  var cur = 0, rafId = 0;
+
+  function targetP() {
     var r = stage.getBoundingClientRect();
     var span = r.height - window.innerHeight;
-    var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
-    var e = p * p * (3 - 2 * p);
+    return span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+  }
+  function render(p) {
+    var e = p * p * p * (p * (p * 6 - 15) + 10);   // quintic: soft at both ends
     var vw = window.innerWidth;
-    var w = W0 + (1 - W0) * e;                  // visible source-width fraction
-    var k = 1 / w;                              // bands appear as the pull-back completes
+    var w = W0 + (1 - W0) * e;                     // visible source-width fraction
+    var k = 1 / w;                                 // bands appear as the pull-back completes
     var tx = -(REG_CX - 0.5) * vw * k * (1 - e);
     video.style.transform = "translate(" + tx.toFixed(1) + "px, -50%) scale(" + k.toFixed(4) + ")";
     if (inner) inner.style.opacity = String(Math.max(0, 1 - Math.max(0, (p - 0.45) / 0.3)));
@@ -1994,14 +2003,19 @@
     hero.style.backgroundColor = col;
     if (scrim) scrim.style.opacity = String(1 - b);
   }
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(function () { ticking = false; draw(); });
+  function loop() {
+    var target = targetP();
+    cur += (target - cur) * 0.12;
+    if (Math.abs(target - cur) < 0.0006) cur = target;
+    render(cur);
+    rafId = cur === target ? 0 : requestAnimationFrame(loop);
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", draw);
-  draw();
+  function kick() {
+    if (!rafId) rafId = requestAnimationFrame(loop);
+  }
+  window.addEventListener("scroll", kick, { passive: true });
+  window.addEventListener("resize", kick);
+  cur = targetP(); render(cur);
 })();
 </script>
 </body>
