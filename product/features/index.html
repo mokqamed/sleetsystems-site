@@ -197,7 +197,7 @@
   .lib-list { border-top: 1px solid #1e293b; }
 
   /* rows */
-  .ft { border-bottom: 1px solid #e2e8f0; }
+  .ft { border-bottom: 1px solid #e2e8f0; scroll-margin-top: 90px; }
   .ft-q {
     display: grid; grid-template-columns: 48px minmax(0, 1fr) 28px;
     align-items: baseline; gap: 16px;
@@ -378,7 +378,7 @@
         <h2>At the register</h2>
         <p class="lib-note">The counter screen your cashier works on all day.</p>
         <div class="lib-list">
-          <article class="ft">
+          <article class="ft" id="f-checkout">
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-1">
               <span class="ft-idx">01</span>
               <span class="ft-txt"><span class="ft-name">Checkout and scanning</span><span class="ft-sum">Scan, tap or search — the ticket adds itself up</span></span>
@@ -389,7 +389,7 @@
               <div class="ft-media" data-video="/assets/register_scan_1920.mp4" data-poster="/assets/register_scan_poster.jpg"></div>
             </div></div></div>
           </article>
-          <article class="ft">
+          <article class="ft" id="f-pricing">
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-2">
               <span class="ft-idx">02</span>
               <span class="ft-txt"><span class="ft-name">Cash and card pricing</span><span class="ft-sum">Both prices on the shelf, on both screens, and on the receipt</span></span>
@@ -470,7 +470,7 @@
               <div><p>Take a picture of a supplier invoice with your phone, or upload it in the dashboard, and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you carry. You approve it before anything in your store changes. And it remembers your answers — match a supplier's line to your product once, and the next invoice from that supplier fills in on its own.</p></div>
             </div></div></div>
           </article>
-          <article class="ft">
+          <article class="ft" id="f-inventory">
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-9">
               <span class="ft-idx">09</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Products and inventory</span><span class="ft-sum">One product list behind every screen</span></span>
@@ -648,6 +648,16 @@
       });
     }, { passive: true });
   })();
+</script>
+
+<script>
+// arriving with a #f-… hash opens that feature row
+(function () {
+  var el = location.hash && document.getElementById(location.hash.slice(1));
+  if (!el || !el.classList.contains("ft")) return;
+  var btn = el.querySelector(".ft-q");
+  if (btn) setTimeout(function () { btn.click(); el.scrollIntoView({ block: "start" }); }, 60);
+})();
 </script>
 </body>
 </html>
