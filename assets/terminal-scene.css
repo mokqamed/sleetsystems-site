@@ -1,0 +1,7 @@
+.terminal-scene{position:relative;width:100%;aspect-ratio:2688/1520;overflow:hidden}
+.terminal-scene>.terminal-background{display:block;width:100%;height:100%;max-width:none;object-fit:fill;margin:0;mix-blend-mode:normal}
+.terminal-scene>.terminal-screen{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;object-fit:fill;margin:0;mix-blend-mode:normal;transform-origin:0 0;visibility:hidden;pointer-events:none}
+.terminal-scene.screen-positioned>.terminal-screen{visibility:visible}
+.terminal-crop{position:relative;overflow:hidden;aspect-ratio:1.035;background:#e8f1fb}
+.terminal-crop>.terminal-scene{position:absolute;top:0;bottom:0;width:auto;height:100%;max-width:none;right:-11%;aspect-ratio:2688/1520}
+@media(max-width:680px){.terminal-crop{aspect-ratio:1.28}.terminal-crop>.terminal-scene{right:-6%}}

@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18447036836"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-18447036836');
+  if (['www.sleetpos.com', 'sleetpos.com', 'sleetsystems.com', 'www.sleetsystems.com'].includes(location.hostname)) {
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18447036836';
+    document.head.appendChild(tag);
+    gtag('config', 'AW-18447036836');
+  }
 </script>
 <!-- Event snippet for Contact conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
@@ -28,23 +34,23 @@ function gtag_report_conversion(url) {
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="SleetPOS is an all-in-one POS system for bodegas, grocery stores, smoke shops, delis, boutiques and more: register, customer screen, inventory, owner dashboard and iPhone app. Built in New York." />
-<title>SleetPOS | All-in-One POS System for Independent Stores</title>
+<meta name="description" content="Meet SleetPOS: a complete counter setup for delis, convenience stores, cafés and independent merchants. Explore the hardware, software and ways to get started." />
+<title>SleetPOS | Complete POS for Delis, Convenience Stores & Cafés</title>
 <link rel="canonical" href="https://www.sleetpos.com/" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="SleetPOS" />
-<meta property="og:title" content="SleetPOS | All-in-One POS System for Independent Stores" />
-<meta property="og:description" content="SleetPOS is an all-in-one POS system for bodegas, grocery stores, smoke shops, delis, boutiques and more: register, customer screen, inventory, owner dashboard and iPhone app. Built in New York." />
+<meta property="og:title" content="SleetPOS | Complete POS for Delis, Convenience Stores & Cafés" />
+<meta property="og:description" content="Meet SleetPOS: a complete counter setup for delis, convenience stores, cafés and independent merchants. Explore the hardware, software and ways to get started." />
 <meta property="og:url" content="https://www.sleetpos.com/" />
 <meta property="og:image" content="https://www.sleetpos.com/assets/og-sleetpos.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SleetPOS | All-in-One POS System for Independent Stores" />
-<meta name="twitter:description" content="SleetPOS is an all-in-one POS system for bodegas, grocery stores, smoke shops, delis, boutiques and more: register, customer screen, inventory, owner dashboard and iPhone app. Built in New York." />
+<meta name="twitter:title" content="SleetPOS | Complete POS for Delis, Convenience Stores & Cafés" />
+<meta name="twitter:description" content="Meet SleetPOS: a complete counter setup for delis, convenience stores, cafés and independent merchants. Explore the hardware, software and ways to get started." />
 <meta name="twitter:image" content="https://www.sleetpos.com/assets/og-sleetpos.jpg" />
 <script type="application/ld+json">
 {
@@ -114,9 +120,9 @@ function gtag_report_conversion(url) {
       "applicationSubCategory": "All-in-one point of sale (POS) system",
       "operatingSystem": "Android, iOS, Web",
       "url": "https://www.sleetpos.com/",
-      "description": "SleetPOS is an all-in-one point of sale (POS) system for independent stores — bodegas, grocery stores, smoke shops, delis, boutiques, liquor stores and wholesalers — with fast checkout, live inventory, cash and card pricing, a customer-facing screen, an owner dashboard and an iPhone app. Built by Sleet Systems in New York.",
+      "description": "SleetPOS is an all-in-one point of sale (POS) system for independent businesses including delis, convenience stores, cafés, grocery stores and independent retailers — with fast checkout, live inventory, cash and card pricing, a customer-facing screen, an owner dashboard and an iPhone app. Built by Sleet Systems in New York.",
       "image": "https://www.sleetpos.com/assets/og-sleetpos.jpg",
-      "screenshot": "https://www.sleetpos.com/assets/ui_register.webp",
+      "screenshot": "https://www.sleetpos.com/assets/current_register_cafe.webp",
       "featureList": [
         "Fast checkout with barcode scanning",
         "Live inventory",
@@ -130,7 +136,7 @@ function gtag_report_conversion(url) {
       ],
       "audience": {
         "@type": "BusinessAudience",
-        "audienceType": "Independent retail stores: bodegas, convenience stores, grocery stores, smoke shops, delis, liquor stores, boutiques, gift shops, wholesalers"
+        "audienceType": "Delis, convenience stores, cafés, grocery stores and independent retailers"
       },
       "areaServed": {
         "@type": "State",
@@ -157,1891 +163,163 @@ function gtag_report_conversion(url) {
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    overflow-x: clip;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: #0f172a;
-    line-height: 1.6;
-    background: #ffffff;
-  }
-  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-  .container-wide { max-width: none; width: 100%; margin: 0; padding: 0 clamp(28px, 6vw, 108px); }
-
-  /* ---------- Header ---------- */
-  header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid #e2e8f0;
-    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  header.nav-hidden { transform: translateY(-100%); }
-  /* Clover-style: see-through over the hero video, solid after scrolling past */
-  header { transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.3s ease, border-color 0.3s ease; }
-  header.transparent {
-    background: transparent !important;
-    border-bottom-color: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-  header.transparent .nav-top { color: rgba(255, 255, 255, 0.85); }
-  header.transparent li:hover > .nav-top,
-  header.transparent .nav-top:focus-visible { color: #ffffff; }
-
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .logo {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 800; font-size: 20px; letter-spacing: -0.02em;
-    color: #ffffff; text-decoration: none;
-  }
-  .logo img { height: 34px; width: auto; display: block; }
-  .nav-links { display: flex; gap: 8px; align-items: center; list-style: none; }
-  .nav-links li { position: relative; }
-  .nav-top {
-    display: inline-flex; align-items: center; gap: 6px;
-    color: #475569; text-decoration: none; font-weight: 500; font-size: 14.5px;
-    padding: 10px 12px; border-radius: 8px;
-    position: relative;
-    transition: color 0.18s ease;
-  }
-  /* Clover-style sliding underline */
-  .nav-top::after {
-    content: "";
-    position: absolute;
-    left: 12px; right: 12px; bottom: 4px;
-    height: 2px;
-    background: #60a5fa;
-    border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  li:hover > .nav-top, .nav-top:focus-visible { color: #0f172a; }
-  li:hover > .nav-top::after, .nav-top:focus-visible::after { transform: scaleX(1); }
-  .chev { transition: transform 0.22s ease; margin-top: 1px; opacity: 0.7; }
-  li:hover .chev { transform: rotate(180deg); opacity: 1; }
-
-  /* dropdown panels */
-  .panel {
-    position: absolute; top: calc(100% + 10px); left: 0;
-    min-width: 280px;
-    background: #ffffff;
-    border-radius: 14px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22), 0 4px 12px rgba(15, 23, 42, 0.1);
-    padding: 8px;
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
-    transform-origin: top left;
-    pointer-events: none;
-    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  /* invisible bridge so the pointer can travel from the tab to the panel */
-  .panel::before {
-    content: "";
-    position: absolute;
-    top: -12px; left: 0; right: 0; height: 12px;
-  }
-  li:hover > .panel, li:focus-within > .panel {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-  }
-  .panel-item {
-    display: block;
-    padding: 10px 12px;
-    border-radius: 9px;
-    text-decoration: none;
-    transition: background 0.14s ease;
-  }
-  .panel-item:hover { background: #eff6ff; }
-  .panel-title {
-    display: block;
-    color: #0f172a; font-weight: 600; font-size: 14.5px;
-    transition: color 0.14s ease;
-  }
-  .panel-item:hover .panel-title { color: #2563eb; }
-  .panel-desc {
-    display: block;
-    color: #64748b; font-size: 13px; line-height: 1.45;
-    margin-top: 1px;
-  }
-  .nav-cta {
-    background: #2563eb; color: #ffffff !important; padding: 9px 16px;
-    border-radius: 8px; font-weight: 600 !important; font-size: 14.5px;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 10px;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
-
-  /* ---------- Hero: full-bleed background video ---------- */
-  .hero {
-    position: relative;
-    /* fill the viewport on landing — nothing of the next section peeks in */
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background: #ffffff;
-    color: #ffffff;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: 50% center;
-  }
-  .hero-scrim {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(90deg, rgba(4, 8, 18, 0.82) 0%, rgba(4, 8, 18, 0.55) 42%, rgba(4, 8, 18, 0.18) 75%, rgba(4, 8, 18, 0.3) 100%),
-      linear-gradient(180deg, rgba(4, 8, 18, 0.45) 0%, rgba(4, 8, 18, 0) 30%, rgba(4, 8, 18, 0) 70%, rgba(4, 8, 18, 0.5) 100%);
-  }
-  .hero-inner {
-    position: relative;
-    width: 100%;
-    padding: 140px 0 96px;
-  }
-  .hero-copy { max-width: 560px; }
-  .hero-copy h1 { max-width: none; width: max-content; }
-  .hero h1 {
-    font-size: clamp(38px, 4.8vw, 60px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: #ffffff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 24px rgba(4, 8, 18, 0.45);
-  }
-  .hero h1 .rotline {
-    display: inline-block;
-    white-space: nowrap;
-    transform-origin: left bottom;
-  }
-  .hero h1 .rotator {
-    color: #60a5fa;
-    display: inline-block;
-    transition: opacity 0.26s ease, transform 0.26s ease;
-  }
-  .hero h1 .rotator.swap { opacity: 0; transform: translateY(14px); }
-  .hero p.lead {
-    font-size: 18px;
-    color: #e2e8f0;
-    max-width: 480px;
-    margin-bottom: 10px;
-    text-shadow: 0 1px 16px rgba(4, 8, 18, 0.5);
-  }
-  .hero p.lead-sub {
-    font-size: 15.5px;
-    color: #a8b6cc;
-    max-width: 460px;
-    margin-bottom: 30px;
-    text-shadow: 0 1px 16px rgba(4, 8, 18, 0.5);
-  }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 24px; border-radius: 10px;
-    font-weight: 600; font-size: 16px; text-decoration: none;
-    transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
-    cursor: pointer; border: none;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btn-primary { background: #2563eb; color: white; box-shadow: 0 6px 24px rgba(37, 99, 235, 0.45); }
-  .btn-primary:hover { background: #1d4ed8; }
-  .btn-secondary { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.14); }
-  .hero-note { font-size: 14px; color: #94a3b8; font-weight: 500; }
-
-
-  /* load-in animation */
-  @media (prefers-reduced-motion: no-preference) {
-    .rise { opacity: 0; transform: translateY(14px); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
-    .rise-1 { animation-delay: 0.05s; }
-    .rise-2 { animation-delay: 0.15s; }
-    .rise-3 { animation-delay: 0.25s; }
-    .rise-4 { animation-delay: 0.35s; }
-    .rise-5 { animation-delay: 0.45s; }
-    .hero-bg { opacity: 0; animation: fadeIn 1.2s ease 0.1s forwards; }
-    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { to { opacity: 1; } }
-  }
-
-
-  /* hero entrance: each headline line rises out of its own mask */
-  .hero-title { }
-  .hero-title .line { display: block; overflow: hidden; padding-bottom: 2px; }
-  .hero-title .line-in { display: inline-block; will-change: transform; }
-  .hero-title.uncage .line { overflow: visible; }
-  .hero-copy { will-change: transform, opacity; }
-
-  /* a thin rail with a dot falling down it — the cue to keep scrolling */
-  .scroll-cue {
-    position: absolute; bottom: 30px; left: 50%;
-    width: 1px; height: 48px;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.22);
-    overflow: hidden;
-    transition: opacity 0.45s ease;
-    pointer-events: none;
-    z-index: 2;
-  }
-  .scroll-cue-dot {
-    position: absolute; left: -2px; top: -8px;
-    width: 5px; height: 5px; border-radius: 50%;
-    background: #60a5fa;
-    box-shadow: 0 0 10px rgba(96, 165, 250, 0.9);
-  }
-  .hero.scrolled .scroll-cue { opacity: 0; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-title .line-in { transform: translateY(112%); animation: lineRise 0.95s cubic-bezier(0.16, 0.9, 0.24, 1) forwards; }
-    .hero-title .line:nth-child(1) .line-in { animation-delay: 0.12s; }
-    .hero-title .line:nth-child(2) .line-in { animation-delay: 0.26s; }
-    @keyframes lineRise { to { transform: translateY(0); } }
-    .scroll-cue-dot { animation: cueFall 2.1s cubic-bezier(0.45, 0, 0.25, 1) infinite; }
-    @keyframes cueFall {
-      0%   { transform: translateY(0);    opacity: 0; }
-      15%  { opacity: 1; }
-      75%  { opacity: 1; }
-      100% { transform: translateY(56px); opacity: 0; }
-    }
-  }
-
-  @media (max-width: 860px) {
-    .scroll-cue { display: none; }
-  }
-
-
-  /* the hero holds still for one extra screen while the footage shrinks into
-     a rounded card, then hands off to the section below */
-  .hero-stage { height: 200vh; position: relative; background: #ffffff; }
-  .hero-stage > .hero { position: sticky; top: 0; height: 100vh; height: 100dvh; }
-  .hero-media {
-    position: absolute; inset: 0;
-    overflow: hidden;
-    will-change: transform, border-radius;
-    transform-origin: 50% 42%;
-    backface-visibility: hidden;
-  }
-  .hero-media .hero-bg, .hero-media .hero-scrim { position: absolute; inset: 0; }
-
-  @media (max-width: 860px) {
-    /* phones: full-screen landing pinned for one extra screen — you land
-       tight on the register, scrolling pulls the camera back to the whole
-       counter, then the page continues */
-    .hero-stage { height: 185svh; height: 185dvh; background: #dbeafe; }
-    .hero-stage > .hero {
-      position: sticky; top: 0; height: 100svh; height: 100dvh;
-      display: flex; align-items: flex-end;
-    }
-    .hero-media { position: absolute; inset: 0; overflow: hidden; transform: none !important; border-radius: 0 !important; background: #05070c; }
-    .hero-media .hero-bg {
-      position: absolute; left: 0; top: 50%;
-      width: 100%; height: auto;
-      transform-origin: 50% 50%;
-      will-change: transform;
-    }
-    .hero-media .hero-scrim {
-      display: block; position: absolute; inset: 0;
-      background:
-        linear-gradient(180deg, rgba(4,8,18,0.42) 0%, rgba(4,8,18,0) 18%),
-        linear-gradient(180deg, rgba(4,8,18,0) 50%, rgba(4,8,18,0.4) 76%, rgba(4,8,18,0.78) 100%);
-    }
-    .hero-inner { transition: opacity 0.2s linear; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-stage { height: auto; }
-    .hero-stage > .hero { position: static; }
-  }
-
-  /* ---------- Sections (light) ---------- */
-  section { scroll-margin-top: 80px; }
-  .section-eyebrow {
-    color: #2563eb; font-weight: 600; font-size: 14px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .section-title {
-    font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 800; letter-spacing: -0.02em;
-    color: #0f172a; margin-bottom: 16px; max-width: 780px;
-    line-height: 1.15;
-  }
-  .section-lead {
-    font-size: 18px; color: #475569; max-width: 640px;
-  }
-
-  /* ---------- Industries band ---------- */
-  .industries {
-    background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
-    padding: 88px 0;
-  }
-  .industry-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 40px;
-  }
-  .industry {
-    display: flex; flex-direction: column; align-items: center; gap: 10px;
-    text-align: center;
-    background: #ffffff;
-    border: 1px solid #dbeafe;
-    border-radius: 14px;
-    padding: 22px 12px 18px;
-    text-decoration: none;
-    color: #0f172a;
-    font-weight: 600; font-size: 14.5px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  }
-  .industry:hover {
-    transform: translateY(-3px);
-    border-color: #93c5fd;
-    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.14);
-  }
-  .industry svg { color: #2563eb; }
-  @media (max-width: 1000px) {
-    .industry-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  @media (max-width: 620px) {
-    .industries { padding: 56px 0; }
-    .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-
-  /* industry cards pop in one after another as the band arrives */
-  .industry.pop {
-    opacity: 0;
-    transform: translateY(20px) scale(0.94);
-    transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.18, 0.9, 0.28, 1.25),
-                box-shadow 0.15s ease, border-color 0.15s ease;
-  }
-  .industry.pop.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .industry.pop { opacity: 1; transform: none; transition: none; }
-  }
-
-
-
-  /* ---------- Checkout → customer side: one scroll-driven block ---------- */
-  .duo { position: relative; height: 300vh; background: #ffffff; }
-  .duo-pin {
-    position: sticky; top: 0;
-    height: 100vh; height: 100dvh;
-    display: grid; align-items: center;
-    grid-template-columns: minmax(0, 1.7fr) minmax(0, 3.3fr);
-    gap: 48px;
-    max-width: 1260px; margin: 0 auto; padding: 0 24px;
-    overflow: hidden;
-  }
-  .duo-copy { position: relative; min-height: 260px; }
-  .duo-text {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; justify-content: center;
-    opacity: 0; transform: translateY(16px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    pointer-events: none;
-  }
-  .duo-text.on { opacity: 1; transform: none; pointer-events: auto; }
-  .duo-text p { font-size: 17px; color: #475569; max-width: 460px; }
-  .duo-stage { perspective: 2000px; perspective-origin: 50% 45%; position: relative; }
-  /* soft ground shadow so the card never leaves a hole while it is edge-on */
-  .duo-stage::before {
-    content: ""; position: absolute; inset: 8% 6%;
-    border-radius: 24px;
-    background: radial-gradient(ellipse at 50% 60%, rgba(15, 23, 42, 0.13), rgba(15, 23, 42, 0) 72%);
-    filter: blur(8px);
-    pointer-events: none;
-  }
-  .duo-card {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    transform-style: preserve-3d;
-    will-change: transform;
-  }
-  .duo-face {
-    position: absolute; inset: 0;
-    backface-visibility: hidden; -webkit-backface-visibility: hidden;
-    border-radius: 16px; overflow: hidden;
-    border: 1px solid #e2e8f0;
-    background: #ffffff;
-    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.16);
-  }
-  .duo-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .duo-back { transform: rotateY(180deg); }
-  .duo-tag {
-    position: absolute; left: 14px; bottom: 14px;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 6px 12px; border-radius: 999px;
-    background: rgba(4, 8, 18, 0.72); color: #e2e8f0; line-height: 1.4;
-  }
-  .duo-back .duo-tag { background: rgba(37, 99, 235, 0.92); color: #ffffff; left: auto; right: 14px; }
-  .duo-dots {
-    position: absolute; left: 24px; bottom: 34px;
-    display: flex; gap: 7px;
-  }
-  .duo-dot { width: 7px; height: 7px; border-radius: 50%; background: #cbd5e1; transition: background 0.3s ease, transform 0.3s ease; }
-  .duo-dot.on { background: #2563eb; transform: scale(1.25); }
-  #pricing { position: absolute; top: 55%; left: 0; width: 1px; height: 1px; }
-
-  @media (max-width: 860px) {
-    .duo { height: 260vh; }
-    .duo-pin {
-      grid-template-columns: 1fr;
-      align-content: center;
-      gap: 26px;
-      padding: 0 18px;
-    }
-    .duo-copy { min-height: 210px; order: 2; }
-    .duo-stage { order: 1; }
-    .duo-dots { left: 18px; bottom: 14px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .duo { height: auto; }
-    .duo-pin { position: static; height: auto; padding: 56px 24px; }
-    .duo-copy { min-height: 0; }
-    .duo-text { position: static; opacity: 1; transform: none; margin-bottom: 24px; }
-    .duo-card { transform: none !important; }
-  }
-
-  /* ---------- Feature sections ---------- */
-  .feature { padding: 96px 0; }
-  .feature.alt { background: #f8fafc; }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 72px;
-    align-items: center;
-  }
-  .feature-grid.flip .feature-copy { order: 2; }
-  .feature-grid.flip .feature-visual { order: 1; }
-  /* visual column takes more room (60/40) whichever side it is on */
-  .feature-grid.big { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 48px; }
-  .feature-grid.big.flip { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
-  .feature-copy h2 { margin-bottom: 14px; }
-  .feature-copy p { font-size: 17px; color: #475569; max-width: 480px; }
-  .feature-visual { line-height: 0; }
-  .feature-visual img {
-    width: 100%; height: auto;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
-  }
-  .feature-visual.bare img { border: none; box-shadow: none; border-radius: 0; }
-  .feature-visual.phone { display: flex; justify-content: center; }
-  .feature-visual.phone img { max-height: 620px; width: auto; }
-
-
-
-
-  /* ---------- Invoice scanning demo ---------- */
-  .inv { background: #f8fafc; padding: 100px 0; }
-  .inv-grid {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-    gap: 60px; align-items: center;
-  }
-  .inv-copy p { font-size: 17px; color: #475569; max-width: 460px; }
-  .inv-copy .fine { font-size: 14.5px; color: #64748b; margin-top: 14px; }
-  .inv-demo { display: grid; grid-template-columns: 0.85fr 1fr; gap: 22px; align-items: start; }
-
-  .inv-paper {
-    position: relative; overflow: hidden;
-    background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
-    padding: 18px 16px 22px;
-    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10);
-    transform: rotate(-1.4deg);
-  }
-  .inv-paper-head {
-    font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em;
-    color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;
-  }
-  .inv-l { height: 7px; border-radius: 3px; background: #e8edf4; margin-bottom: 9px; }
-  .inv-l.s { width: 58%; }
-  .inv-l.m { width: 82%; }
-  .inv-l.t { width: 40%; background: #dbe3ee; }
-  .inv-scan {
-    position: absolute; left: 0; right: 0; top: -30%;
-    height: 34%;
-    background: linear-gradient(180deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.16) 55%, rgba(37,99,235,0) 100%);
-    border-bottom: 2px solid rgba(37, 99, 235, 0.55);
-    opacity: 0;
-  }
-  .inv-demo.go .inv-scan { animation: invScan 2.1s cubic-bezier(0.4, 0, 0.3, 1) 0.2s 1 forwards; }
-  @keyframes invScan {
-    0%   { top: -34%; opacity: 0; }
-    12%  { opacity: 1; }
-    88%  { opacity: 1; }
-    100% { top: 100%; opacity: 0; }
-  }
-
-  .inv-out { display: grid; gap: 9px; }
-  .inv-row {
-    display: flex; align-items: center; gap: 10px;
-    background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px;
-    padding: 11px 13px;
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
-    opacity: 0; transform: translateX(14px);
-    transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.2, 0.85, 0.25, 1.1);
-  }
-  .inv-demo.go .inv-row { opacity: 1; transform: none; }
-  .inv-demo.go .inv-row:nth-child(1) { transition-delay: 0.85s; }
-  .inv-demo.go .inv-row:nth-child(2) { transition-delay: 1.15s; }
-  .inv-demo.go .inv-row:nth-child(3) { transition-delay: 1.45s; }
-  .inv-demo.go .inv-row:nth-child(4) { transition-delay: 1.75s; }
-  .inv-tick {
-    flex-shrink: 0; width: 19px; height: 19px; border-radius: 50%;
-    background: #dcfce7; color: #16a34a;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .inv-row > span:nth-of-type(2) { min-width: 0; }
-  .inv-name { display: block; font-size: 13.5px; font-weight: 600; color: #0f172a; line-height: 1.3; }
-  .inv-meta { display: block; font-size: 12px; color: #64748b; margin-top: 2px; }
-  .inv-cost { margin-left: auto; font-size: 13.5px; font-weight: 700; color: #0f172a; }
-  .inv-foot {
-    grid-column: 1 / -1;
-    margin-top: 4px; font-size: 13px; color: #64748b;
-    display: flex; align-items: center; gap: 8px;
-    opacity: 0; transition: opacity 0.5s ease 2.1s;
-  }
-  .inv-demo.go .inv-foot { opacity: 1; }
-
-  @media (max-width: 860px) {
-    .inv { padding: 58px 0; }
-    .inv-grid { grid-template-columns: 1fr; gap: 30px; }
-    .inv-demo { grid-template-columns: 0.8fr 1fr; gap: 14px; }
-    .inv-name { font-size: 12.5px; }
-    .inv-cost { font-size: 12.5px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .inv-scan { display: none; }
-    .inv-row, .inv-foot { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ---------- Before / after slider ---------- */
-  .compare-band { background: #060a14; color: #ffffff; padding: 96px 0; }
-  .compare-band .section-eyebrow { color: #60a5fa; }
-  .compare-band .section-title { color: #ffffff; }
-  .compare-head { max-width: 700px; margin-bottom: 40px; }
-  .compare-head p { font-size: 17px; color: #94a3b8; }
-  .ba {
-    position: relative;
-    --pos: 50%;
-    border-radius: 16px;
-    overflow: hidden;
-    line-height: 0;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-    touch-action: pan-y;
-  }
-  .ba img { width: 100%; height: auto; display: block; user-select: none; -webkit-user-drag: none; }
-  .ba-after {
-    position: absolute; inset: 0;
-    clip-path: inset(0 0 0 var(--pos));
-  }
-  .ba-line {
-    position: absolute; top: 0; bottom: 0; left: var(--pos);
-    width: 2px; background: rgba(255,255,255,0.9);
-    transform: translateX(-1px);
-    pointer-events: none;
-  }
-  .ba-knob {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 46px; height: 46px; border-radius: 50%;
-    background: #ffffff; color: #0f172a;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-  }
-  .ba-range {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    margin: 0; opacity: 0; cursor: ew-resize;
-    -webkit-appearance: none; appearance: none; background: transparent;
-  }
-  .ba-range:focus-visible + .ba-line .ba-knob { outline: 3px solid #60a5fa; outline-offset: 3px; }
-  .ba-tag {
-    position: absolute; top: 16px;
-    font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 7px 13px; border-radius: 999px;
-    background: rgba(4, 8, 18, 0.72);
-    color: #e2e8f0;
-    line-height: 1.4;
-    pointer-events: none;
-  }
-  .ba-tag-l { left: 16px; }
-  .ba-tag-r { right: 16px; background: rgba(37, 99, 235, 0.9); color: #ffffff; }
-  .compare-note { margin-top: 18px; font-size: 14.5px; color: #64748b; }
-
-  @media (max-width: 860px) {
-    .compare-band { padding: 56px 0; }
-    .compare-head { margin-bottom: 26px; }
-    .ba-knob { width: 38px; height: 38px; }
-    .ba-tag { font-size: 11px; padding: 5px 10px; top: 10px; }
-    .ba-tag-l { left: 10px; }
-    .ba-tag-r { right: 10px; }
-  }
-
-  /* ---------- Hardware ---------- */
-  /* ---------- scroll film — the register, turned in your hands ---------- */
-  .film-stage { height: 380vh; position: relative; background: #05070c; }
-  .film-pin {
-    position: sticky; top: 0; height: 100vh; height: 100dvh;
-    overflow: hidden; background: #05070c;
-  }
-  .film-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .film-copy {
-    position: absolute; z-index: 2; left: 0; right: 0; bottom: 9vh;
-  }
-  .film-beat {
-    position: absolute; bottom: 0; left: 24px; right: 24px;
-    max-width: 560px; margin: 0 auto; text-align: center;
-    opacity: 0; transform: translateY(10px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
-    pointer-events: none;
-  }
-  @media (min-width: 861px) {
-    .film-beat { left: 6vw; right: auto; margin: 0; text-align: left; }
-  }
-  .film-beat.on { opacity: 1; transform: none; }
-  .film-beat .section-eyebrow { color: #60a5fa; }
-  .film-beat h2 {
-    font-size: clamp(26px, 3.4vw, 42px); font-weight: 800; letter-spacing: -0.02em;
-    line-height: 1.08; color: #ffffff; margin-bottom: 10px;
-  }
-  .film-beat p { font-size: clamp(15px, 1.35vw, 17.5px); color: #a7b3c4; line-height: 1.6; max-width: 46ch; }
-  .film-mobile, .film-still, .film-beat-mobile { display: none; }
-  @media (max-width: 860px) {
-    .film-stage { height: auto; }
-    .film-pin { position: static; height: auto; overflow: visible; padding: 52px 0 26px; }
-    .film-canvas { display: none; }
-    .film-mobile { display: block; width: 100%; height: auto; }
-    .film-copy { position: static; }
-    .film-beat { display: none; }
-    .film-beat-mobile {
-      display: block; margin: 26px auto 0; padding: 0 24px;
-      max-width: 560px; text-align: center;
-    }
-    .film-beat-mobile .section-eyebrow { color: #60a5fa; }
-    .film-beat-mobile h2 {
-      font-size: 24px; font-weight: 800; letter-spacing: -0.02em;
-      line-height: 1.1; color: #ffffff; margin-bottom: 10px;
-    }
-    .film-beat-mobile p { font-size: 15px; color: #a7b3c4; line-height: 1.6; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .film-stage { height: auto; }
-    .film-pin { position: static; height: auto; padding: 52px 0 26px; }
-    .film-canvas, .film-mobile { display: none !important; }
-    .film-still { display: block; width: 100%; height: auto; }
-    .film-copy { position: static; }
-    .film-beat { position: static; opacity: 1; transform: none; margin: 26px auto 0; }
-  }
-
-
-
-
-  /* ---------- Getting started ---------- */
-  .steps-band { background: #f8fafc; padding: 104px 0; }
-  .steps-head { max-width: 720px; margin-bottom: 56px; }
-  .steps-head p { font-size: 17.5px; color: #475569; margin-top: 14px; }
-  .steps {
-    position: relative;
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 40px;
-  }
-  /* the rule that joins the three steps, drawn as the band arrives */
-  .steps-rule {
-    position: absolute; top: 34px; left: 8%; right: 8%;
-    height: 2px; background: #e2e8f0; border-radius: 2px; overflow: hidden;
-  }
-  .steps-rule::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(90deg, #2563eb, #60a5fa);
-    transform: scaleX(0); transform-origin: left center;
-    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
-  }
-  .steps.drawn .steps-rule::after { transform: scaleX(1); }
-  .step { position: relative; padding-top: 0; }
-  .step-num {
-    position: relative; z-index: 1;
-    width: 68px; height: 68px; border-radius: 50%;
-    background: #ffffff; border: 2px solid #e2e8f0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; font-weight: 800; color: #94a3b8; letter-spacing: -0.02em;
-    margin-bottom: 26px;
-    transition: border-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-  }
-  .steps.drawn .step:nth-child(1) .step-num { transition-delay: 0.35s; }
-  .steps.drawn .step:nth-child(2) .step-num { transition-delay: 0.85s; }
-  .steps.drawn .step:nth-child(3) .step-num { transition-delay: 1.35s; }
-  .steps.drawn .step-num {
-    border-color: #2563eb; color: #2563eb;
-    box-shadow: 0 10px 26px rgba(37, 99, 235, 0.18);
-    transform: translateY(-2px);
-  }
-  .step h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a; margin-bottom: 10px; }
-  .step p { font-size: 16px; color: #475569; line-height: 1.65; max-width: 320px; }
-
-  @media (max-width: 860px) {
-    .steps-band { padding: 60px 0; }
-    .steps-head { margin-bottom: 32px; }
-    .steps { grid-template-columns: 1fr; gap: 30px; }
-    .steps-rule { display: none; }
-    .step-num { width: 54px; height: 54px; font-size: 18px; margin-bottom: 16px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .steps-rule::after { transform: scaleX(1); transition: none; }
-    .step-num { transition: none; border-color: #2563eb; color: #2563eb; }
-  }
-
-  /* ---------- FAQ ---------- */
-  .faq-band { background: #ffffff; padding: 112px 0 104px; }
-  .faq-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
-  .faq-head .section-eyebrow { margin-bottom: 14px; }
-  .faq-head .section-title { margin: 0 auto; }
-  .faq-list { max-width: 880px; margin: 0 auto; border-top: 1px solid #e9eef5; }
-  .qa { border-bottom: 1px solid #e9eef5; }
-  .qa-q {
-    position: relative;
-    display: flex; align-items: baseline; gap: 22px;
-    width: 100%; text-align: left;
-    background: none; border: 0; cursor: pointer;
-    padding: 30px 44px 30px 0;
-    font-family: inherit;
-    font-size: clamp(18px, 2vw, 21px); font-weight: 650; letter-spacing: -0.015em;
-    color: #0f172a;
-    transition: color 0.22s ease;
-  }
-  .qa-q:hover { color: #2563eb; }
-  .qa-q:focus-visible { outline: 2px solid #60a5fa; outline-offset: 4px; border-radius: 6px; }
-  .qa.open .qa-q { color: #2563eb; }
-  /* thin chevron that turns as the answer opens */
-  .qa-mark {
-    position: absolute; right: 6px; top: 50%;
-    width: 13px; height: 13px;
-    margin-top: -7px;
-    border-right: 1.8px solid #94a3b8;
-    border-bottom: 1.8px solid #94a3b8;
-    transform: rotate(45deg);
-    transform-origin: 60% 60%;
-    transition: transform 0.42s cubic-bezier(0.2, 0.85, 0.2, 1), border-color 0.22s ease;
-  }
-  .qa.open .qa-mark { transform: rotate(-135deg); border-color: #2563eb; }
-  /* a hairline that draws itself down the side of an open answer */
-  .qa-a {
-    display: grid; grid-template-rows: 0fr;
-    transition: grid-template-rows 0.44s cubic-bezier(0.2, 0.85, 0.2, 1);
-  }
-  .qa.open .qa-a { grid-template-rows: 1fr; }
-  .qa-a > div { overflow: hidden; }
-  .qa-a p {
-    position: relative;
-    margin: 0; padding: 0 56px 32px 0;
-    max-width: 660px;
-    font-size: 16.5px; line-height: 1.7; color: #475569;
-    opacity: 0; transform: translateY(-6px);
-    transition: opacity 0.32s ease 0.06s, transform 0.32s ease 0.06s;
-  }
-  .qa.open .qa-a p { opacity: 1; transform: none; }
-  .faq-foot { text-align: center; margin-top: 44px; font-size: 16px; color: #64748b; }
-  .faq-foot a { color: #2563eb; font-weight: 600; text-decoration: none; }
-  .faq-foot a:hover { text-decoration: underline; }
-
-  @media (max-width: 860px) {
-    .faq-band { padding: 60px 0 56px; }
-    .faq-head { margin-bottom: 30px; }
-    .qa-q { padding: 22px 34px 22px 0; gap: 14px; }
-    .qa-a p { padding: 0 24px 24px 0; font-size: 15.5px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .qa-a, .qa-a p, .qa-mark { transition: none; }
-  }
-
-  /* ---------- CTA band ---------- */
-  .cta-band {
-    background: linear-gradient(120deg, #1d4ed8 0%, #2563eb 55%, #0ea5e9 100%);
-    color: #ffffff;
-    padding: 84px 0;
-    text-align: center;
-  }
-  .cta-band h2 {
-    font-size: clamp(30px, 3.8vw, 44px);
-    font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
-    margin-bottom: 14px;
-  }
-  .cta-band p { font-size: 18px; color: #dbeafe; max-width: 560px; margin: 0 auto 32px; }
-  .cta-band .btn-white {
-    background: #ffffff; color: #1d4ed8;
-    box-shadow: 0 8px 28px rgba(4, 8, 18, 0.25);
-  }
-  .cta-band .btn-white:hover { background: #eff6ff; }
-
-  /* ---------- Footer ---------- */
-  footer {
-    background: #060a14;
-    color: #94a3b8;
-    padding: 64px 0 36px;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 44px;
-  }
-  .footer-logo img { height: 34px; width: auto; display: block; margin-bottom: 16px; }
-  .footer-tagline { font-size: 14.5px; max-width: 320px; line-height: 1.6; margin-bottom: 14px; }
-  .footer-address { font-size: 13.5px; color: #64748b; line-height: 1.6; }
-  footer h4 {
-    color: #ffffff; font-size: 13.5px; font-weight: 600;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .footer-col a {
-    display: block;
-    color: #cbd5e1; text-decoration: none;
-    font-size: 14.5px;
-    margin-bottom: 10px;
-    transition: color 0.14s ease;
-  }
-  .footer-col a:hover { color: #ffffff; }
-  .footer-bottom {
-    border-top: 1px solid #1e293b;
-    padding-top: 26px;
-    font-size: 13px;
-    color: #64748b;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  }
-
-  @media (max-width: 860px) {
-    .hardware { padding: 64px 0; }
-    .hardware-grid { grid-template-columns: 1fr; gap: 24px; }
-    .cta-band { padding: 60px 0; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  }
-
-  /* scroll reveal */
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
-  .reveal.in { opacity: 1; transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  @media (max-width: 860px) {
-    .feature { padding: 56px 0; }
-    .feature-grid, .feature-grid.big, .feature-grid.big.flip { grid-template-columns: 1fr; gap: 32px; }
-    .feature-grid.flip .feature-copy { order: 1; }
-    .feature-grid.flip .feature-visual { order: 2; }
-  }
-
-  @media (max-width: 860px) {
-    .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
-    .logo img { height: 27px; }
-    .container-wide { padding: 0 18px; }
-    .nav-top { padding: 10px 8px; font-size: 14px; }
-    .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
-    /* phones: headline + buttons only, pinned above the fold; the keyword
-       paragraphs stay for crawlers but off the composed screen */
-    .hero-copy h1 { width: auto; }
-    .hero h1 { font-size: 34px; margin-bottom: 18px; }
-    .hero-inner { padding: 0 0 max(30px, env(safe-area-inset-bottom)); }
-    .hero p.lead, .hero p.lead-sub { display: none; }
-    .hero-actions { gap: 10px; }
-  }
-</style>
-<meta name="google-site-verification" content="xqmrzdfFpGR3f4cwdjIoa0PygFE5FzW4LtJEWn3XnU0" />
-<script defer src="/_vercel/insights/script.js"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How soon can I start selling?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We set the register up before it reaches your counter. Turn it on, log in, and ring your first sale."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to be technical to use it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. If someone can use a phone, they can run the counter on their first shift. Nothing about it assumes you have done this before."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if my internet goes down?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You keep ringing up sales. The register keeps working and everything syncs once the connection is back."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I run more than one register?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. A store can run SleetPOS on more than one register, and every sale lands in the same product list and the same reports."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if I have more than one store?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We set up multiple locations the same way we set up one — we come in, load your products, and get every counter running."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it work with the equipment I already have?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — receipt printer, barcode scanner, cash drawer and label printer. It connects to the gear a real store runs on."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I check on my store when I am not there?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The owner dashboard opens in any browser, and the iPhone app puts today's sales, your top sellers and your inventory in your pocket."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do the cash and card prices work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every sale shows both prices side by side, on your screen and on the one facing your customer. They pick how to pay and the register charges exactly what the screen says."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who do I talk to when something goes wrong?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The people who build SleetPOS. Email support and a real person replies — no ticket queues, no call centre."
-      }
-    }
-  ]
-}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="/assets/pos-cutout.png" />
+<link rel="stylesheet" href="/assets/merchant.css" />
+<script src="/assets/merchant.js" defer></script>
+<link rel="stylesheet" href="/assets/terminal-scene.css" />
+<script src="/assets/terminal-scene.js" defer></script>
+<link rel="stylesheet" href="/assets/showcase.css" />
+<link rel="stylesheet" href="/assets/merchant-system.css" />
+<link rel="stylesheet" href="/assets/product-views.css" />
+<link rel="stylesheet" href="/assets/hero-showcase.css" />
+<script src="/assets/showcase.js" defer></script>
+<link rel="stylesheet" href="/assets/label-showcase.css" />
+<script type="module" src="/assets/label-showcase.js"></script>
 </head>
 <body>
-
-<header>
-  <div class="container container-wide">
-    <nav class="nav">
-      <a href="/" class="logo">
-        <img src="/assets/sleetpos-logo-dark-nav.png" alt="SleetPOS — powered by Sleet Systems" />
-      </a>
-      <ul class="nav-links">
-        <li class="has-panel">
-          <a href="#product" class="nav-top">Product<svg class="chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="panel">
-            <a class="panel-item" href="#product">
-              <span class="panel-title">The Register</span>
-              <span class="panel-desc">Dual-screen point of sale for the counter</span>
-            </a>
-            <a class="panel-item" href="#pricing">
-              <span class="panel-title">Customer Display</span>
-              <span class="panel-desc">Prices and promos facing your customer</span>
-            </a>
-            <a class="panel-item" href="/features/#g-owner">
-              <span class="panel-title">Owner Dashboard</span>
-              <span class="panel-desc">Run the store from any browser</span>
-            </a>
-            <a class="panel-item" href="#iphone">
-              <span class="panel-title">iPhone App</span>
-              <span class="panel-desc">Inventory and scanning in your pocket</span>
-            </a>
-          </div>
-        </li>
-        <li class="has-panel">
-          <a href="/features/" class="nav-top">Features<svg class="chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="panel">
-            <a class="panel-item" href="/features/#f-checkout">
-              <span class="panel-title">Fast checkout</span>
-              <span class="panel-desc">Scan, ring up, and pay in seconds</span>
-            </a>
-            <a class="panel-item" href="/features/#f-pricing">
-              <span class="panel-title">Cash &amp; card pricing</span>
-              <span class="panel-desc">Both prices shown on every sale</span>
-            </a>
-            <a class="panel-item" href="/features/#f-inventory">
-              <span class="panel-title">Live inventory</span>
-              <span class="panel-desc">Counts update with every sale</span>
-            </a>
-            <a class="panel-item" href="/features/">
-              <span class="panel-title">Invoice scanning</span>
-              <span class="panel-desc">Photograph an invoice, products sort themselves</span>
-            </a>
-          </div>
-        </li>
-        <li><a href="/partnerships/" class="nav-top">Partnerships</a></li>
-        <li><a href="/support" class="nav-top">Support</a></li>
-        <li><a href="https://sleetpos.com/login" class="nav-top">Log in</a></li>
-        <li><a href="/signup/" class="nav-cta">Sign up</a></li>
-      </ul>
-    </nav>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell header-inner">
+<a class="brand" href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" /></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
+<nav id="site-nav" aria-label="Main navigation"><a href="/" data-main-tab="overview">Overview</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#features">See it in action</a><a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a></nav>
+</div></header>
+<main id="main">
+<div id="overview-view" class="page-view">
+<section class="merchant-hero shell" id="showcase" aria-labelledby="hero-title">
+  <div class="merchant-hero-copy">
+    <h1 id="hero-title">Your store.<br />One POS.</h1>
+    <p>Bring checkout, inventory, cash and card pricing, and customer promotions together in SleetPOS. Built for delis, convenience stores and cafés.</p>
+    <div class="merchant-hero-actions"><a class="button" href="/book/">Book a demo</a><a class="text-link" href="/#features">Explore SleetPOS</a></div>
   </div>
-</header>
-
-<main>
-
-<div class="hero-stage">
-<section class="hero">
-  <div class="hero-media">
-  <video class="hero-bg" autoplay muted loop playsinline preload="auto"
-         poster="/assets/hero_counter_poster.jpg"
-         aria-label="A sale being rung up on a SleetPOS register at a real store counter">
-    <source src="/assets/hero_counter_1920.mp4" type="video/mp4" />
-  </video>
-  <script>
-    (function () {
-      var v = document.currentScript.previousElementSibling;
-      if (window.matchMedia("(max-width: 860px) and (orientation: portrait)").matches) {
-        v.innerHTML = "";
-        v.poster = "/assets/hero_counter_mwide_poster.jpg";
-        v.src = "/assets/hero_counter_mwide.mp4";
-        v.load();
-      }
-    })();
-  </script>
-  <div class="hero-scrim"></div>
-  </div>
-  <div class="container container-wide">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <h1 class="hero-title">
-          <span class="line"><span class="line-in">The modern register</span></span>
-          <span class="line"><span class="line-in"><span class="rotline" id="rotline">for <span class="rotator" id="rotator">bodegas.</span></span></span></span>
-        </h1>
-        <p class="lead rise rise-3">SleetPOS is an all-in-one point of sale (POS) system: fast checkout, live inventory, cash and card pricing, and a second screen that faces your customer.</p>
-        <p class="lead-sub rise rise-3">Built in New York for bodegas, grocery stores, smoke shops, delis, boutiques and more.</p>
-        <div class="hero-actions rise rise-4">
-          <a href="/signup/" class="btn btn-primary">Get in touch</a>
-          <a href="/features/" class="btn btn-secondary">See it in action</a>
-        </div>
+  <div class="merchant-hero-visual">
+    <div class="clean-device-window">
+      <div class="terminal-scene clean-device" data-terminal-scene="cutout" role="img" aria-label="SleetPOS with the current checkout software and a sale in progress">
+        <img class="terminal-background" src="/assets/pos-cutout.png" width="2000" height="1600" alt="" fetchpriority="high" />
+        <img class="terminal-screen" src="/assets/current_register_cafe.webp" width="1920" height="1080" alt="" fetchpriority="high" />
       </div>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true"><span class="scroll-cue-dot"></span></div>
 </section>
+<div class="merchant-strip"><div class="shell"><p>Built for independent businesses.</p><ul><li>Delis</li><li>Convenience stores</li><li>Cafés</li><li>Retail &amp; more</li></ul></div></div>
+<section class="label-feature" id="dual-price-labels" aria-labelledby="labels-title">
+  <span class="anchor-alias" id="shelf-labels" aria-hidden="true"></span>
+  <div class="shell">
+    <div class="label-feature-heading">
+      <div><p class="section-label">Custom label designs</p><h2 id="labels-title">Labels that fit<br />what you sell.</h2></div>
+      <div><p>Choose a size, arrange your product details, and print labels for your shelves and packages. See a current shelf label, product layout examples, and upcoming logo and nutrition concepts.</p><a class="text-link" href="/book/">See label printing in a demo</a></div>
+    </div>
+    <div class="label-showcase" id="label-animation" data-label-showcase role="region" aria-label="Animated label designs" aria-busy="true">
+      <div class="label-controls">
+        <h3 class="label-selector-title">Choose a label style.</h3>
+        <div class="label-choices" role="group" aria-label="Label examples"></div>
+        <p class="label-example-description">Loading label designs…</p>
+        <div class="label-playback"><button class="label-animation-toggle" type="button" aria-controls="animated-label-paper" hidden>Pause animation</button><span class="label-example-count"></span></div>
+      </div>
+      <div class="label-stage">
+        <div class="label-stage-meta"><span class="label-example-status"></span><span class="label-dimensions"></span></div>
+        <div class="label-paper" id="animated-label-paper"><img alt="" /></div>
+      </div>
+      <p class="label-preview-note">The cash and card shelf label uses the current designer. Portrait and large-format labels are layout examples. Logo and nutrition layouts are upcoming concepts. All examples use sample content.</p>
+      <p class="label-announcement" role="status" aria-live="polite"></p>
+    </div>
+    <div class="label-feature-visuals">
+      <figure class="label-shelf-proof"><img id="shelf-label-preview" src="/assets/shelf_after_1600.webp" width="1600" height="1146" alt="Printed shelf labels beneath candy products, each showing the product name, barcode, cash price and card price" loading="lazy" /><figcaption>Cash and card prices, right where customers choose.</figcaption></figure>
+      <div class="label-print-output">
+        <figure class="label-detail-proof" id="label-closeup"><div class="printed-label-detail"><img src="/assets/label-closeup.png" width="914" height="508" alt="Enlarged sample SleetPOS label for Granola, 12 oz: cash $4.99, card $5.19, with a barcode" loading="lazy" /></div><figcaption>Your product. Both prices. One clear label.<span>Sample design, shown larger.</span></figcaption></figure>
+      </div>
+    </div>
+    <div class="label-workflow">
+      <div><h3>Both prices, calculated.</h3><p>Cash and card prices follow your store’s dual-pricing settings.</p></div>
+      <div><h3>Print at the register.</h3><p>Pick products or scan them into a batch, then print your labels.</p></div>
+      <div><h3>Print from your dashboard.</h3><p>Select a batch in your dashboard and send it to your store’s connected label printer.</p></div>
+    </div>
+  </div>
+</section>
+<section class="customer-promotions" id="customer-promotions" aria-labelledby="promotions-title">
+  <div class="shell promotions-layout" id="panel-customer">
+    <div class="promotions-copy">
+      <p class="section-label">Customer promotions</p>
+      <h2 id="promotions-title">Promote more of<br />what you sell.</h2>
+      <p>Give customers another reason to add to their order. Put your bestsellers, new arrivals and special offers in the spotlight, right at the counter.</p>
+      <p>Play product videos between sales, then keep a featured offer alongside the order during checkout.</p>
+      <a class="text-link" href="/book/">See promotions in a demo</a>
+    </div>
+    <div class="promotions-demo"><div class="customer-toolbar"><div class="display-mode-switch" role="group" aria-label="Customer display preview"><button type="button" aria-pressed="true" aria-controls="customer-ad-video customer-preview" data-display-mode="video">Between sales</button><button type="button" aria-pressed="false" aria-controls="customer-ad-video customer-preview" data-display-mode="cart">During checkout</button></div><button class="customer-video-toggle" type="button" aria-controls="customer-ad-video">Play video</button></div><div class="customer-media" id="customer-video"><div class="customer-device-window"><div class="terminal-scene customer-device" data-terminal-scene="customer-cutout" role="img" aria-label="SleetPOS viewed from the customer side, showing a product video on its screen"><img class="terminal-background" src="/assets/pos-customer-cutout.png" width="2000" height="1600" alt="" loading="lazy" /><div class="terminal-screen customer-screen"><img class="customer-video-poster" src="/assets/customer-redbull-poster.jpg" width="1920" height="1080" alt="" /><video id="customer-ad-video" width="1920" height="1080" muted loop playsinline preload="none" poster="/assets/customer-redbull-poster.jpg" aria-label="Red Bull product advertisement"><source src="/assets/customer-redbull.mp4" type="video/mp4" /></video><img id="customer-preview" src="/assets/current_customer_cart.webp" width="1366" height="768" alt="SleetPOS customer display showing the sale and a latte promotion" hidden /></div></div></div></div><button class="screen-expand" type="button" data-expand="customer-preview" data-title="Customer-facing display" hidden>View full screen <span aria-hidden="true">↗</span></button></div>
+  </div>
+</section>
+<section class="section shell merchant-difference" id="difference" aria-labelledby="difference-title">
+  <span class="anchor-alias" id="hardware" aria-hidden="true"></span><span class="anchor-alias" id="product" aria-hidden="true"></span>
+  <div class="section-heading"><h2 id="difference-title">Your day has enough<br />manual work.</h2><p>Put the everyday details in one place, with tools made for the way your store operates.</p></div>
+  <div class="benefit-grid">
+    <article id="invoices"><h3>Less invoice entry.</h3><p>Upload a supplier invoice, review matched products, and apply cost and stock updates. You stay in control of what changes.</p><span>Invoice scanning &amp; review</span></article>
+    <article><h3>Cases in. Units counted.</h3><p>Receive deliveries by the carton and track inventory by the item, including mixed cartons. Keep stock quantities aligned with how you buy and sell.</p><span>Carton &amp; unit tracking</span></article>
+  </div>
+</section>
+
+  <section class="software-section" id="features" aria-labelledby="software-title">
+    <div class="shell">
+      <span class="anchor-alias" id="iphone" aria-hidden="true"></span><span class="anchor-alias" id="checkout" aria-hidden="true"></span>
+      <div class="section-heading"><div><h2 id="software-title">See what changes<br />in your day.</h2></div><p>Real SleetPOS screens. Explore checkout and your view away from the counter.</p></div>
+      <div class="screen-tabs" role="tablist" aria-label="Explore SleetPOS screens"><button id="tab-checkout" type="button" role="tab" aria-controls="panel-checkout" aria-selected="true">At the register</button><button id="tab-owner" type="button" role="tab" aria-controls="panel-owner" aria-selected="false" tabindex="-1">On your phone</button></div>
+      <div class="screen-panel" id="panel-checkout" role="tabpanel" aria-labelledby="tab-checkout" tabindex="0"><div class="screen-copy"><h3>Keep your counter moving.</h3><p>Put your everyday sellers within easy reach and keep item options, promotions and payment totals together in one checkout.</p></div><img id="register-preview" src="/assets/current_register_cafe.webp" width="1920" height="1080" alt="Actual SleetPOS checkout screen with products, cart and payment controls" loading="lazy" /><button class="screen-expand" type="button" data-expand="register-preview" data-title="SleetPOS register">View full screen <span aria-hidden="true">↗</span></button></div>
+
+      <div class="screen-panel owner-panel" id="panel-owner" role="tabpanel" aria-labelledby="tab-owner" tabindex="0" hidden><div class="screen-copy"><h3>Stay informed when you step away.</h3><p>Check sales, top sellers and inventory from your phone. Manage your catalogue through the owner dashboard in your browser.</p></div><img id="phone-preview" src="/assets/iphone_dashboard.webp" width="1000" height="2026" alt="SleetPOS iPhone app displaying sales and top-selling products" loading="lazy" /><button class="screen-expand" type="button" data-expand="phone-preview" data-title="SleetPOS iPhone app">View full screen <span aria-hidden="true">↗</span></button></div>
+      <a class="light-link" href="/features/">Explore all POS features</a>
+    </div>
+  </section>
+
+  <section class="section shell" id="businesses" aria-labelledby="businesses-title">
+    <span class="anchor-alias" id="industries" aria-hidden="true"></span>
+    <div class="section-heading"><div><h2 id="businesses-title">Built around<br />what you sell.</h2></div><p>Your products and daily routines shape the setup. Here’s where SleetPOS can help.</p></div>
+    <div class="business-grid">
+      <article class="business-story"><h3>Delis</h3><p>Handle made-to-order food and packaged goods together. Keep item options with the order and connect a kitchen display for preparation.</p><a href="/book/" class="text-link">See it for your deli</a></article>
+      <article class="business-story"><h3>Convenience stores</h3><p>Turn case deliveries into unit counts, review supplier costs, and keep shelf labels up to date from the same catalogue.</p><a href="/book/" class="text-link">See it for your store</a></article>
+      <article class="business-story cafe-story" id="cafes"><h3>Cafés &amp; coffee shops</h3><p>Keep menu choices and add-ons organized. Give a featured drink or pastry a place in your customer promotions.</p><a href="/book/" class="text-link">See it for your café</a></article>
+    </div>
+    <p class="business-other">Grocery, specialty retail, or something different? <a href="/book/">Tell us what your business needs.</a></p>
+  </section>
+
+<section class="merchant-custom" id="possibilities"><div class="shell custom-layout"><div><p class="section-label">Built by Sleet Systems</p><h2>Your business doesn’t<br />have to fit a template.</h2></div><div><p>Need a feature that fits the way you work? We build custom software and connected websites alongside your POS.</p><p>We’ll scope the project with you and quote it clearly. Kitchen displays and kiosks are available when you’re ready to expand.</p><a class="text-link" href="/book/">Talk through your idea</a></div></div></section>
+<section class="placement-overview"><div class="shell"><div><p class="section-label">Your way to get started</p><h2>Own your setup.<br />Or choose placement.</h2></div><div><p>Buy your hardware outright, or use SleetSystems equipment through our eligible placement program while you process with us.</p><p>We’ll walk you through what’s included, your processing options, and the terms before you decide.</p><a class="button button-outline" href="/?view=pricing">See pricing &amp; placement</a></div></div></section>
+<section class="section shell product-view-gallery" id="product-views" aria-labelledby="product-views-title"><div class="section-heading"><div><h2 id="product-views-title">Take a closer look.</h2></div><p>The hardware and current software, ready for a closer look during your demo.</p></div><div class="view-grid"><article class="view-card"><div class="view-card-image"><div class="terminal-scene view-scene" data-terminal-scene="register-view" role="img" aria-label="Cashier view"><img class="terminal-background" src="/assets/pos-view-register.webp" width="2336" height="1744" alt="" loading="lazy" /><img class="terminal-screen" src="/assets/current_register_cafe.webp" width="1920" height="1080" alt="" /></div></div><div class="view-card-copy"><h3>At the counter</h3></div></article><article class="view-card"><div class="view-card-image"><div class="terminal-scene view-scene" data-terminal-scene="profile-view" role="img" aria-label="Side profile"><img class="terminal-background" src="/assets/pos-view-profile.webp" width="2336" height="1744" alt="" loading="lazy" /></div></div><div class="view-card-copy"><h3>Hardware profile</h3></div></article><article class="view-card"><div class="view-card-image"><div class="terminal-scene view-scene" data-terminal-scene="customer-view" role="img" aria-label="Customer view"><img class="terminal-background" src="/assets/pos-view-customer.webp" width="2336" height="1744" alt="" loading="lazy" /><img class="terminal-screen" src="/assets/current_customer_cart.webp" width="1920" height="1080" alt="" /></div></div><div class="view-card-copy"><h3>Your customer’s view</h3></div></article><article class="view-card"><div class="view-card-image"><div class="software-detail"><img src="/assets/current_register_cafe.webp" width="1920" height="1080" alt="Actual SleetPOS register with café products, a three-item cart and one discounted Latte" /></div></div><div class="view-card-copy"><h3>The software</h3></div></article></div><a class="text-link" href="/#showcase">Back to overview</a></section>
+<section class="closing-section" id="getting-started"><div class="shell"><div><h2>Let’s walk through<br />your working day.</h2><p>Bring your products, your routines and the work you want to simplify. We’ll show you where SleetPOS fits.</p></div><a class="button button-white" href="/book/">Book your live demo</a></div></section>
 </div>
-
-<section class="industries" id="industries">
-  <div class="container">
-    <div class="section-eyebrow reveal">Industries</div>
-    <h2 class="section-title reveal">Built for your kind of store.</h2>
-    <p class="section-lead reveal">Pick your store and see how sign-up works — it takes about a minute.</p>
-    <div class="industry-grid">
-      <a class="industry pop" href="/signup/?type=Bodega%20%2F%20C-Store">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg>
-        Bodegas &amp; C-Stores
-      </a>
-      <a class="industry pop" href="/signup/?type=Grocery%20%2F%20Supermarket">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        Grocery &amp; Supermarkets
-      </a>
-      <a class="industry pop" href="/signup/?type=Coffee%20shop">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        Coffee shops
-      </a>
-      <a class="industry pop" href="/signup/?type=Boutique%20%2F%20Clothing">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
-        Boutiques &amp; Clothing
-      </a>
-      <a class="industry pop" href="/signup/?type=Smoke%20shop">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H2v4h16z"/><path d="M22 8c0-2-2-2-2-4"/><path d="M22 16v-4"/><path d="M18 8c0-1.5-1.5-1.5-1.5-3"/></svg>
-        Smoke shops
-      </a>
-      <a class="industry pop" href="/signup/?type=Liquor%20store">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v5l2 3v11a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10l2-3z"/><line x1="8" y1="15" x2="16" y2="15"/></svg>
-        Liquor stores
-      </a>
-      <a class="industry pop" href="/signup/?type=Deli">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1z"/><path d="M4 15l1 5h14l1-5"/><path d="M5 11c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
-        Delis
-      </a>
-      <a class="industry pop" href="/signup/?type=Wholesale">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        Wholesale
-      </a>
-      <a class="industry pop" href="/signup/?type=Gift%20shop">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-        Gift shops
-      </a>
-      <a class="industry pop" href="/signup/?type=other">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        Something else
-      </a>
+<div id="pricing-view" class="page-view" hidden>
+<div class="pricing-top shell"><a class="back-overview" href="/">Back to the system</a><p>Hardware, processing and optional services. All in one place.</p></div>
+  <section class="pricing-section" id="pricing" aria-labelledby="pricing-title">
+    <div class="shell"><div class="section-heading"><div><p class="section-label">Clear options</p><h1 id="pricing-title">Choose how you<br />get started.</h1></div><p>Own your equipment from day one, or use it through our placement program.</p></div>
+      <div class="pricing-grid">
+        <article class="price-option purchase-option"><h3>Buy your hardware</h3><div class="price"><strong>$700</strong><span>one-time hardware purchase</span></div><p class="price-lead">All six pieces. Owned outright.</p><ul class="check-list"><li>POS system and payment terminal</li><li>Cash drawer and barcode scanner</li><li>Label printer and receipt printer</li><li>No monthly POS software fee while processing with SleetSystems</li></ul><p class="processing-note">Your processing rate is quoted after we review your past processing statements.</p><a class="button" href="/book/">Talk through your setup</a></article>
+        <article class="price-option placement-option"><h3>Hardware placement</h3><div class="price"><strong>$0</strong><span>upfront hardware cost<br />for eligible merchants</span></div><p class="price-lead">Use our hardware while you process with us.</p><ul class="check-list"><li>Available with our eligible 4% dual-pricing program</li><li>The same six-piece hardware setup</li><li>No monthly placement or standard POS software fee while processing with us</li><li>Equipment remains owned by SleetSystems</li></ul><p class="processing-note">When service ends, return the POS system and payment terminal within two weeks to avoid equipment fees. Your agreement sets the full terms.</p><a class="button button-outline" href="/book/">Discuss placement eligibility</a></article>
+      </div>
+      <div class="pricing-disclosure"><h3>Hardware ownership and cloud access</h3><p>Owning your hardware does not include lifetime cloud service. If you stop processing with SleetSystems and continue using our hosted software, a separate monthly subscription applies. We’ll confirm that price and the supported payment setup before you sign up. Optional services and any hardware installments have their own charges.</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="inv" id="invoices">
-  <div class="container">
-    <div class="inv-grid">
-      <div class="inv-copy reveal">
-        <div class="section-eyebrow">Invoice scanning</div>
-        <h2 class="section-title">Photograph the invoice. The products fill themselves in.</h2>
-        <p>Take a picture of a supplier invoice and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you already carry.</p>
-        <p class="fine">You look it over and approve it before anything changes — and it remembers your answers, so the next invoice from that supplier fills in on its own.</p>
-      </div>
-      <div class="inv-demo reveal" id="invDemo" aria-hidden="true">
-        <div class="inv-paper">
-          <div class="inv-paper-head">Supplier invoice</div>
-          <div class="inv-l m"></div><div class="inv-l s"></div>
-          <div class="inv-l"></div><div class="inv-l m"></div>
-          <div class="inv-l s"></div><div class="inv-l"></div>
-          <div class="inv-l m"></div><div class="inv-l t"></div>
-          <div class="inv-scan"></div>
-        </div>
-        <div class="inv-out">
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Red Bull Sugar Free 12 fl oz</span><span class="inv-meta">24 units · matched</span></span>
-            <span class="inv-cost">$1.85</span>
-          </div>
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Kit Kat King Size</span><span class="inv-meta">36 units · matched</span></span>
-            <span class="inv-cost">$1.12</span>
-          </div>
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Pepsi Cola Soda 20 fl oz</span><span class="inv-meta">24 units · matched</span></span>
-            <span class="inv-cost">$0.98</span>
-          </div>
-          <div class="inv-row">
-            <span class="inv-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><span class="inv-name">Romaine Lettuce</span><span class="inv-meta">12 units · matched</span></span>
-            <span class="inv-cost">$0.74</span>
-          </div>
-        </div>
-        <div class="inv-foot">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          Every line waits for your review before it updates your stock.
-        </div>
-      </div>
+  <section class="section shell" id="upgrades" aria-labelledby="upgrades-title">
+    <div class="section-heading"><div><p class="section-label">Room to grow</p><h2 id="upgrades-title">Add what your<br />business needs.</h2></div><p>Start with your POS. Build on it with tools and services that fit your operation.</p></div>
+    <div class="upgrade-list">
+      <article><div class="upgrade-name"><h3>Kitchen display system</h3><p>Give your prep team a dedicated screen for orders.</p></div><div class="upgrade-price"><strong>$399</strong><span>purchase outright</span></div><div class="upgrade-detail">6- or 12-month lease options.<br />Request payment and early-exit terms.</div></article>
+      <article><div class="upgrade-name"><h3>Self-service kiosk</h3><p>Add a customer ordering station to your business.</p></div><div class="upgrade-price"><strong>$899</strong><span>purchase outright</span></div><div class="upgrade-detail">6- or 12-month lease options.<br />Request payment and early-exit terms.</div></article>
+      <article><div class="upgrade-name"><h3>Connected business website</h3><p>A website connected to your POS, with online payments.</p></div><div class="upgrade-price"><strong>$300</strong><span>setup + $75/month</span></div><div class="upgrade-detail">We handle upkeep and menu changes.<br />Other website projects are quoted individually.</div></article>
+      <article><div class="upgrade-name"><h3>Custom software &amp; features</h3><p>Have a workflow your business needs? Let’s scope it together.</p></div><div class="upgrade-price"><strong class="quote-price">Custom quote</strong><span>based on your project</span></div><div class="upgrade-detail">Business software and requested features,<br />planned around your requirements.</div></article>
     </div>
-  </div>
-</section>
+    <div class="upgrade-footer"><p>Lease options require a term commitment. Early termination carries a fee. Monthly payments and exact terms are provided in your quote.</p><a class="text-link" href="/book/">Build your setup with us</a></div>
+  </section>
 
-<div id="features" style="scroll-margin-top: 80px;"></div>
+  <section class="section shell faq-section" id="faq" aria-labelledby="faq-title"><div><p class="section-label">Before you decide</p><h2 id="faq-title">Good questions.<br />Clear answers.</h2><p>Have something else in mind?<br /><a href="mailto:support@sleetsystems.com">Talk to the SleetSystems team.</a></p></div><div class="faq-list">
+    <details><summary>What exactly does the $700 include?</summary><p>The POS system, cash drawer, barcode scanner, label printer, receipt printer, and payment terminal. With the outright purchase, you own all six pieces.</p></details>
+    <details><summary>Are there any monthly fees?</summary><p>There is no monthly standard POS software fee while you process with SleetSystems. Payment processing is separate. Optional services have their own charges: for example, our connected website has a $75 monthly upkeep fee. Hardware lease payments also apply if you choose to lease an upgrade.</p></details>
+    <details><summary>How do you set my processing rate?</summary><p>We review your past processing statements and quote a rate for your business. We’ll explain the offer before you sign up.</p></details>
+    <details><summary>What happens if I stop processing with you?</summary><p>Hardware you purchased belongs to you. Continuing to use our cloud software requires a separate monthly subscription and a supported payment setup. For placement equipment, return the POS system and payment terminal within two weeks after ending service to avoid equipment fees. Any remaining equipment payment obligations follow your agreement.</p></details>
+    <details><summary>Does SleetPOS work for cafés?</summary><p>Yes, cafés and coffee shops are part of the businesses we serve. We can walk through menu items and options, checkout, and optional equipment such as a kitchen display. Your demo is the place to confirm the exact workflow your café needs.</p></details>
+    <details><summary>Can you build a website or a custom feature?</summary><p>Yes. We offer connected business websites and custom software projects. A website connected to the POS with online payments is $300 to set up and $75 per month for upkeep and menu changes. Other websites and custom features are scoped and quoted for your business.</p></details>
+  </div></section>
 
-
-<section class="duo" id="checkout">
-  <span id="pricing" aria-hidden="true"></span>
-  <div class="duo-pin">
-    <div class="duo-copy">
-      <div class="duo-text" data-i="0">
-        <div class="section-eyebrow">Checkout</div>
-        <h2 class="section-title">Everything you need accessible from one screen.</h2>
-        <p>Scan, tap, or search up items within seconds. Speeding up your checkout lines means more business.</p>
-      </div>
-      <div class="duo-text" data-i="1">
-        <div class="section-eyebrow">Cash &amp; card pricing</div>
-        <h2 class="section-title">Two prices. No surprises.</h2>
-        <p>Every sale shows the cash price and the card price side by side — right on the screen your customer is watching. They pick how to pay, and the register charges exactly what the screen says.</p>
-      </div>
-      <div class="duo-dots" aria-hidden="true"><span class="duo-dot on"></span><span class="duo-dot"></span></div>
-    </div>
-    <div class="duo-stage">
-      <div class="duo-card" id="duoCard">
-        <div class="duo-face duo-front">
-          <img src="/assets/ui_register.webp" width="1600" height="900" loading="lazy" alt="The SleetPOS register screen with a cart of items, keypad, and payment buttons" />
-          <span class="duo-tag">Your side</span>
-        </div>
-        <div class="duo-face duo-back">
-          <img src="/assets/ui_customer_display.webp" width="1600" height="871" loading="lazy" alt="The customer-facing screen showing the same sale with the cash price and the card price" />
-          <span class="duo-tag">Your customer's side</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="feature" id="iphone">
-  <div class="container">
-    <div class="feature-grid">
-      <div class="feature-copy reveal">
-        <div class="section-eyebrow">iPhone app</div>
-        <h2 class="section-title">Your store, in your pocket.</h2>
-        <p>Check today's sales, your top sellers, and the whole week from anywhere. Scan barcodes with your phone's camera to update products and restock — right from the aisle.</p>
-      </div>
-      <div class="feature-visual bare phone reveal">
-        <img src="/assets/iphone_dashboard.webp" width="1000" height="2026" loading="lazy" alt="The SleetPOS iPhone app showing today's sales, the week's totals, and top-selling products" />
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="compare-band" id="shelf-labels">
-  <div class="container">
-    <div class="compare-head reveal">
-      <div class="section-eyebrow">Shelf labels</div>
-      <h2 class="section-title">Every price on the shelf, printed from the comfort of your home.</h2>
-      <p>Send shelf labels from the dashboard or your phone and the register at the store prints them — item name, barcode, and both the cash and card price. Change a price and reprint in seconds.</p>
-    </div>
-
-    <div class="ba reveal" id="shelfCompare">
-      <img src="/assets/shelf_before_1600.webp" srcset="/assets/shelf_before_1000.webp 1000w, /assets/shelf_before_1600.webp 1600w" sizes="(max-width: 860px) 100vw, 1100px" width="1600" height="1146" loading="lazy" alt="A candy shelf with no price labels" />
-      <div class="ba-after">
-        <img src="/assets/shelf_after_1600.webp" srcset="/assets/shelf_after_1000.webp 1000w, /assets/shelf_after_1600.webp 1600w" sizes="(max-width: 860px) 100vw, 1100px" width="1600" height="1146" loading="lazy" alt="The same shelf with printed SleetPOS labels showing cash and card prices" />
-      </div>
-      <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1"
-             aria-label="Drag to compare the shelf before and after printed labels" />
-      <div class="ba-line"><span class="ba-knob">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 3 12 9 18"/><polyline points="15 6 21 12 15 18"/></svg>
-      </span></div>
-      <span class="ba-tag ba-tag-l">Before</span>
-      <span class="ba-tag ba-tag-r">With SleetPOS</span>
-    </div>
-    <p class="compare-note reveal">Drag the handle. Same shelf, same day — labels sent from home, printed at the store.</p>
-  </div>
-</section>
-
-<section id="product" aria-label="The register">
-  <div class="film-stage" id="filmStage">
-    <div class="film-pin">
-      <canvas class="film-canvas" id="filmCanvas" aria-hidden="true"></canvas>
-      <video class="film-mobile" src="/assets/film_mobile8.mp4" poster="/assets/film_poster8.jpg" muted loop playsinline autoplay preload="metadata"></video>
-      <img class="film-still" src="/assets/film_poster8.jpg" alt="The black SleetPOS dual-screen register, seen from the customer's side" />
-      <div class="film-copy">
-        <div class="film-beat-mobile">
-          <div class="section-eyebrow">The Register</div>
-          <h2>One machine on your counter.</h2>
-          <p>A screen for your cashier, a screen facing your customer, and your counter gear plugged straight in. Between sales, the customer screen plays your own ads — you choose what your customers see.</p>
-        </div>
-        <div class="film-beat" data-beat="0">
-          <div class="section-eyebrow">The Register</div>
-          <h2>One machine on your counter.</h2>
-          <p>A screen for your cashier, a screen facing your customer, and everything you sell behind both.</p>
-        </div>
-        <div class="film-beat" data-beat="1">
-          <div class="section-eyebrow">The Register</div>
-          <h2>Built for the counter.</h2>
-          <p>Receipt printer, barcode scanner, cash drawer, label printer — your counter gear plugs straight in. It arrives already set up for your store.</p>
-        </div>
-        <div class="film-beat" data-beat="2">
-          <div class="section-eyebrow">The customer screen</div>
-          <h2>This screen sells for you.</h2>
-          <p>Between sales, it plays your own ads. Your pizza special, what your bakery just pulled out of the oven, or anything you put on sale — you choose what your customers see while they wait.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="steps-band" id="getting-started">
-  <div class="container">
-    <div class="steps-head reveal">
-      <div class="section-eyebrow">Getting started</div>
-      <h2 class="section-title">From sign-up to your first sale.</h2>
-      <p>No long install, no consultant, no week of downtime while you learn a new system.</p>
-    </div>
-    <div class="steps" id="steps">
-      <div class="steps-rule" aria-hidden="true"></div>
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <h3>Tell us about your store</h3>
-        <p>A minute of questions — what you sell, how many registers you need, and when you want to start.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">2</div>
-        <h3>We come in and set it up</h3>
-        <p>We come to your store and put your whole product list in for you — every item, its price, and a picture of it — so the register is ready before you ring up your first customer.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">3</div>
-        <h3>You start selling</h3>
-        <p>Turn it on, log in, ring the first sale. We stay a message away for as long as you need us.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="faq-band" id="faq">
-  <div class="container">
-    <div class="faq-head reveal">
-      <div class="section-eyebrow">Questions</div>
-      <h2 class="section-title">The things store owners ask us first.</h2>
-    </div>
-    <div class="faq-list reveal">
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-0">
-          How soon can I start selling?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-0"><div><p>We set the register up before it reaches your counter. Turn it on, log in, and ring your first sale.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-1">
-          Do I need to be technical to use it?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-1"><div><p>No. If someone can use a phone, they can run the counter on their first shift. Nothing about it assumes you have done this before.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-2">
-          What happens if my internet goes down?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-2"><div><p>You keep ringing up sales. The register keeps working and everything syncs once the connection is back.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-multi">
-          Can I run more than one register?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-multi"><div><p>Yes. A store can run SleetPOS on more than one register, and every sale lands in the same product list and the same reports.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-stores">
-          What if I have more than one store?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-stores"><div><p>We set up multiple locations the same way we set up one — we come in, load your products, and get every counter running. Talk to us about your setup.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-3">
-          Does it work with the equipment I already have?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-3"><div><p>Yes — receipt printer, barcode scanner, cash drawer and label printer. It connects to the gear a real store runs on.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-4">
-          Can I check on my store when I am not there?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-4"><div><p>Yes. The owner dashboard opens in any browser, and the iPhone app puts today's sales, your top sellers and your inventory in your pocket.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-5">
-          How do the cash and card prices work?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-5"><div><p>Every sale shows both prices side by side, on your screen and on the one facing your customer. They pick how to pay and the register charges exactly what the screen says.</p></div></div>
-      </div>
-      <div class="qa">
-        <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-a-6">
-          Who do I talk to when something goes wrong?<span class="qa-mark" aria-hidden="true"></span>
-        </button>
-        <div class="qa-a" id="qa-a-6"><div><p>The people who build SleetPOS. Email support and a real person replies — no ticket queues, no call centres.</p></div></div>
-      </div>
-    </div>
-    <p class="faq-foot reveal">Still wondering about something? <a href="/support">Ask us directly</a> — the people who build SleetPOS answer.</p>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="container">
-    <h2 class="reveal">See SleetPOS in your store.</h2>
-    <p class="reveal">Sign up in about a minute. We set everything up and you ring your first sale.</p>
-    <a href="/signup/" class="btn btn-white reveal">Sign up</a>
-    <p class="reveal" style="margin: 18px 0 0; font-size: 15px;"><a href="/book/" style="color: #dbeafe; font-weight: 600; text-decoration: underline;">Or book a live demo</a></p>
-  </div>
-</section>
-
+</div>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">
-          <img src="/assets/sleetpos-logo-white-nav.png" alt="SleetPOS — powered by Sleet Systems" />
-        </div>
-        <p class="footer-tagline">A New York software company building modern operating tools for independent retail.</p>
-        <p class="footer-address">Sleet Systems Inc<br />218 Roberts Avenue<br />Yonkers, NY 10703</p>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#product">The Register</a>
-        <a href="#features">Features</a>
-        <a href="#industries">Industries</a>
-        <a href="https://sleetpos.com/login">Log in</a>
-        <a href="/signup/">Sign up</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="/book/">Book a demo</a>
-        <a href="/partnerships/">Partnerships</a>
-        <a href="/support">Support</a>
-        <a href="mailto:support@sleetsystems.com">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="/sms-disclosure">SMS Disclosure</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
-      <span>Made in New York.</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  (function () {
-    var words = [
-      "bodegas.", "grocery stores.", "coffee shops.", "boutiques.",
-      "C-Stores.", "smoke shops.", "delis.", "liquor stores.",
-      "wholesalers.", "gift shops.", "your store."
-    ];
-    var el = document.getElementById("rotator");
-    var line = document.getElementById("rotline");
-    var copy = document.querySelector(".hero-copy");
-    var i = 0;
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // the line may stretch across the whole hero at full size;
-    // it only scales down if it would run off the screen (small phones)
-    function fitLine() {
-      line.style.transform = "";
-      var cont = document.querySelector(".hero .container-wide");
-      var cs = getComputedStyle(cont);
-      var max = cont.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-      var w = line.scrollWidth;
-      if (w > max) line.style.transform = "scale(" + (max / w) + ")";
-    }
-    function setWord() {
-      i = (i + 1) % words.length;
-      el.textContent = words[i];
-      fitLine();
-    }
-    fitLine();
-    window.addEventListener("resize", fitLine);
-    setInterval(function () {
-      if (reduced) { setWord(); return; }
-      el.classList.add("swap");
-      setTimeout(function () {
-        setWord();
-        el.classList.remove("swap");
-      }, 270);
-    }, 1400);
-  })();
-
-  (function () {
-    if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.18 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-  })();
-
-
-  // some phones (Low Power Mode, data saver) block video autoplay —
-  // retry play() after load and on the first touch
-  (function () {
-    var v = document.querySelector(".hero-bg");
-    if (!v) return;
-    function tryPlay() {
-      if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-    }
-    window.addEventListener("load", tryPlay);
-    document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
-    document.addEventListener("visibilitychange", function () {
-      if (!document.hidden) tryPlay();
-    });
-  })();
-
-
-
-  // hero: release the headline masks after the entrance, then let scroll
-  // shrink the footage into a rounded card and hand off to the next section
-  (function () {
-    var stage = document.querySelector(".hero-stage");
-    var hero = document.querySelector(".hero");
-    if (!hero) return;
-    var title = hero.querySelector(".hero-title");
-    var copy = hero.querySelector(".hero-copy");
-    var media = hero.querySelector(".hero-media");
-    if (title) setTimeout(function () { title.classList.add("uncage"); }, 1400);
-
-    var wide = window.matchMedia("(min-width: 861px)");
-    var still = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var ticking = false;
-
-    function frame() {
-      ticking = false;
-      var y = window.scrollY;
-      hero.classList.toggle("scrolled", y > 40);
-      if (!stage || !wide.matches || still.matches) {
-        if (media) { media.style.transform = ""; media.style.borderRadius = ""; }
-        if (copy) { copy.style.transform = ""; copy.style.opacity = ""; }
-        return;
-      }
-      var span = stage.offsetHeight - window.innerHeight;
-      var p = span > 0 ? Math.min(1, Math.max(0, y / span)) : 0;
-      // ease so it settles softly instead of tracking the wheel 1:1
-      var e = p * p * (3 - 2 * p);
-      if (media) {
-        media.style.transform = "scale(" + (1 - 0.26 * e).toFixed(4) + ")";
-        media.style.borderRadius = (26 * e).toFixed(1) + "px";
-      }
-      if (copy) {
-        copy.style.transform = "translateY(" + (-70 * e).toFixed(1) + "px)";
-        copy.style.opacity = String(Math.max(0, 1 - e * 1.9));
-      }
-    }
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
-    }, { passive: true });
-    window.addEventListener("resize", frame);
-    frame();
-  })();
-
-
-  // industry cards pop in one after another, and the checkout screen turns
-  // over to the customer's side once the section is centred
-  (function () {
-    var grid = document.querySelector(".industry-grid");
-    if (grid && "IntersectionObserver" in window) {
-      var cards = [].slice.call(grid.querySelectorAll(".pop"));
-      var gio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          cards.forEach(function (c, i) {
-            c.style.transitionDelay = (i * 65) + "ms";
-            c.classList.add("in");
-          });
-          gio.disconnect();
-        });
-      }, { threshold: 0.15 });
-      gio.observe(grid);
-    } else if (grid) {
-      [].forEach.call(grid.querySelectorAll(".pop"), function (c) { c.classList.add("in"); });
-    }
-
-  })();
-
-
-  // checkout → customer side: one pinned block where scrolling physically
-  // turns the terminal around, copy swapping with it. The displayed angle
-  // chases the scroll target so fast flicks glide instead of snapping.
-  (function () {
-    var sec = document.querySelector(".duo");
-    var card = document.getElementById("duoCard");
-    if (!sec || !card) return;
-    var texts = [].slice.call(sec.querySelectorAll(".duo-text"));
-    var dots = [].slice.call(sec.querySelectorAll(".duo-dot"));
-    var still = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var cur = 0, target = 0, rafId = 0;
-
-    function targetT() {
-      var r = sec.getBoundingClientRect();
-      var span = sec.offsetHeight - window.innerHeight;
-      if (span <= 0) return 0;
-      var p = Math.min(1, Math.max(0, -r.top / span));
-      return Math.min(1, Math.max(0, (p - 0.24) / 0.54));
-    }
-    function render(t) {
-      var e = t * t * t * (t * (t * 6 - 15) + 10);   // quintic ease, gentle at both ends
-      var lift = Math.sin(Math.PI * e);
-      card.style.transform =
-        "translateZ(" + (-190 * lift).toFixed(1) + "px)" +
-        " rotateY(" + (180 * e).toFixed(2) + "deg)" +
-        " rotateX(" + (7 * lift).toFixed(2) + "deg)" +
-        " scale(" + (1 - 0.10 * lift).toFixed(4) + ")";
-      var back = e > 0.5;
-      texts.forEach(function (el, i) { el.classList.toggle("on", (i === 1) === back); });
-      dots.forEach(function (el, i) { el.classList.toggle("on", (i === 1) === back); });
-    }
-    function loop() {
-      target = targetT();
-      cur += (target - cur) * 0.12;
-      if (Math.abs(target - cur) < 0.0008) cur = target;
-      render(cur);
-      rafId = cur === target ? 0 : requestAnimationFrame(loop);
-    }
-    function kick() {
-      if (still.matches) { cur = targetT(); render(cur); return; }
-      if (!rafId) rafId = requestAnimationFrame(loop);
-    }
-    window.addEventListener("scroll", kick, { passive: true });
-    window.addEventListener("resize", kick);
-    texts[0].classList.add("on");
-    cur = targetT(); render(cur);
-  })();
-
-  // run the invoice demo once it scrolls into view
-  (function () {
-    var demo = document.getElementById("invDemo");
-    if (!demo) return;
-    if (!("IntersectionObserver" in window)) { demo.classList.add("go"); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { demo.classList.add("go"); io.disconnect(); }
-      });
-    }, { threshold: 0.4 });
-    io.observe(demo);
-  })();
-
-  // draw the line between the getting-started steps as the band arrives
-  (function () {
-    var steps = document.getElementById("steps");
-    if (!steps) return;
-    if (!("IntersectionObserver" in window)) { steps.classList.add("drawn"); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { steps.classList.add("drawn"); io.disconnect(); }
-      });
-    }, { threshold: 0.35 });
-    io.observe(steps);
-  })();
-
-  // FAQ: smooth open/close, one answer expanding at a time
-  (function () {
-    var items = [].slice.call(document.querySelectorAll(".faq-list .qa"));
-    if (!items.length) return;
-    items.forEach(function (item) {
-      var btn = item.querySelector(".qa-q");
-      btn.addEventListener("click", function () {
-        var open = item.classList.contains("open");
-        items.forEach(function (o) {
-          o.classList.remove("open");
-          o.querySelector(".qa-q").setAttribute("aria-expanded", "false");
-        });
-        if (!open) {
-          item.classList.add("open");
-          btn.setAttribute("aria-expanded", "true");
-        }
-      });
-    });
-  })();
-
-  // before/after slider
-  (function () {
-    var box = document.getElementById("shelfCompare");
-    if (!box) return;
-    var range = box.querySelector(".ba-range");
-    function apply() { box.style.setProperty("--pos", range.value + "%"); }
-    range.addEventListener("input", apply);
-    apply();
-  })();
-
-  // banner is see-through over the hero video, solid past it
-  (function () {
-    var header = document.querySelector("header");
-    var hero = document.querySelector(".hero");
-    var logo = document.querySelector(".logo img");
-    if (!hero || !header || !logo) return;
-    var DARK = "/assets/sleetpos-logo-dark-nav.png";
-    var WHITE = "/assets/sleetpos-logo-white-nav.png";
-    new Image().src = WHITE; // make sure the swap is instant
-    function update() {
-      var over = window.scrollY < hero.offsetHeight - 68;
-      header.classList.toggle("transparent", over);
-      var want = over ? WHITE : DARK;
-      if (!logo.src.endsWith(want)) logo.src = want;
-    }
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    update();
-  })();
-
-  // banner hides scrolling down, returns scrolling up
-  (function () {
-    var header = document.querySelector("header");
-    var lastY = window.scrollY;
-    var ticking = false;
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var y = window.scrollY;
-        if (y > lastY && y > 90) header.classList.add("nav-hidden");
-        else if (y < lastY) header.classList.remove("nav-hidden");
-        lastY = y;
-        ticking = false;
-      });
-    }, { passive: true });
-  })();
-</script>
-
-
-<script>
-// scroll film: baked frames scrubbed by scroll; a per-frame register map
-// keeps the whole machine in view and biases it right, opposite the copy
-(function () {
-  var stage = document.getElementById("filmStage");
-  if (!stage) return;
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var mobile = window.matchMedia("(max-width: 860px)").matches;
-  var beats = [].slice.call(stage.querySelectorAll(".film-beat"));
-  function showBeat(i) {
-    beats.forEach(function (b, j) { b.classList.toggle("on", j === i); });
-  }
-  if (mobile || reduced) { showBeat(-1); return; }
-
-  var canvas = document.getElementById("filmCanvas");
-  var ctx = canvas.getContext("2d");
-  var N = 148, FW = 1920, FH = 1080;
-  var BBOX = [[0.332,0.081,0.297,0.827],[0.331,0.082,0.299,0.829],[0.329,0.082,0.301,0.831],[0.327,0.083,0.304,0.834],[0.325,0.083,0.307,0.836],[0.323,0.084,0.31,0.835],[0.321,0.085,0.314,0.837],[0.318,0.086,0.319,0.837],[0.315,0.086,0.324,0.833],[0.312,0.087,0.329,0.834],[0.309,0.088,0.335,0.833],[0.305,0.09,0.341,0.832],[0.302,0.091,0.347,0.828],[0.299,0.092,0.354,0.825],[0.295,0.093,0.361,0.822],[0.292,0.095,0.369,0.82],[0.288,0.096,0.376,0.815],[0.285,0.098,0.384,0.808],[0.282,0.099,0.392,0.805],[0.279,0.101,0.4,0.798],[0.278,0.103,0.407,0.793],[0.276,0.105,0.414,0.794],[0.275,0.107,0.421,0.787],[0.275,0.109,0.426,0.783],[0.275,0.111,0.43,0.776],[0.276,0.114,0.434,0.772],[0.278,0.116,0.437,0.766],[0.273,0.114,0.435,0.748],[0.268,0.111,0.435,0.73],[0.264,0.108,0.435,0.738],[0.259,0.105,0.434,0.748],[0.255,0.102,0.433,0.735],[0.25,0.1,0.431,0.721],[0.245,0.097,0.43,0.708],[0.24,0.095,0.43,0.69],[0.234,0.092,0.429,0.675],[0.228,0.087,0.434,0.663],[0.221,0.083,0.44,0.651],[0.215,0.078,0.446,0.64],[0.208,0.073,0.453,0.628],[0.207,0.071,0.463,0.63],[0.207,0.071,0.47,0.629],[0.206,0.071,0.477,0.607],[0.206,0.071,0.483,0.584],[0.205,0.07,0.489,0.584],[0.205,0.07,0.495,0.584],[0.205,0.068,0.5,0.585],[0.205,0.067,0.505,0.61],[0.205,0.066,0.51,0.638],[0.205,0.067,0.508,0.661],[0.205,0.068,0.506,0.683],[0.205,0.069,0.505,0.705],[0.205,0.071,0.503,0.726],[0.205,0.072,0.502,0.746],[0.206,0.074,0.503,0.766],[0.206,0.077,0.505,0.786],[0.206,0.079,0.507,0.805],[0.207,0.082,0.51,0.824],[0.207,0.085,0.513,0.842],[0.208,0.088,0.517,0.861],[0.209,0.091,0.52,0.856],[0.209,0.094,0.524,0.849],[0.21,0.097,0.529,0.844],[0.211,0.1,0.533,0.841],[0.212,0.103,0.536,0.838],[0.213,0.105,0.539,0.835],[0.215,0.108,0.54,0.833],[0.216,0.11,0.539,0.83],[0.217,0.113,0.537,0.828],[0.218,0.115,0.535,0.827],[0.219,0.117,0.536,0.827],[0.22,0.118,0.534,0.828],[0.22,0.118,0.532,0.83],[0.22,0.118,0.531,0.834],[0.219,0.117,0.531,0.839],[0.218,0.115,0.529,0.845],[0.217,0.113,0.531,0.851],[0.215,0.11,0.531,0.858],[0.213,0.107,0.532,0.865],[0.211,0.104,0.533,0.872],[0.209,0.101,0.534,0.88],[0.208,0.098,0.537,0.887],[0.206,0.094,0.541,0.893],[0.207,0.094,0.539,0.895],[0.208,0.09,0.54,0.9],[0.21,0.086,0.541,0.905],[0.212,0.083,0.542,0.882],[0.214,0.08,0.542,0.885],[0.216,0.078,0.543,0.86],[0.218,0.081,0.542,0.831],[0.22,0.083,0.543,0.828],[0.222,0.086,0.545,0.826],[0.224,0.088,0.548,0.823],[0.225,0.091,0.551,0.821],[0.226,0.092,0.553,0.794],[0.227,0.096,0.554,0.793],[0.225,0.095,0.558,0.795],[0.223,0.093,0.562,0.774],[0.221,0.092,0.566,0.752],[0.219,0.09,0.57,0.781],[0.217,0.089,0.574,0.783],[0.215,0.087,0.578,0.812],[0.213,0.081,0.583,0.822],[0.211,0.075,0.587,0.805],[0.209,0.068,0.591,0.811],[0.207,0.062,0.595,0.818],[0.204,0.055,0.6,0.824],[0.202,0.049,0.604,0.856],[0.2,0.042,0.609,0.863],[0.198,0.036,0.614,0.869],[0.195,0.034,0.618,0.896],[0.193,0.032,0.623,0.922],[0.191,0.03,0.628,0.924],[0.188,0.029,0.633,0.925],[0.186,0.027,0.638,0.927],[0.183,0.025,0.643,0.952],[0.181,0.023,0.648,0.977],[0.178,0.021,0.653,0.979],[0.175,0.019,0.659,0.981],[0.173,0.017,0.664,0.983],[0.17,0.015,0.67,0.985],[0.167,0.013,0.675,0.987],[0.165,0.011,0.681,0.989],[0.162,0.009,0.687,0.991],[0.159,0.008,0.692,0.992],[0.156,0.006,0.698,0.994],[0.153,0.005,0.704,0.995],[0.15,0.004,0.71,0.996],[0.148,0.003,0.716,0.997],[0.145,0.002,0.722,0.998],[0.142,0.001,0.729,0.999],[0.139,0.001,0.735,0.999],[0.136,0.0,0.741,1.0],[0.133,0.0,0.747,1.0],[0.13,0.0,0.754,1.0],[0.127,0.0,0.76,1.0],[0.124,0.0,0.767,1.0],[0.12,0.0,0.773,1.0],[0.117,0.0,0.78,1.0],[0.114,0.0,0.787,1.0],[0.111,0.0,0.794,1.0],[0.108,0.004,0.8,0.996],[0.105,0.008,0.807,0.992],[0.102,0.012,0.812,0.988],[0.1,0.017,0.817,0.983],[0.098,0.021,0.822,0.979],[0.096,0.025,0.826,0.975],[0.094,0.029,0.83,0.971]];
-  var frames = new Array(N), started = false, current = -1;
-
-  function preload() {
-    if (started) return; started = true;
-    for (var i = 0; i < N; i++) (function (i) {
-      var im = new Image();
-      im.onload = function () { if (i === shown) { current = -1; drawFrame(shown); } };
-      im.src = "/assets/film8/f" + ("00" + i).slice(-3) + ".webp";
-      frames[i] = im;
-    })(i);
-  }
-  function frameFor() {
-    var r = stage.getBoundingClientRect();
-    var span = r.height - window.innerHeight;
-    var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
-    return Math.round(p * (N - 1));
-  }
-  function viewFor(f, cw, ch) {
-    var cover = Math.max(cw / FW, ch / FH);
-    if (f >= 85) {
-      return { sc: cover, dx: Math.round((cw - FW * cover) / 2), dy: Math.round((ch - FH * cover) / 2) };
-    }
-    var b = BBOX[f] || [0, 0, 1, 1];
-    var t = Math.min(1, Math.max(0, (f - 72) / 12));
-    var e = 1 - t * t * (3 - 2 * t);
-    var sc = cover;
-    var bx = (b[0] + b[2] / 2) * FW * sc, by = (b[1] + b[3] / 2) * FH * sc;
-    var dx = cw * (0.5 + 0.07 * e) - bx;
-    var dy = ch * 0.5 - by;
-    dx = dx * e + ((cw - FW * sc) / 2) * (1 - e);
-    dy = dy * e + ((ch - FH * sc) / 2) * (1 - e);
-    dx = Math.min(0, Math.max(cw - FW * sc, dx));
-    dy = Math.min(0, Math.max(ch - FH * sc, dy));
-    dx = Math.min(dx, cw * 0.99 - (b[0] + b[2]) * FW * sc);
-    dx = Math.max(dx, cw * 0.01 - b[0] * FW * sc);
-    dy = Math.min(dy, ch * 0.99 - (b[1] + b[3]) * FH * sc);
-    dy = Math.max(dy, ch * 0.01 - b[1] * FH * sc);
-    return { sc: sc, dx: Math.round(dx), dy: Math.round(dy) };
-  }
-  function drawFrame(f) {
-    showBeat(f < 31 ? 0 : f < 87 ? 1 : 2);
-    var im = frames[f];
-    if (!im || !im.complete || f === current) return;
-    current = f;
-    var cw = canvas.clientWidth, ch = canvas.clientHeight;
-    var v = viewFor(f, cw, ch);
-    var r = cw > 0 ? canvas.width / cw : 1;
-    ctx.fillStyle = "#05070c"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(im, v.dx * r, v.dy * r, FW * v.sc * r, FH * v.sc * r);
-  }
-  // the seam (SA..SB) can never be rested on: scroll positions inside it
-  // resolve to the far edge, and the film steps through at its own pace
-  var SA = 84, SB = 92;
-  var shown = -1, lastRaw = -1, dir = 1, lastStep = 0, rafId = 0, running = false;
-  function loop(ts) {
-    rafId = running ? requestAnimationFrame(loop) : 0;
-    var raw = frameFor();
-    if (raw !== lastRaw) { dir = raw > lastRaw ? 1 : -1; lastRaw = raw; }
-    var t = (raw > SA && raw < SB) ? (dir > 0 ? SB : SA) : raw;
-    if (shown === -1) { shown = t; drawFrame(shown); return; }
-    if (t === shown) return;
-    if (t > shown) {
-      if (shown < SA) shown = Math.min(t, SA);
-      else if (shown >= SB) shown = t;
-      else { if (ts - lastStep < 28) return; shown++; lastStep = ts; }
-    } else {
-      if (shown > SB) shown = Math.max(t, SB);
-      else if (shown <= SA) shown = t;
-      else { if (ts - lastStep < 28) return; shown--; lastStep = ts; }
-    }
-    drawFrame(shown);
-  }
-  function setRunning(on) {
-    if (on && !running) { running = true; rafId = requestAnimationFrame(loop); }
-    if (!on && running) { running = false; if (rafId) cancelAnimationFrame(rafId); rafId = 0; }
-  }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { preload(); setRunning(true); } else { setRunning(false); } });
-  }, { rootMargin: "1200px 0px" });
-  io.observe(stage);
-  function size() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = canvas.clientWidth * dpr; canvas.height = canvas.clientHeight * dpr;
-    current = -1; if (shown >= 0) drawFrame(shown);
-  }
-  window.addEventListener("resize", size);
-  size();
-})();
-</script>
-
-<script>
-// phone hero: land tight on the register, scroll pulls back to the wide
-// shot. The displayed zoom chases the scroll position so the pull-back
-// glides instead of tracking every scroll step.
-(function () {
-  if (!window.matchMedia("(max-width: 860px)").matches) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  var stage = document.querySelector(".hero-stage");
-  var video = stage && stage.querySelector(".hero-bg");
-  var inner = stage && stage.querySelector(".hero-inner");
-  var media = stage && stage.querySelector(".hero-media");
-  var hero = stage && stage.querySelector(".hero");
-  var scrim = stage && stage.querySelector(".hero-scrim");
-  if (!stage || !video || !media || !hero) return;
-  var REG_CX = 0.4727, W0 = 0.28125;
-  var cur = 0, rafId = 0;
-
-  function targetP() {
-    var r = stage.getBoundingClientRect();
-    var span = r.height - window.innerHeight;
-    return span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
-  }
-  function render(p) {
-    var e = p * p * p * (p * (p * 6 - 15) + 10);   // quintic: soft at both ends
-    var vw = window.innerWidth;
-    var w = W0 + (1 - W0) * e;                     // visible source-width fraction
-    var k = 1 / w;                                 // bands appear as the pull-back completes
-    var tx = -(REG_CX - 0.5) * vw * k * (1 - e);
-    video.style.transform = "translate(" + tx.toFixed(1) + "px, -50%) scale(" + k.toFixed(4) + ")";
-    if (inner) inner.style.opacity = String(Math.max(0, 1 - Math.max(0, (p - 0.45) / 0.3)));
-    // the frame around the widening video warms from dark to the industries
-    // blue, so the wide shot lands already sitting on the next section
-    var b = Math.min(1, Math.max(0, (e - 0.5) / 0.45));
-    var mix = function (a2, b2) { return Math.round(a2 + (b2 - a2) * b); };
-    var col = "rgb(" + mix(5, 219) + "," + mix(7, 234) + "," + mix(12, 254) + ")";
-    media.style.backgroundColor = col;
-    hero.style.backgroundColor = col;
-    if (scrim) scrim.style.opacity = String(1 - b);
-  }
-  function loop() {
-    var target = targetP();
-    cur += (target - cur) * 0.12;
-    if (Math.abs(target - cur) < 0.0006) cur = target;
-    render(cur);
-    rafId = cur === target ? 0 : requestAnimationFrame(loop);
-  }
-  function kick() {
-    if (!rafId) rafId = requestAnimationFrame(loop);
-  }
-  window.addEventListener("scroll", kick, { passive: true });
-  window.addEventListener("resize", kick);
-  cur = targetP(); render(cur);
-})();
-</script>
+<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Explore</h3><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
+<dialog class="screen-dialog" aria-labelledby="screen-dialog-title"><div class="screen-dialog-header"><h2 id="screen-dialog-title">SleetPOS screen</h2><button type="button" class="screen-dialog-close" aria-label="Close full-screen preview">Close <span aria-hidden="true">×</span></button></div><img alt="" /></dialog>
 </body>
 </html>

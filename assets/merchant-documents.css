@@ -1,0 +1,5 @@
+/* Typography-only alignment for shared corporate and policy pages. */
+body { font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #152532; }
+button, input, select, textarea { font-family: inherit; }
+h1.doc-title, .page-intro h1 { font-weight: 500; letter-spacing: -.055em; line-height: 1.12; }
+h2, h3, .form-card h2 { font-weight: 500; letter-spacing: -.035em; }

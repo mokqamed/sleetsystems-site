@@ -62,335 +62,34 @@ function gtag_report_conversion(url) {
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    overflow-x: clip;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: #0f172a;
-    line-height: 1.6;
-    background: #ffffff;
-  }
-  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid #e2e8f0;
-    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  header.nav-hidden { transform: translateY(-100%); }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .logo { display: flex; align-items: center; text-decoration: none; }
-  .logo img { height: 34px; width: auto; display: block; }
-  .nav-links { display: flex; gap: 8px; align-items: center; list-style: none; }
-  .nav-links li { position: relative; }
-  .nav-top {
-    display: inline-flex; align-items: center; gap: 6px;
-    color: #475569; text-decoration: none; font-weight: 500; font-size: 14.5px;
-    padding: 10px 12px; border-radius: 8px;
-    position: relative;
-    transition: color 0.18s ease;
-  }
-  .nav-top::after {
-    content: "";
-    position: absolute;
-    left: 12px; right: 12px; bottom: 4px;
-    height: 2px;
-    background: #60a5fa;
-    border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  li:hover > .nav-top, .nav-top:focus-visible { color: #0f172a; }
-  li:hover > .nav-top::after, .nav-top:focus-visible::after { transform: scaleX(1); }
-  .nav-top.active { color: #0f172a; }
-  .nav-top.active::after { transform: scaleX(1); }
-  .nav-cta {
-    background: #2563eb; color: #ffffff !important; padding: 9px 16px;
-    border-radius: 8px; font-weight: 600 !important; font-size: 14.5px;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 10px;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
-
-  .page-intro {
-    background: #060a14;
-    color: #ffffff;
-    padding: 72px 0 64px;
-  }
-  .page-eyebrow {
-    color: #60a5fa; font-weight: 600; font-size: 14px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .page-intro h1 {
-    font-size: clamp(34px, 4.2vw, 52px);
-    font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
-    margin-bottom: 16px;
-  }
-  .page-intro .lead {
-    font-size: 18px; color: #94a3b8; max-width: 620px;
-  }
-
-  .section-eyebrow {
-    color: #2563eb; font-weight: 600; font-size: 14px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .section-title {
-    font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 800; letter-spacing: -0.02em;
-    color: #0f172a; margin-bottom: 16px; max-width: 780px;
-    line-height: 1.15;
-  }
-
-  .demo { padding: 88px 0; scroll-margin-top: 80px; }
-  .demo.alt { background: #f8fafc; }
-  .demo-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    gap: 56px;
-    align-items: center;
-  }
-  .demo-grid.flip .demo-copy { order: 2; }
-  .demo-grid.flip .demo-media { order: 1; }
-  .demo-copy h2 { margin-bottom: 14px; }
-  .demo-copy p { font-size: 17px; color: #475569; max-width: 460px; }
-  .demo-media { line-height: 0; }
-  .demo-media video, .demo-media img {
-    width: 100%; height: auto;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
-  }
-  .demo-media.bare video, .demo-media.bare img { border: none; box-shadow: none; border-radius: 0; }
-  .demo-media.phone { display: flex; justify-content: center; }
-  .demo-media.phone img { max-height: 560px; width: auto; border: none; box-shadow: none; border-radius: 0; }
-
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
-  .reveal.in { opacity: 1; transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-
-
-
-  /* ---------- Feature library — Swiss grid, one accent, no ornament ---------- */
-  .lib { background: #ffffff; padding: 72px 0 104px; }
-  .lib-layout {
-    display: grid;
-    grid-template-columns: 200px minmax(0, 1fr);
-    gap: 72px;
-    align-items: start;
-  }
-
-  /* index rail */
-  .lib-nav { position: sticky; top: 96px; }
-  .lib-nav-label {
-    font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #94a3b8; padding-bottom: 12px; border-bottom: 1px solid #1e293b;
-    margin-bottom: 4px;
-  }
-  .lib-nav a {
-    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
-    padding: 13px 0; border-bottom: 1px solid #e2e8f0;
-    font-size: 14.5px; font-weight: 500; color: #475569; text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .lib-nav a span { font-size: 12px; color: #94a3b8; font-variant-numeric: tabular-nums; }
-  .lib-nav a:hover { color: #0f172a; }
-  .lib-nav a.on { color: #2563eb; font-weight: 600; }
-  .lib-nav a.on span { color: #2563eb; }
-
-  /* groups */
-  .lib-group { margin-bottom: 72px; scroll-margin-top: 96px; }
-  .lib-group:last-child { margin-bottom: 0; }
-  .lib-group > h2 {
-    font-size: clamp(24px, 2.6vw, 30px); font-weight: 800;
-    letter-spacing: -0.025em; color: #0f172a; margin-bottom: 8px;
-  }
-  .lib-note { font-size: 16px; color: #64748b; margin-bottom: 26px; max-width: 52ch; }
-  .lib-list { border-top: 1px solid #1e293b; }
-
-  /* rows */
-  .ft { border-bottom: 1px solid #e2e8f0; scroll-margin-top: 90px; }
-  .ft-q {
-    display: grid; grid-template-columns: 48px minmax(0, 1fr) 28px;
-    align-items: baseline; gap: 16px;
-    width: 100%; min-height: 48px;
-    text-align: left; background: none; border: 0; cursor: pointer;
-    padding: 20px 0; font-family: inherit;
-    transition: opacity 0.2s ease;
-  }
-  .ft-q:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
-  .ft-idx {
-    font-size: 13px; font-weight: 600; color: #94a3b8;
-    font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
-    transition: color 0.2s ease;
-  }
-  .ft-name {
-    display: block; font-size: 18px; font-weight: 650; letter-spacing: -0.015em;
-    color: #0f172a; transition: color 0.2s ease;
-  }
-  .ft-sum { display: block; font-size: 15px; color: #64748b; margin-top: 3px; max-width: 58ch; }
-  .ft-q:hover .ft-name { color: #2563eb; }
-  .ft.open .ft-name, .ft.open .ft-idx { color: #2563eb; }
-  /* a plus that becomes a minus — one line rotates, nothing else moves */
-  .ft-plus { position: relative; width: 14px; height: 14px; justify-self: end; align-self: center; }
-  .ft-plus::before, .ft-plus::after {
-    content: ""; position: absolute; background: #475569;
-    transition: transform 0.24s ease, background 0.2s ease;
-  }
-  .ft-plus::before { top: 6px; left: 0; width: 14px; height: 2px; }
-  .ft-plus::after { left: 6px; top: 0; width: 2px; height: 14px; }
-  .ft.open .ft-plus::after { transform: scaleY(0); }
-  .ft.open .ft-plus::before, .ft.open .ft-plus::after { background: #2563eb; }
-
-  .ft-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
-  .ft.open .ft-a { grid-template-rows: 1fr; }
-  .ft-a > div { overflow: hidden; }
-  .ft-body {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-    gap: 40px; align-items: start;
-    padding: 0 0 30px 64px;
-  }
-  .ft-body.solo { grid-template-columns: minmax(0, 62ch); }
-  .ft-body p { font-size: 16px; line-height: 1.7; color: #475569; }
-  .ft-body ul { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid #e2e8f0; }
-  .ft-body li {
-    font-size: 15px; color: #475569; line-height: 1.5;
-    padding: 10px 0 10px 0; border-bottom: 1px solid #e2e8f0;
-  }
-  .ft-media {
-    border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; background: #f8fafc;
-    box-shadow: 0 1px 2px rgba(15,23,42,0.05), 0 10px 28px rgba(15,23,42,0.07);
-  }
-  .ft-media video, .ft-media img { width: 100%; height: auto; display: block; }
-
-  /* surface marker — which screens a feature lives on */
-  .ft-where {
-    display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.11em;
-    text-transform: uppercase; color: #94a3b8; margin-bottom: 5px;
-  }
-  .ft.open .ft-where { color: #60a5fa; }
-  /* two stills in one frame, separated by a hairline */
-  .ft-fig + .ft-fig { border-top: 1px solid #e2e8f0; }
-  .ft-cap {
-    font-size: 12px; line-height: 1.4; color: #64748b; background: #f8fafc;
-    padding: 9px 14px; border-top: 1px solid #eef2f7;
-  }
-
-  @media (max-width: 1000px) {
-    .lib-layout { grid-template-columns: 1fr; gap: 34px; }
-    .lib-nav { position: static; display: flex; flex-wrap: wrap; gap: 0 22px; }
-    .lib-nav-label { display: none; }
-    .lib-nav a { border-bottom: 0; padding: 6px 0; }
-  }
-  @media (max-width: 860px) {
-    .lib { padding: 42px 0 60px; }
-    .lib-group { margin-bottom: 48px; }
-    .ft-q { grid-template-columns: 34px minmax(0,1fr) 22px; gap: 12px; padding: 17px 0; }
-    .ft-name { font-size: 16.5px; }
-    .ft-sum { font-size: 14px; }
-    .ft-body { grid-template-columns: 1fr; gap: 20px; padding: 0 0 24px 46px; }
-    .ft-body.solo { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .ft-a, .ft-plus::before, .ft-plus::after, .ft-name, .ft-idx { transition: none; }
-  }
-
-  .cta-band {
-    background: linear-gradient(120deg, #1d4ed8 0%, #2563eb 55%, #0ea5e9 100%);
-    color: #ffffff;
-    padding: 72px 0;
-    text-align: center;
-  }
-  .cta-band h2 {
-    font-size: clamp(28px, 3.6vw, 40px);
-    font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
-    margin-bottom: 14px;
-  }
-  .cta-band p { font-size: 17px; color: #dbeafe; max-width: 520px; margin: 0 auto 28px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 24px; border-radius: 10px;
-    font-weight: 600; font-size: 16px; text-decoration: none;
-    transition: transform 0.05s ease, background 0.15s ease;
-    cursor: pointer; border: none;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btn-white { background: #ffffff; color: #1d4ed8; box-shadow: 0 8px 28px rgba(4, 8, 18, 0.25); }
-  .btn-white:hover { background: #eff6ff; }
-
-  footer {
-    background: #060a14;
-    color: #94a3b8;
-    padding: 36px 0;
-    font-size: 14px;
-  }
-  .footer-logo { display: inline-block; margin-bottom: 18px; }
-  .footer-logo img { height: 30px; width: auto; display: block; }
-  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  footer a { color: #cbd5e1; text-decoration: none; margin-left: 18px; }
-  footer a:hover { color: #ffffff; }
-  footer .footer-logo { margin-left: 0; }
-
-  @media (max-width: 860px) {
-    .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
-    .logo img { height: 27px; }
-    .nav-top { padding: 10px 8px; font-size: 14px; }
-    .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
-    .page-intro { padding: 48px 0 44px; }
-    .demo { padding: 56px 0; }
-    .demo-grid, .demo-grid.flip { grid-template-columns: 1fr; gap: 30px; }
-    .demo-grid.flip .demo-copy { order: 1; }
-    .demo-grid.flip .demo-media { order: 2; }
-  }
-</style>
+<link rel="stylesheet" href="/assets/merchant.css" />
+<link rel="stylesheet" href="/assets/merchant-system.css" />
+<link rel="stylesheet" href="/assets/merchant-pages.css" />
+<script src="/assets/merchant-shell.js" defer></script>
 <meta name="google-site-verification" content="xqmrzdfFpGR3f4cwdjIoa0PygFE5FzW4LtJEWn3XnU0" />
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body class="merchant-subpage">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell header-inner">
+<a class="brand" href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" /></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
+<nav id="site-nav" aria-label="Main navigation"><a href="/" data-main-tab="overview">Overview</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#features">See it in action</a><a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a></nav>
+</div></header>
+<main id="main" class="subpage-main">
 
-<header>
-  <div class="container">
-    <nav class="nav">
-      <a href="/" class="logo">
-        <img src="/assets/sleetpos-logo-dark-nav.png" alt="SleetPOS — powered by Sleet Systems" />
-      </a>
-      <ul class="nav-links">
-        <li><a href="/#product" class="nav-top">Product</a></li>
-        <li><a href="/features/" class="nav-top active">Features</a></li>
-        <li><a href="/partnerships/" class="nav-top">Partnerships</a></li>
-        <li><a href="/support" class="nav-top">Support</a></li>
-        <li><a href="https://sleetpos.com/login" class="nav-top">Log in</a></li>
-        <li><a href="/signup/" class="nav-cta">Sign up</a></li>
-      </ul>
-    </nav>
+<section class="page-intro" aria-labelledby="features-title">
+  <div class="shell">
+    <div class="section-label">Features</div>
+    <h1 id="features-title">See it working.</h1>
+    <p class="lead">Explore SleetPOS at the register, in your dashboard and on your phone, with real screens and workflows.</p>
   </div>
-</header>
-
-<main>
-
-<div class="page-intro">
-  <div class="container">
-    <div class="page-eyebrow">Features</div>
-    <h1>See it working.</h1>
-    <p class="lead">Not mockups — this is SleetPOS running in a real store, doing the job it does every day.</p>
-  </div>
-</div>
+</section>
 
 <section class="lib" id="library">
-  <div class="container">
+  <div class="shell">
     <div class="lib-layout">
       <nav class="lib-nav" aria-label="Feature groups">
         <div class="lib-nav-label">Contents</div>
@@ -407,24 +106,24 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-1">
               <span class="ft-idx">01</span>
               <span class="ft-txt"><span class="ft-name">Checkout and scanning</span><span class="ft-sum">Scan, tap or search — the ticket adds itself up</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-1"><div><div class="ft-body">
+            <div class="ft-a" id="ft-1" hidden><div><div class="ft-body">
               <div><p>Scan an item, tap a product tile, or search by name. Deals, discounts and tax are applied as you go, so the total on the screen is always the total you charge.</p><ul><li>Barcode scanning straight into the ticket</li><li>Product tiles with pictures for anything without a barcode</li><li>Deals and discounts applied automatically</li></ul></div>
-              <div class="ft-media" data-video="/assets/register_scan_1920.mp4" data-poster="/assets/register_scan_poster.jpg"></div>
+              <div class="ft-media"><img src="/assets/current_register_cafe.webp" loading="lazy" alt="Current SleetPOS register with product tiles and an order in the cart" /></div>
             </div></div></div>
           </article>
           <article class="ft" id="f-pricing">
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-2">
               <span class="ft-idx">02</span>
               <span class="ft-txt"><span class="ft-name">Cash and card pricing</span><span class="ft-sum">Both prices on the shelf, on both screens, and on the receipt</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-2"><div><div class="ft-body">
-              <div><p>Every item carries a cash price and a card price. Both show on your screen and on the one facing your customer, and both get printed on the shelf label — so the price the customer reads on the shelf is the price the register charges.</p><ul><li>Shelf labels with the item name, barcode and both prices</li><li>Print at the register, or send them from the dashboard or your phone</li><li>Reprint a whole shelf after a price change without retyping anything</li></ul></div>
+            <div class="ft-a" id="ft-2" hidden><div><div class="ft-body">
+              <div><p>Cash and card prices follow your store’s dual-pricing settings. Show both at checkout and print them on your shelf labels. Print updated labels after catalogue changes so your shelf prices stay current.</p><ul><li>Shelf labels with the item name, barcode and both prices</li><li>Print at the register, or send them from the dashboard or your phone</li><li>Reprint a whole shelf after a price change without retyping anything</li></ul></div>
               <div class="ft-media">
                 <div class="ft-fig"><img src="/assets/shelf_after_1000.webp" loading="lazy" alt="Shelf labels showing a cash price and a card price for each item" /><div class="ft-cap">Printed shelf labels — cash and card price on every tag</div></div>
-                <div class="ft-fig"><img src="/assets/ui_customer_prices.webp" loading="lazy" alt="The customer-facing screen showing a cash total and a card total" /><div class="ft-cap">The same two prices on the customer screen</div></div>
+                <div class="ft-fig"><img src="/assets/current_customer_cart.webp" loading="lazy" alt="Current customer display showing the cart, cash and card totals, and a latte promotion" /><div class="ft-cap">Cash and card totals alongside a featured offer</div></div>
               </div>
             </div></div></div>
           </article>
@@ -432,9 +131,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-3">
               <span class="ft-idx">03</span>
               <span class="ft-txt"><span class="ft-name">The customer-facing screen</span><span class="ft-sum">Your customer watches the sale build</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-3"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-3" hidden><div><div class="ft-body solo">
               <div><p>The second screen shows the cart, the running total and both prices while you ring items up. Between sales it shows your own promotions.</p></div>
             </div></div></div>
           </article>
@@ -442,9 +141,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-4">
               <span class="ft-idx">04</span>
               <span class="ft-txt"><span class="ft-name">Clocking in and out</span><span class="ft-sum">Staff start and end their shifts at the register</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-4"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-4" hidden><div><div class="ft-body solo">
               <div><p>Each person clocks in at the register when they start and clocks out when they finish. The hours collect in one place, so you are not reading a paper sheet at the end of the week.</p></div>
             </div></div></div>
           </article>
@@ -452,9 +151,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-5">
               <span class="ft-idx">05</span>
               <span class="ft-txt"><span class="ft-name">Shift and day reports</span><span class="ft-sum">What came in, and how it was paid</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-5"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-5" hidden><div><div class="ft-body solo">
               <div><p>Close out a shift or a day and get the totals broken down by how customers paid, including refunds — printed at the counter or read later in the dashboard.</p></div>
             </div></div></div>
           </article>
@@ -468,9 +167,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-6">
               <span class="ft-idx">06</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Sales history</span><span class="ft-sum">Every sale you have ever rung up, searchable</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-6"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-6" hidden><div><div class="ft-body solo">
               <div><p>Look up any day, any register, any single ticket — what was on it, who rang it, how it was paid and whether any of it came back as a refund.</p></div>
             </div></div></div>
           </article>
@@ -478,9 +177,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-7">
               <span class="ft-idx">07</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">What is selling</span><span class="ft-sum">Top sellers, slow movers, busiest hours</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-7"><div><div class="ft-body">
+            <div class="ft-a" id="ft-7" hidden><div><div class="ft-body">
               <div><p>See which items are moving and which are sitting, how today compares to last week, and when your busy hours actually are — so you order and staff around what the store really does.</p></div>
               <div class="ft-media"><img src="/assets/iphone_dashboard.webp" loading="lazy" alt="The SleetPOS app on an iPhone showing store totals" /></div>
             </div></div></div>
@@ -489,9 +188,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-8">
               <span class="ft-idx">08</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Invoice scanning</span><span class="ft-sum">Photograph an invoice, the products fill in</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-8"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-8" hidden><div><div class="ft-body solo">
               <div><p>Take a picture of a supplier invoice with your phone, or upload it in the dashboard, and SleetPOS reads the lines — item, quantity and cost — then lines them up against the products you carry. You approve it before anything in your store changes. And it remembers your answers — match a supplier's line to your product once, and the next invoice from that supplier fills in on its own.</p></div>
             </div></div></div>
           </article>
@@ -499,9 +198,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-9">
               <span class="ft-idx">09</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Products and inventory</span><span class="ft-sum">One product list behind every screen</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-9"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-9" hidden><div><div class="ft-body solo">
               <div><p>Add products, set prices, and watch counts move as sales happen. Change something here and the register has it.</p></div>
             </div></div></div>
           </article>
@@ -509,9 +208,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-10">
               <span class="ft-idx">10</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Staff and permissions</span><span class="ft-sum">Who can do what, on the register and off it</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-10"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-10" hidden><div><div class="ft-body solo">
               <div><p>Give each person their own login and decide what they can reach — the register, refunds, reports, or the dashboard itself.</p></div>
             </div></div></div>
           </article>
@@ -519,9 +218,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-11">
               <span class="ft-idx">11</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Wholesale accounts</span><span class="ft-sum">A second price list for the trade</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-11"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-11" hidden><div><div class="ft-body solo">
               <div><p>Give wholesale customers their own pricing and account numbers, and keep those sales separate in your reports.</p></div>
             </div></div></div>
           </article>
@@ -529,9 +228,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-12">
               <span class="ft-idx">12</span>
               <span class="ft-txt"><span class="ft-where">Phone and dashboard</span><span class="ft-name">Ordering and receiving</span><span class="ft-sum">Build an order from the shelf, check it in when it lands</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-12"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-12" hidden><div><div class="ft-body solo">
               <div><p>Walk the aisle scanning what is low and the order builds itself, grouped by vendor. Save it as a draft or send it, then check the delivery in against it when it arrives. Creating an order is yours and your managers' — cashiers can help receive it.</p></div>
             </div></div></div>
           </article>
@@ -545,9 +244,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-13">
               <span class="ft-idx">13</span>
               <span class="ft-txt"><span class="ft-where">Phone</span><span class="ft-name">Counting and receiving</span><span class="ft-sum">Scan a shelf to check it, check a delivery in</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-13"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-13" hidden><div><div class="ft-body solo">
               <div><p>Your team point their phone at a barcode to pull the product up, check the count against the shelf and correct it on the spot. When a delivery arrives they can check it in against the order without walking back to the register.</p></div>
             </div></div></div>
           </article>
@@ -555,9 +254,9 @@ function gtag_report_conversion(url) {
             <button class="ft-q" type="button" aria-expanded="false" aria-controls="ft-14">
               <span class="ft-idx">14</span>
               <span class="ft-txt"><span class="ft-where">Phone</span><span class="ft-name">Their own hours</span><span class="ft-sum">Each person can see their shift and their hours</span></span>
-              <span class="ft-plus" aria-hidden="true"></span>
+              <svg class="ft-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
-            <div class="ft-a" id="ft-14"><div><div class="ft-body solo">
+            <div class="ft-a" id="ft-14" hidden><div><div class="ft-body solo">
               <div><p>Staff can see whether they are currently clocked in and look back at the shifts they have worked, without being able to see the rest of the store.</p></div>
             </div></div></div>
           </article>
@@ -568,120 +267,68 @@ function gtag_report_conversion(url) {
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="container">
-    <h2 class="reveal">Want this in your store?</h2>
-    <p class="reveal">Sign up in about a minute. We set everything up and you ring your first sale.</p>
-    <a href="/signup/" class="btn btn-white reveal">Sign up</a>
-  </div>
-</section>
+<section class="closing-section"><div class="shell"><div><h2>Want this in your store?</h2><p>Sign up in about a minute. We set everything up and you ring your first sale.</p></div><a href="/signup/" class="button button-white">Sign up</a></div></section>
+
 
 </main>
-
-<footer>
-  <div class="container">
-    <a href="/" class="footer-logo"><img src="/assets/sleetpos-logo-white-nav.png" alt="SleetPOS — powered by Sleet Systems" /></a>
-    <div class="footer-row">
-      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
-      <span>
-        <a href="/">Home</a>
-        <a href="/support">Support</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </span>
-    </div>
-  </div>
-</footer>
-
+<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Explore</h3><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
 <script>
-
-
-  // index rail follows the group in view
-  (function () {
-    var links = [].slice.call(document.querySelectorAll(".lib-nav a"));
-    if (!links.length || !("IntersectionObserver" in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.classList.toggle("on", a.dataset.g === e.target.id); });
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    document.querySelectorAll(".lib-group").forEach(function (g) { io.observe(g); });
-  })();
-
-  // feature library: one row open at a time; videos load only when opened
-  (function () {
-    var rows = [].slice.call(document.querySelectorAll(".ft"));
-    if (!rows.length) return;
-    rows.forEach(function (row) {
-      var btn = row.querySelector(".ft-q");
-      btn.addEventListener("click", function () {
-        var open = row.classList.contains("open");
-        rows.forEach(function (o) {
-          o.classList.remove("open");
-          o.querySelector(".ft-q").setAttribute("aria-expanded", "false");
-          var v = o.querySelector("video");
-          if (v) v.pause();
+(() => {
+  const links = [...document.querySelectorAll('.lib-nav a')];
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(link => {
+          const current = link.dataset.g === entry.target.id;
+          link.classList.toggle('on', current);
+          if (current) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
         });
-        if (open) return;
-        row.classList.add("open");
-        btn.setAttribute("aria-expanded", "true");
-        var slot = row.querySelector(".ft-media[data-video]");
-        if (slot && !slot.dataset.loaded) {
-          slot.dataset.loaded = "1";
-          var v = document.createElement("video");
-          v.src = slot.dataset.video;
-          if (slot.dataset.poster) v.poster = slot.dataset.poster;
-          v.controls = true; v.muted = true; v.playsInline = true; v.preload = "metadata";
-          slot.appendChild(v);
-        }
-        var vid = row.querySelector("video");
-        if (vid) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
       });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('.lib-group').forEach(group => observer.observe(group));
+  }
+  const rows = [...document.querySelectorAll('.ft')];
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  rows.forEach(row => {
+    const button = row.querySelector('.ft-q');
+    button.addEventListener('click', () => {
+      const wasOpen = row.classList.contains('open');
+      rows.forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.ft-q').setAttribute('aria-expanded', 'false');
+        other.querySelector('.ft-a').hidden = true;
+        other.querySelector('video')?.pause();
+      });
+      if (wasOpen) return;
+      row.classList.add('open');
+      button.setAttribute('aria-expanded', 'true');
+      row.querySelector('.ft-a').hidden = false;
+      const slot = row.querySelector('.ft-media[data-video]');
+      if (slot && !slot.dataset.loaded) {
+        slot.dataset.loaded = '1';
+        const video = document.createElement('video');
+        video.src = slot.dataset.video;
+        if (slot.dataset.poster) video.poster = slot.dataset.poster;
+        video.controls = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.setAttribute('aria-label', row.querySelector('.ft-name').textContent + ' demonstration');
+        slot.appendChild(video);
+      }
+      if (!reducedMotion.matches) row.querySelector('video')?.play().catch(() => {});
     });
-  })();
-
-  (function () {
-    if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.18 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-  })();
-
-  (function () {
-    var header = document.querySelector("header");
-    var lastY = window.scrollY;
-    var ticking = false;
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var y = window.scrollY;
-        if (y > lastY && y > 90) header.classList.add("nav-hidden");
-        else if (y < lastY) header.classList.remove("nav-hidden");
-        lastY = y;
-        ticking = false;
-      });
-    }, { passive: true });
-  })();
-</script>
-
-<script>
-// arriving with a #f-… hash opens that feature row
-(function () {
-  var el = location.hash && document.getElementById(location.hash.slice(1));
-  if (!el || !el.classList.contains("ft")) return;
-  var btn = el.querySelector(".ft-q");
-  if (btn) setTimeout(function () { btn.click(); el.scrollIntoView({ block: "start" }); }, 60);
+  });
+  const openLinkedFeature = () => {
+    const row = location.hash && document.getElementById(location.hash.slice(1));
+    if (!row || !row.classList.contains('ft')) return;
+    if (!row.classList.contains('open')) row.querySelector('.ft-q').click();
+    row.scrollIntoView({ block: 'start' });
+  };
+  window.addEventListener('hashchange', openLinkedFeature);
+  openLinkedFeature();
 })();
 </script>
 </body>

@@ -28,7 +28,7 @@ function gtag_report_conversion(url) {
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Create your SleetPOS account in about a minute. Tell us about your store and we set up your point of sale system — registers, inventory, and the owner dashboard." />
+<meta name="description" content="Create your SleetPOS account. Tell us about your store and we set up your point of sale system — registers, inventory, and the owner dashboard." />
 <title>Sign Up for SleetPOS — Get a POS System for Your Store</title>
 <link rel="canonical" href="https://www.sleetpos.com/signup" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -37,14 +37,14 @@ function gtag_report_conversion(url) {
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="SleetPOS" />
 <meta property="og:title" content="Sign Up for SleetPOS — Get a POS System for Your Store" />
-<meta property="og:description" content="Create your SleetPOS account in about a minute. Tell us about your store and we set up your point of sale system — registers, inventory, and the owner dashboard." />
+<meta property="og:description" content="Create your SleetPOS account. Tell us about your store and we set up your point of sale system — registers, inventory, and the owner dashboard." />
 <meta property="og:url" content="https://www.sleetpos.com/signup" />
 <meta property="og:image" content="https://www.sleetpos.com/assets/og-sleetpos.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sign Up for SleetPOS — Get a POS System for Your Store" />
-<meta name="twitter:description" content="Create your SleetPOS account in about a minute. Tell us about your store and we set up your point of sale system — registers, inventory, and the owner dashboard." />
+<meta name="twitter:description" content="Create your SleetPOS account. Tell us about your store and we set up your point of sale system — registers, inventory, and the owner dashboard." />
 <meta name="twitter:image" content="https://www.sleetpos.com/assets/og-sleetpos.jpg" />
 <script type="application/ld+json">
 {
@@ -59,279 +59,35 @@ function gtag_report_conversion(url) {
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: #0f172a;
-    line-height: 1.6;
-    background: #ffffff;
-  }
-  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid #e2e8f0;
-    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  header.nav-hidden { transform: translateY(-100%); }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .logo { display: flex; align-items: center; text-decoration: none; }
-  .logo img { height: 34px; width: auto; display: block; }
-  .nav-links { display: flex; gap: 8px; align-items: center; list-style: none; }
-  .nav-links li { position: relative; }
-  .nav-top {
-    display: inline-flex; align-items: center; gap: 6px;
-    color: #475569; text-decoration: none; font-weight: 500; font-size: 14.5px;
-    padding: 10px 12px; border-radius: 8px;
-    position: relative;
-    transition: color 0.18s ease;
-  }
-  .nav-top::after {
-    content: "";
-    position: absolute;
-    left: 12px; right: 12px; bottom: 4px;
-    height: 2px;
-    background: #60a5fa;
-    border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  li:hover > .nav-top, .nav-top:focus-visible { color: #0f172a; }
-  li:hover > .nav-top::after, .nav-top:focus-visible::after { transform: scaleX(1); }
-  .nav-cta {
-    background: #2563eb; color: #ffffff !important; padding: 9px 16px;
-    border-radius: 8px; font-weight: 600 !important; font-size: 14.5px;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 10px;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
-
-  .page-intro {
-    background: #060a14;
-    color: #ffffff;
-    padding: 72px 0 64px;
-  }
-  .page-eyebrow {
-    color: #60a5fa; font-weight: 600; font-size: 14px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .page-intro h1 {
-    font-size: clamp(34px, 4.2vw, 52px);
-    font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
-    margin-bottom: 16px;
-  }
-  .page-intro .lead {
-    font-size: 18px; color: #94a3b8; max-width: 620px;
-  }
-
-  .signup { background: #f8fafc; padding: 80px 0 96px; }
-  .signup-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 64px;
-    align-items: start;
-  }
-  .points { display: grid; gap: 22px; }
-  .point { display: flex; gap: 16px; align-items: flex-start; }
-  .point-icon {
-    flex-shrink: 0;
-    width: 42px; height: 42px;
-    background: #eff6ff; color: #2563eb;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .point h3 { font-size: 16.5px; font-weight: 700; color: #0f172a; margin-bottom: 3px; }
-  .point p { font-size: 15px; color: #475569; line-height: 1.55; }
-
-  .card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    padding: 36px;
-    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.07);
-    position: sticky;
-    top: 92px;
-  }
-  .card h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: #0f172a; margin-bottom: 6px; }
-  .card .card-sub { font-size: 14.5px; color: #64748b; margin-bottom: 26px; }
-  .field { margin-bottom: 18px; }
-  .field label { display: block; font-size: 13.5px; font-weight: 600; color: #334155; margin-bottom: 6px; }
-  .field input, .field textarea {
-    width: 100%;
-    font: inherit; font-size: 15px;
-    color: #0f172a;
-    padding: 11px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 9px;
-    background: #ffffff;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  }
-  .field input:focus, .field textarea:focus {
-    outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  }
-  .field textarea { resize: vertical; min-height: 96px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 24px; border-radius: 10px;
-    font-weight: 600; font-size: 15.5px; text-decoration: none;
-    transition: transform 0.05s ease, background 0.15s ease;
-    cursor: pointer; border: none;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btn-primary { background: #2563eb; color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25); }
-  .btn-primary:hover { background: #1d4ed8; }
-  .form-submit { width: 100%; justify-content: center; }
-  .form-status { margin-top: 14px; font-size: 14.5px; font-weight: 500; display: none; }
-  .form-status.ok { display: block; color: #166534; }
-  .form-status.err { display: block; color: #b91c1c; }
-  .login-hint { font-size: 14px; color: #64748b; margin-left: auto; }
-  .login-hint a { color: #2563eb; text-decoration: none; font-weight: 600; }
-  .login-hint a:hover { text-decoration: underline; }
-
-  /* questionnaire */
-  .progress {
-    height: 5px; border-radius: 99px;
-    background: #e2e8f0;
-    margin-bottom: 28px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%; width: 20%;
-    background: linear-gradient(90deg, #2563eb, #0ea5e9);
-    border-radius: 99px;
-    transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .step { display: none; }
-  .step.active { display: block; animation: stepIn 0.32s cubic-bezier(0.2, 0.7, 0.2, 1); }
-  @keyframes stepIn {
-    from { opacity: 0; transform: translateX(22px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  .step h3 { margin-bottom: 18px; }
-  .opts { display: grid; gap: 10px; }
-  .step[data-step="0"] .opts { grid-template-columns: 1fr 1fr; }
-  .opt {
-    font: inherit; font-size: 15px; font-weight: 600;
-    color: #0f172a;
-    text-align: left;
-    padding: 13px 16px;
-    background: #ffffff;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: border-color 0.13s ease, background 0.13s ease, transform 0.08s ease;
-  }
-  .opt:hover { border-color: #2563eb; background: #eff6ff; }
-  .opt:active { transform: scale(0.985); }
-  .other-wrap { display: none; margin-top: 14px; gap: 10px; }
-  .other-wrap.show { display: flex; }
-  .other-wrap input {
-    flex: 1;
-    font: inherit; font-size: 15px;
-    color: #0f172a;
-    padding: 11px 14px;
-    border: 1.5px solid #2563eb;
-    border-radius: 10px;
-  }
-  .other-wrap input:focus { outline: none; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
-  .other-wrap .btn { padding: 11px 18px; }
-  .card-foot {
-    display: flex; align-items: center;
-    margin-top: 22px;
-    min-height: 22px;
-  }
-  .back-btn {
-    font: inherit; font-size: 14px; font-weight: 600;
-    color: #64748b;
-    background: none; border: none; cursor: pointer;
-    padding: 0;
-    visibility: hidden;
-  }
-  .back-btn.show { visibility: visible; }
-  .back-btn:hover { color: #0f172a; }
-  .skip-btn {
-    font: inherit; font-size: 14px; font-weight: 600;
-    color: #2563eb;
-    background: none; border: none; cursor: pointer;
-    padding: 0;
-    margin-left: 18px;
-  }
-  .skip-btn:hover { text-decoration: underline; }
-  .skip-btn.hide { display: none; }
-
-  footer {
-    background: #060a14;
-    color: #94a3b8;
-    padding: 36px 0;
-    font-size: 14px;
-  }
-  .footer-logo { display: inline-block; margin-bottom: 18px; }
-  .footer-logo img { height: 30px; width: auto; display: block; }
-  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  footer a { color: #cbd5e1; text-decoration: none; margin-left: 18px; }
-  footer a:hover { color: #ffffff; }
-
-  @media (max-width: 860px) {
-    .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
-    .logo img { height: 27px; }
-    .nav-top { padding: 10px 8px; font-size: 14px; }
-    .nav-cta { margin-left: 4px; padding: 8px 13px; font-size: 14px; }
-    .page-intro { padding: 48px 0 44px; }
-    .signup { padding: 56px 0 64px; }
-    .signup-grid { grid-template-columns: 1fr; gap: 40px; }
-    .card { padding: 26px; position: static; }
-    .field-row { grid-template-columns: 1fr; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/merchant.css" />
+<link rel="stylesheet" href="/assets/merchant-system.css" />
+<link rel="stylesheet" href="/assets/merchant-pages.css" />
+<script src="/assets/merchant-shell.js" defer></script>
 <meta name="google-site-verification" content="xqmrzdfFpGR3f4cwdjIoa0PygFE5FzW4LtJEWn3XnU0" />
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body class="merchant-subpage">
+<a class="skip-link" href="#main">Skip to content</a>
 
-<header>
-  <div class="container">
-    <nav class="nav">
-      <a href="/" class="logo">
-        <img src="/assets/sleetpos-logo-dark-nav.png" alt="SleetPOS — powered by Sleet Systems" />
-      </a>
-      <ul class="nav-links">
-        <li><a href="/#product" class="nav-top">Product</a></li>
-        <li><a href="/features/" class="nav-top">Features</a></li>
-        <li><a href="/partnerships/" class="nav-top">Partnerships</a></li>
-        <li><a href="/support" class="nav-top">Support</a></li>
-        <li><a href="https://sleetpos.com/login" class="nav-top">Log in</a></li>
-        <li><a href="/signup/" class="nav-cta">Sign up</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<header class="site-header"><div class="shell header-inner">
+<a class="brand" href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" /></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
+<nav id="site-nav" aria-label="Main navigation"><a href="/" data-main-tab="overview">Overview</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#features">See it in action</a><a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a></nav>
+</div></header>
 
-<main>
+<main id="main" class="subpage-main shell">
 
 <div class="page-intro">
-  <div class="container">
+  <div class="signup-container">
     <div class="page-eyebrow">Sign up</div>
-    <h1>Get SleetPOS for your store.</h1>
-    <p class="lead">Tell us about your store and we will take it from there. No long forms, no obligations — a real person reads this and replies by email.</p>
+    <h1>Make SleetPOS<br />part of your business.</h1>
+    <p class="lead">Tell us a little about your business, then create your dashboard account. We’ll follow up to help you get set up.</p>
   </div>
 </div>
 
 <section class="signup">
-  <div class="container">
+  <div class="signup-container">
     <div class="signup-grid">
       <div class="points">
         <div class="point">
@@ -340,7 +96,7 @@ function gtag_report_conversion(url) {
           </div>
           <div>
             <h3>Made for stores like yours</h3>
-            <p>Bodegas, groceries, boutiques, smoke shops, wholesale counters — SleetPOS runs real stores today.</p>
+            <p>Delis, convenience stores, cafés and independent retailers. Your products and routines shape the setup.</p>
           </div>
         </div>
         <div class="point">
@@ -349,7 +105,7 @@ function gtag_report_conversion(url) {
           </div>
           <div>
             <h3>We do the setup</h3>
-            <p>You do not need to be technical. We get the register ready, and anyone on your team can ring up sales on their first shift.</p>
+            <p>We help prepare your register, product catalogue and team for the way you work.</p>
           </div>
         </div>
         <div class="point">
@@ -358,11 +114,11 @@ function gtag_report_conversion(url) {
           </div>
           <div>
             <h3>A person answers</h3>
-            <p>When you write to us, the people who build SleetPOS read it and reply. No ticket queues, no call centers.</p>
+            <p>Talk with the team behind SleetPOS about your setup, questions and the features your business needs.</p>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="form-panel">
         <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
         <div id="quiz">
 
@@ -381,8 +137,8 @@ function gtag_report_conversion(url) {
               <button type="button" class="opt" data-other="1">Other</button>
             </div>
             <div class="other-wrap" id="otherWrap">
-              <input type="text" id="otherInput" placeholder="Tell us what kind of store" maxlength="120" />
-              <button type="button" class="btn btn-primary" id="otherGo">Continue</button>
+              <label class="sr-only" for="otherInput">Business type</label><input type="text" id="otherInput" placeholder="Tell us what kind of store" maxlength="120" />
+              <button type="button" class="button" id="otherGo">Continue</button>
             </div>
           </div>
 
@@ -457,7 +213,7 @@ function gtag_report_conversion(url) {
                 <label for="s-website">Website</label>
                 <input id="s-website" name="website" type="text" tabindex="-1" autocomplete="off" />
               </div>
-              <button type="submit" class="btn btn-primary form-submit" id="signupSubmit">Create account</button>
+              <button type="submit" class="button form-submit" id="signupSubmit">Create account</button>
               <p class="form-status" id="signupStatus" role="status"></p>
             </form>
           </div>
@@ -473,14 +229,14 @@ function gtag_report_conversion(url) {
           <div style="margin:26px auto 0;max-width:360px;padding:18px 20px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc;">
             <p style="color:#0f172a;font-size:15px;font-weight:600;margin:0 0 6px;">Want to get going today?</p>
             <p style="color:#475569;font-size:14px;margin:0 0 14px;">Book a quick call and we will walk you through everything — your products, your hardware, your first sale.</p>
-            <a href="/book" class="btn btn-primary" style="width:100%;justify-content:center;">Book a meeting</a>
+            <a href="/book" class="button" style="width:100%;justify-content:center;">Book a meeting</a>
           </div>
         </div>
 
         <div class="card-foot" id="cardFoot">
-          <button type="button" class="back-btn" id="backBtn">← Back</button>
-          <button type="button" class="skip-btn" id="skipBtn">Skip to sign up →</button>
-          <p class="login-hint">Already have an account? <a href="https://sleetpos.com/login">Log in</a></p>
+          <button type="button" class="back-btn" id="backBtn">Back</button>
+          <button type="button" class="skip-btn" id="skipBtn">Skip to sign up</button>
+          <p class="login-hint">Already have an account? <a href="/login/">Log in</a></p>
         </div>
       </div>
     </div>
@@ -489,25 +245,13 @@ function gtag_report_conversion(url) {
 
 </main>
 
-<footer>
-  <div class="container">
-    <a href="/" class="footer-logo"><img src="/assets/sleetpos-logo-white-nav.png" alt="SleetPOS — powered by Sleet Systems" /></a>
-    <div class="footer-row">
-      <span>© 2026 Sleet Systems Inc. All rights reserved.</span>
-      <span>
-        <a href="/">Home</a>
-        <a href="/support">Support</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </span>
-    </div>
-  </div>
-</footer>
+<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Explore</h3><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
 
 <script>
   (function () {
     var answers = {};
     var current = 0;
+    var firstStep = true;
     var TOTAL = 5;
     var steps = document.querySelectorAll(".step");
     var fill = document.getElementById("progressFill");
@@ -520,6 +264,9 @@ function gtag_report_conversion(url) {
       steps.forEach(function (s) {
         s.classList.toggle("active", Number(s.dataset.step) === n);
       });
+      const activeHeading = document.querySelector('.step.active h3');
+      if (activeHeading && !firstStep) { activeHeading.tabIndex = -1; activeHeading.focus({ preventScroll: true }); }
+      firstStep = false;
       fill.style.width = ((n + 1) / TOTAL * 100) + "%";
       backBtn.classList.toggle("show", n > 0);
       document.getElementById("skipBtn").classList.toggle("hide", n === TOTAL - 1);
@@ -582,6 +329,12 @@ function gtag_report_conversion(url) {
         status.className = "form-status err";
         return;
       }
+      if (!form.email.validity.valid) {
+        status.textContent = "Enter a valid email address.";
+        status.className = "form-status err";
+        form.email.focus();
+        return;
+      }
       if (data.phone.replace(/[^0-9]/g, "").length < 10) {
         status.textContent = "That phone number looks too short — we use it to call you and get your store set up.";
         status.className = "form-status err";
@@ -616,7 +369,7 @@ function gtag_report_conversion(url) {
         document.getElementById("doneView").style.display = "block";
       }).catch(function (err) {
         if (err.message === "exists") {
-          status.innerHTML = 'This email already has an account. <a href="https://sleetpos.com/login" style="color:#2563eb;font-weight:600;">Log in instead</a>, or use a different email.';
+          status.innerHTML = 'This email already has an account. <a href="/login/" style="color:#2563eb;font-weight:600;">Log in instead</a>, or use a different email.';
         } else {
           status.textContent = "Something went wrong. You can email us directly at sales@sleetsystems.com.";
         }
@@ -650,22 +403,7 @@ function gtag_report_conversion(url) {
   })();
 
   // banner hides scrolling down, returns scrolling up
-  (function () {
-    var header = document.querySelector("header");
-    var lastY = window.scrollY;
-    var ticking = false;
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var y = window.scrollY;
-        if (y > lastY && y > 90) header.classList.add("nav-hidden");
-        else if (y < lastY) header.classList.remove("nav-hidden");
-        lastY = y;
-        ticking = false;
-      });
-    }, { passive: true });
-  })();
+
 </script>
 
 <script>
