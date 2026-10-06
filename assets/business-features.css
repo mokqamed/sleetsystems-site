@@ -1,0 +1,81 @@
+/* Food service, assisted setup and product comparison use the shared Manrope scale. */
+.feature-jumps { display: flex; flex-wrap: wrap; gap: 12px 30px; padding-block: 20px 0; font-size: 13px; }
+.feature-jumps a { text-decoration-thickness: 1px; }
+.food-service { display: grid; grid-template-columns: 1fr 1.08fr; gap: 84px; }
+.food-intro > p:not(.section-label), .setup-copy > p:not(.section-label) { margin-top: 24px; max-width: 475px; color: var(--slate); font-size: 16px; line-height: 1.8; }
+.food-intro .text-link, .setup-copy .text-link { display: inline-block; margin-top: 26px; }
+.food-capabilities article { padding-block: 25px; border-top: 1px solid var(--line); }
+.food-capabilities article:first-child { padding-top: 0; border-top: 0; }
+.food-capabilities article:last-child { padding-bottom: 0; }
+.food-capabilities h3 { font-size: 25px; }
+.food-capabilities p { color: var(--slate); font-size: 15px; line-height: 1.75; margin-top: 13px; }
+.food-capabilities a { display: inline-block; margin-top: 13px; font-size: 13px; }
+.business-grid-wide { grid-template-columns: repeat(2, 1fr); gap: 36px 64px; }
+.assisted-setup { padding-block: 68px; background: #f5f7f8; }
+.setup-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 84px; }
+.setup-steps { list-style: none; margin: 0; padding: 0; }
+.setup-steps li { display: grid; grid-template-columns: 34px 1fr; gap: 16px; padding-block: 23px; border-bottom: 1px solid var(--line); }
+.setup-steps li:first-child { padding-top: 0; }
+.setup-steps li:last-child { border-bottom: 0; }
+.setup-steps li > span { color: var(--slate); font-size: 13px; padding-top: 6px; }
+.setup-steps h3 { font-size: 23px; }
+.setup-steps p { margin-top: 12px; font-size: 15px; color: var(--slate); line-height: 1.75; }
+.setup-example { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 64px; padding-top: 40px; margin-top: 40px; border-top: 1px solid #cad7df; }
+.setup-example h3 { font-size: 30px; line-height: 1.2; }
+.setup-example > div > p:not(.section-label) { font-size: 14px; color: var(--slate); margin-top: 16px; max-width: 450px; }
+.setup-times { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 0; align-content: center; }
+.setup-times > div:last-child { color: #14648a; }
+.setup-times dt { font-size: 13px; margin-bottom: 16px; }
+.setup-times dd { font-size: clamp(42px, 4.2vw, 60px); margin: 0; letter-spacing: -.06em; line-height: 1.1; font-weight: 500; }
+.setup-times dd span { display: block; font-size: 24px; letter-spacing: -.04em; margin-top: 7px; }
+.setup-times small { display: block; font-size: 11px; color: var(--slate); margin-top: 16px; letter-spacing: 0; line-height: 1.6; font-weight: 400; }
+.setup-example-note { grid-column: 1 / -1; font-size: 12px; line-height: 1.6; color: var(--slate); }
+.pos-comparison .section-heading > p { max-width: 455px; }
+.comparison-scroll-hint { display: none; font-size: 12px; color: var(--slate); margin-bottom: 12px; }
+.comparison-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+.comparison-table { width: 100%; min-width: 1010px; border-collapse: separate; border-spacing: 0; table-layout: fixed; font-size: 13px; line-height: 1.5; }
+.comparison-table caption { text-align: left; padding: 18px 22px; font-size: 13px; color: var(--slate); background: #f8fafb; }
+.comparison-table th, .comparison-table td { text-align: left; padding: 20px 17px; vertical-align: top; border-bottom: 1px solid var(--line); }
+.comparison-table thead th { font-size: 18px; font-weight: 500; letter-spacing: -.025em; background: #fff; }
+.comparison-table th:first-child { width: 23%; }
+.comparison-table tbody th { font-weight: 500; font-size: 14px; background: #fff; }
+.comparison-table tr > :nth-child(2) { background: #edf6fa; }
+.comparison-table thead tr > :nth-child(2) { color: #115676; }
+.comparison-table tbody tr:last-child > * { border-bottom: 0; }
+.comparison-table td { color: #52616d; }
+.comparison-table td:nth-child(2) { color: var(--ink); }
+.comparison-table small { display: block; font-size: 11px; line-height: 1.55; margin-top: 6px; color: var(--slate); font-weight: 400; letter-spacing: 0; }
+.comparison-table .available { display: block; color: #225d49; font-weight: 600; }
+.comparison-table sup { font-size: 10px; margin-left: 2px; }
+.comparison-notes { font-size: 12px; line-height: 1.75; color: var(--slate); margin-top: 17px; max-width: 950px; }
+.comparison-notes p + p { margin-top: 8px; }
+.comparison-sources { margin-top: 22px; border-block: 1px solid var(--line); }
+.comparison-sources summary { cursor: pointer; padding-block: 17px; font-size: 14px; }
+.comparison-sources > div { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 42px; padding-bottom: 24px; }
+.comparison-sources h3 { font-size: 18px; }
+.comparison-sources p { margin-top: 8px; font-size: 13px; color: var(--slate); line-height: 1.8; }
+.comparison-action { margin-top: 26px; }
+@media (max-width: 1105px) { .comparison-scroll-hint { display: block; } }
+@media (max-width: 920px) {
+  .food-service, .setup-layout { gap: 38px; }
+  .setup-example { gap: 28px; }
+  .comparison-table th:first-child { position: sticky; left: 0; z-index: 1; box-shadow: 1px 0 0 var(--line); }
+}
+@media (max-width: 680px) {
+  .food-service, .setup-layout, .setup-example { grid-template-columns: 1fr; gap: 32px; }
+  .food-service { padding-block: 44px; }
+  .food-intro h2, .setup-copy h2 { font-size: 38px; }
+  .food-intro > p:not(.section-label), .setup-copy > p:not(.section-label) { font-size: 15px; margin-top: 18px; }
+  .food-capabilities h3, .setup-steps h3 { font-size: 23px; }
+  .business-grid-wide { grid-template-columns: 1fr; gap: 24px; }
+  .assisted-setup { padding-block: 44px; }
+  .setup-times { gap: 24px; }
+  .setup-times dd { font-size: 49px; }
+  .setup-times dd span { font-size: 22px; }
+  .setup-example h3 { font-size: 29px; }
+  .comparison-table { min-width: 1050px; }
+  .comparison-table th:first-child { width: 168px; }
+  .comparison-table caption { padding: 15px; }
+  .comparison-table th, .comparison-table td { padding: 17px 14px; }
+  .comparison-sources > div { grid-template-columns: 1fr; gap: 20px; }
+}
