@@ -39,13 +39,15 @@
 .comparison-table thead th { font-size: 18px; font-weight: 500; letter-spacing: -.025em; background: #fff; }
 .comparison-table th:first-child { width: 23%; }
 .comparison-table tbody th { font-weight: 500; font-size: 14px; background: #fff; }
-.comparison-table tr > :nth-child(2) { background: #edf6fa; }
-.comparison-table thead tr > :nth-child(2) { color: #115676; }
+.comparison-table tr > :nth-child(2) { background: var(--ink); border-bottom-color: #40515e; }
+.comparison-table thead tr > :nth-child(2) { color: #fff; }
 .comparison-table tbody tr:last-child > * { border-bottom: 0; }
 .comparison-table td { color: #52616d; }
-.comparison-table td:nth-child(2) { color: var(--ink); }
+.comparison-table td:nth-child(2) { color: #fff; }
 .comparison-table small { display: block; font-size: 11px; line-height: 1.55; margin-top: 6px; color: var(--slate); font-weight: 400; letter-spacing: 0; }
-.comparison-table .available { display: block; color: #225d49; font-weight: 600; }
+.comparison-table tr > :nth-child(2) small { color: #d3dee6; }
+.comparison-table .available { display: block; color: #fff; font-weight: 600; }
+.comparison-table .available > span { color: #acf0ce; }
 .comparison-table sup { font-size: 10px; margin-left: 2px; }
 .comparison-notes { font-size: 12px; line-height: 1.75; color: var(--slate); margin-top: 17px; max-width: 950px; }
 .comparison-notes p + p { margin-top: 8px; }
