@@ -1,0 +1,27 @@
+[
+  {
+    "url": "https://www.sleetpos.com/",
+    "status": 200,
+    "matchesLocal": true
+  },
+  {
+    "url": "https://sleetsystems.com/product/",
+    "status": 200,
+    "matchesLocal": true
+  },
+  {
+    "url": "https://www.sleetpos.com/assets/business-features.css",
+    "status": 200,
+    "matchesLocal": true
+  },
+  {
+    "url": "https://www.sleetpos.com/assets/cafe-current-scene.webp",
+    "status": 200,
+    "matchesLocal": true
+  },
+  {
+    "url": "https://www.sleetpos.com/assets/store-setup-demo.jpg",
+    "status": 200,
+    "matchesLocal": true
+  }
+]

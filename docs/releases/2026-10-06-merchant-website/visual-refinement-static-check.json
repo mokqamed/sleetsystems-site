@@ -1,0 +1,615 @@
+{
+  "pages": 12,
+  "pageFiles": [
+    "index.html",
+    "privacy/index.html",
+    "product/book/index.html",
+    "product/features/index.html",
+    "product/index.html",
+    "product/partnerships/index.html",
+    "product/signup/index.html",
+    "product/support/index.html",
+    "sms-consent-form/index.html",
+    "sms-disclosure/index.html",
+    "sms-signup/index.html",
+    "terms/index.html"
+  ],
+  "htmlErrors": [],
+  "missingReferences": [],
+  "assetGraph": {
+    "index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/company.css",
+      "assets/current_register_cafe.webp",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-studio.webp",
+      "assets/og-sleetsystems.jpg",
+      "assets/sleet-mark.png",
+      "assets/terminal-scene.css",
+      "assets/terminal-scene.js"
+    ],
+    "privacy/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-documents.css",
+      "assets/sleetpos-logo-dark-nav.png",
+      "assets/sleetpos-logo-white-nav.png"
+    ],
+    "product/book/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-pages.css",
+      "assets/merchant-shell.js",
+      "assets/merchant-system.css",
+      "assets/merchant.css",
+      "assets/og-sleetpos.jpg",
+      "assets/sleetpos-logo-dark-nav.png"
+    ],
+    "product/features/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/current_customer_cart.webp",
+      "assets/current_register_cafe.webp",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/iphone_dashboard.webp",
+      "assets/merchant-pages.css",
+      "assets/merchant-shell.js",
+      "assets/merchant-system.css",
+      "assets/merchant.css",
+      "assets/og-sleetpos.jpg",
+      "assets/shelf_after_1000.webp",
+      "assets/sleetpos-logo-dark-nav.png"
+    ],
+    "product/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/business-features.css",
+      "assets/cafe-current-scene.webp",
+      "assets/current_customer_cart.webp",
+      "assets/current_register_cafe.webp",
+      "assets/customer-redbull-poster.jpg",
+      "assets/customer-redbull.mp4",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/hero-showcase.css",
+      "assets/iphone_dashboard.webp",
+      "assets/label-closeup.png",
+      "assets/label-showcase.css",
+      "assets/label-showcase.js",
+      "assets/merchant-system.css",
+      "assets/merchant.css",
+      "assets/merchant.js",
+      "assets/og-sleetpos.jpg",
+      "assets/pos-customer-cutout.png",
+      "assets/pos-cutout.png",
+      "assets/pos-view-customer.webp",
+      "assets/pos-view-profile.webp",
+      "assets/pos-view-register.webp",
+      "assets/product-views.css",
+      "assets/shelf_after_1600.webp",
+      "assets/showcase.css",
+      "assets/showcase.js",
+      "assets/sleetpos-logo-dark-nav.png",
+      "assets/store-setup-demo.jpg",
+      "assets/terminal-scene.css",
+      "assets/terminal-scene.js"
+    ],
+    "product/partnerships/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-pages.css",
+      "assets/merchant-shell.js",
+      "assets/merchant-system.css",
+      "assets/merchant.css",
+      "assets/og-sleetpos.jpg",
+      "assets/sleetpos-logo-dark-nav.png"
+    ],
+    "product/signup/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-pages.css",
+      "assets/merchant-shell.js",
+      "assets/merchant-system.css",
+      "assets/merchant.css",
+      "assets/og-sleetpos.jpg",
+      "assets/sleetpos-logo-dark-nav.png"
+    ],
+    "product/support/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-pages.css",
+      "assets/merchant-shell.js",
+      "assets/merchant-system.css",
+      "assets/merchant.css",
+      "assets/og-sleetpos.jpg",
+      "assets/sleetpos-logo-dark-nav.png"
+    ],
+    "sms-consent-form/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-documents.css"
+    ],
+    "sms-disclosure/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-documents.css",
+      "assets/sleetpos-logo-dark-nav.png",
+      "assets/sleetpos-logo-white-nav.png"
+    ],
+    "sms-signup/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-documents.css",
+      "assets/sleetpos-logo-dark-nav.png",
+      "assets/sleetpos-logo-white-nav.png"
+    ],
+    "terms/index.html": [
+      "assets/apple-touch-icon.png",
+      "assets/favicon-192.png",
+      "assets/favicon-32.png",
+      "assets/merchant-documents.css",
+      "assets/sleetpos-logo-dark-nav.png",
+      "assets/sleetpos-logo-white-nav.png"
+    ],
+    "assets/merchant-documents.css": [],
+    "assets/merchant-system.css": [],
+    "assets/merchant-pages.css": [],
+    "assets/merchant.css": [],
+    "assets/merchant-shell.js": [],
+    "assets/showcase.css": [],
+    "assets/terminal-scene.css": [],
+    "assets/hero-showcase.css": [],
+    "assets/terminal-scene.js": [],
+    "assets/business-features.css": [],
+    "assets/product-views.css": [],
+    "assets/label-showcase.js": [
+      "assets/label-concepts.js",
+      "assets/label-samples.js"
+    ],
+    "assets/label-samples.js": [
+      "assets/label-engine/builtinClassic.js",
+      "assets/label-engine/render.js"
+    ],
+    "assets/label-engine/builtinClassic.js": [],
+    "assets/label-engine/render.js": [
+      "assets/label-engine/code128.js",
+      "assets/label-engine/strings.js",
+      "assets/label-engine/templateLayout.js",
+      "fonts/Roboto-Bold.ttf",
+      "fonts/Roboto-Regular.ttf",
+      "fonts/RobotoMono-Regular.ttf"
+    ],
+    "assets/label-engine/code128.js": [],
+    "assets/label-engine/strings.js": [],
+    "assets/label-engine/templateLayout.js": [
+      "assets/label-engine/code128.js",
+      "assets/label-engine/strings.js",
+      "assets/label-engine/templateLayout.js"
+    ],
+    "assets/label-concepts.js": [
+      "assets/label-engine/code128.js"
+    ],
+    "assets/label-showcase.css": [],
+    "assets/showcase.js": [],
+    "assets/merchant.js": [],
+    "assets/company.css": []
+  },
+  "referencedFileCount": 62,
+  "javascriptChecks": [
+    {
+      "source": "index.html:5",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "index.html:20",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "index.html:131",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "privacy/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "privacy/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "privacy/index.html:252",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/book/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/book/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/book/index.html:94",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/features/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/features/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/features/index.html:340",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/index.html:21",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/partnerships/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/partnerships/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/partnerships/index.html:120",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/signup/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/signup/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/signup/index.html:251",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/signup/index.html:410",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/support/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "product/support/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-consent-form/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-consent-form/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-disclosure/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-disclosure/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-disclosure/index.html:241",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-signup/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-signup/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "sms-signup/index.html:328",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "terms/index.html:6",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "terms/index.html:15",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "terms/index.html:255",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/merchant-shell.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/terminal-scene.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-showcase.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-samples.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-engine/builtinClassic.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-engine/render.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-engine/code128.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-engine/strings.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-engine/templateLayout.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/label-concepts.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/showcase.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "assets/merchant.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "api/partner.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "api/signup.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "source": "tools/build-label-engine.mjs",
+      "passed": true,
+      "error": null
+    }
+  ],
+  "jsonLdChecks": [
+    {
+      "source": "index.html:55",
+      "passed": true
+    },
+    {
+      "source": "product/book/index.html:49",
+      "passed": true
+    },
+    {
+      "source": "product/features/index.html:49",
+      "passed": true
+    },
+    {
+      "source": "product/index.html:55",
+      "passed": true
+    },
+    {
+      "source": "product/partnerships/index.html:49",
+      "passed": true
+    },
+    {
+      "source": "product/signup/index.html:49",
+      "passed": true
+    },
+    {
+      "source": "product/support/index.html:49",
+      "passed": true
+    }
+  ],
+  "cssChecks": [
+    {
+      "source": "privacy/index.html:40",
+      "balanced": true
+    },
+    {
+      "source": "sms-consent-form/index.html:40",
+      "balanced": true
+    },
+    {
+      "source": "sms-disclosure/index.html:40",
+      "balanced": true
+    },
+    {
+      "source": "sms-signup/index.html:40",
+      "balanced": true
+    },
+    {
+      "source": "terms/index.html:40",
+      "balanced": true
+    },
+    {
+      "source": "assets/merchant-documents.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/merchant-system.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/merchant-pages.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/merchant.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/showcase.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/terminal-scene.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/hero-showcase.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/business-features.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/product-views.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/label-showcase.css",
+      "balanced": true
+    },
+    {
+      "source": "assets/company.css",
+      "balanced": true
+    }
+  ],
+  "policyBodyUnchanged": {
+    "privacy/index.html": true,
+    "terms/index.html": true,
+    "sms-disclosure/index.html": true,
+    "sms-consent-form/index.html": true,
+    "sms-signup/index.html": true
+  },
+  "literalVisiblePrices": {
+    "product/index.html": [
+      {
+        "line": 340,
+        "text": "$700",
+        "inPricing": true
+      },
+      {
+        "line": 341,
+        "text": "$0",
+        "inPricing": true
+      },
+      {
+        "line": 350,
+        "text": "$399",
+        "inPricing": true
+      },
+      {
+        "line": 351,
+        "text": "$899",
+        "inPricing": true
+      },
+      {
+        "line": 352,
+        "text": "$300",
+        "inPricing": true
+      },
+      {
+        "line": 352,
+        "text": "setup + $75/month",
+        "inPricing": true
+      },
+      {
+        "line": 359,
+        "text": "What exactly does the $700 include?",
+        "inPricing": true
+      },
+      {
+        "line": 360,
+        "text": "There is no monthly standard POS software fee while you process with SleetSystems. Payment processing is separate. Optional services have their own charges: for example, our connected website has a $75 monthly upkeep fee. Hardware lease payments also apply if you choose to lease an upgrade.",
+        "inPricing": true
+      },
+      {
+        "line": 364,
+        "text": "Yes. We offer connected business websites and custom software projects. A website connected to the POS with online payments is $300 to set up and $75 per month for upkeep and menu changes. Other websites and custom features are scoped and quoted for your business.",
+        "inPricing": true
+      }
+    ]
+  },
+  "newFilesNotInRuntimeGraph": [
+    "assets/current_customer_idle.webp",
+    "assets/hero-showcase.js",
+    "assets/label-printer-xp480b.jpg",
+    "assets/merchant-cafe.webp",
+    "assets/pos-motion-poster.jpg",
+    "assets/pos-showcase.mp4",
+    "assets/product-views.js",
+    "tools/motion-reference.html"
+  ]
+}
