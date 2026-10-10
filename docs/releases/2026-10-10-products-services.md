@@ -5,8 +5,8 @@ Local preview for the owner's approved slot 2 work. Not deployed.
 ## Current result
 
 - Shared merchant navigation groups POS Systems, Websites and Store Displays & Signage. It opens on pointer hover, click or keyboard activation; the phone menu uses tap. Escape, focus leaving the submenu and outside clicks dismiss it.
-- `/websites` presents custom branding, pages and workflows, an animated interactive café demonstration, a real POS image, and the planned phone-to-register pickup ordering flow. Product discovery and less manual order-taking explain the value without promising guaranteed or effortless revenue.
-- Connected pickup ordering is clearly marked **in development**. Copy follows the slot 1 design: website link to ordering page, item selection/payment/pickup time, designated register acceptance, ready/picked-up status and completed sale recording. It does not advertise live inventory syncing, item modifiers or automatic kitchen routing. A standalone website can be scoped separately.
+- `/websites` presents custom branding, pages and workflows, an animated interactive café demonstration, a real POS image, and the phone-to-register pickup ordering workflow. Product discovery and less manual order-taking explain the value without promising guaranteed or effortless revenue.
+- Public copy presents custom websites, online ordering and SleetPOS integration as services configured for each business. It removes development-status wording and explains project setup, launch and pricing. The pickup workflow follows the slot 1 design; the underlying ordering implementation remains separate slot 1 work and this copy revision does not make it live. The page does not advertise live inventory syncing, item modifiers or automatic kitchen routing. The interactive demo remains labeled as a sample that sends no orders or payments.
 - `/store-signage` shows menu board designs, light boxes and shelving strips, plus two complete store concepts and custom-fit details. Production, installation and artwork updates are scoped explicitly; static artwork is not advertised as automatically synced with POS prices.
 - The POS homepage previews both services; merchant footers and company homepage link to them. Existing public route mappings, sitemap, static redirects and dashboard proxy/CSP allowlist include both pages.
 - Signup now asks **Do you need a website?** before the timing question: Yes / I have one that needs updating / Not sure yet / No. The optional answer is validated server-side, stored as `signupRequests.websiteInterest` and included in the existing sales notification. Skipped and older submissions remain valid. The separate `website` spam honeypot is unchanged.
@@ -20,6 +20,8 @@ Two store concept images were generated with `image_gen.imagegen`, then converte
 Café latte and croissant pictures reuse the owner's October 6 samples. The website mockups and ordering steps use actual HTML text. The owner-supplied POS composition is unchanged and shown with its real screen.
 
 ## Validation
+
+Latest copy revision: browser-verified the homepage service description and website POS connection section. Checked the changed pages for stale development wording, duplicate IDs and missing assets; git whitespace checks pass. Proof: `Design/review/website-demo-2026-10-10/connected-services-copy.png`. No scripts or interaction behavior changed.
 
 Latest interactive demo revision:
 
