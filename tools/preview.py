@@ -12,7 +12,7 @@ import re
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
-PRODUCT_PAGES = {"features", "partnerships", "signup", "support", "book"}
+PRODUCT_PAGES = {"features", "partnerships", "signup", "support", "book", "websites", "store-signage"}
 AUTH_PAGES = {"login", "forgot-password", "activate"}
 
 

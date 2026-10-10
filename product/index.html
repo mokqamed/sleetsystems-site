@@ -170,6 +170,7 @@ function gtag_report_conversion(url) {
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="preload" as="image" href="/assets/pos-cafe-20261010.webp" />
 <link rel="stylesheet" href="/assets/merchant.css" />
+<script src="/assets/merchant-shell.js" defer></script>
 <script src="/assets/merchant.js" defer></script>
 <link rel="stylesheet" href="/assets/terminal-scene.css" />
 <script src="/assets/terminal-scene.js" defer></script>
@@ -182,13 +183,25 @@ function gtag_report_conversion(url) {
 <link rel="stylesheet" href="/assets/business-features.css" />
 <script type="module" src="/assets/label-showcase.js"></script>
 <link rel="stylesheet" href="/assets/pos-product.css" />
+<link rel="stylesheet" href="/assets/services-nav.css" />
+<link rel="stylesheet" href="/assets/services.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="shell header-inner">
 <a class="brand" href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" /></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
-<nav id="site-nav" aria-label="Main navigation"><a href="/" data-main-tab="overview">Overview</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#features">See it in action</a><a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a></nav>
+<nav id="site-nav" aria-label="Main navigation">
+<a href="/" data-main-tab="overview">Overview</a>
+<div class="services-menu">
+<button class="services-toggle" type="button" aria-expanded="false" aria-controls="services-panel">Products &amp; Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></button>
+<div class="services-panel" id="services-panel" hidden>
+<a href="/features/"><strong>POS Systems</strong><span>Checkout, equipment &amp; kitchen displays</span></a>
+<a href="/websites/"><strong>Websites</strong><span>For cafés, shops &amp; other businesses</span></a>
+<a href="/store-signage/"><strong>Store Displays &amp; Signage</strong><span>Menu boards, light boxes &amp; shelving strips</span></a>
+</div></div>
+<a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a>
+</nav>
 </div></header>
 <main id="main">
 <div id="overview-view" class="page-view">
@@ -328,7 +341,17 @@ function gtag_report_conversion(url) {
 <section class="merchant-custom" id="possibilities"><div class="shell custom-layout"><div><p class="section-label">Built by Sleet Systems</p><h2>Your business doesn’t<br />have to fit a template.</h2></div><div><p>Custom features. Connected websites. Built with the team behind your POS, scoped for your business.</p><a class="text-link" href="/book/">Talk through your idea</a></div></div></section>
 <section class="placement-overview"><div class="shell"><div><p class="section-label">Your way to get started</p><h2>Own your setup.<br />Or choose placement.</h2></div><div><p>Buy it outright, or use our hardware through eligible placement while processing with us. Explore what’s included and the full terms.</p><a class="button button-outline" href="/?view=pricing">See pricing &amp; placement</a></div></div></section>
 <section class="section shell product-view-gallery" id="product-views" aria-labelledby="product-views-title"><div class="section-heading"><div><h2 id="product-views-title">Take a closer look.</h2></div><p>The hardware. The software. Every angle.</p></div><div class="view-grid"><article class="view-card"><div class="view-card-image"><div class="pos-product"><img class="pos-product-image" src="/assets/pos-cafe-20261010.webp" width="6140" height="4912" alt="Cashier view of the SleetPOS terminal with the café checkout" loading="lazy" /></div></div><div class="view-card-copy"><h3>At the counter</h3></div></article><article class="view-card"><div class="view-card-image"><div class="terminal-scene view-scene" data-terminal-scene="profile-view" role="img" aria-label="Side profile"><img class="terminal-background" src="/assets/pos-view-profile.webp" width="2336" height="1744" alt="" loading="lazy" /></div></div><div class="view-card-copy"><h3>Hardware profile</h3></div></article><article class="view-card"><div class="view-card-image"><div class="terminal-scene view-scene" data-terminal-scene="customer-view" role="img" aria-label="Customer view"><img class="terminal-background" src="/assets/pos-view-customer.webp" width="2336" height="1744" alt="" loading="lazy" /><img class="terminal-screen" src="/assets/current_customer_cart.webp" width="1920" height="1080" alt="" /></div></div><div class="view-card-copy"><h3>Your customer’s view</h3></div></article><article class="view-card"><div class="view-card-image"><div class="software-detail"><img src="/assets/current_register_cafe.webp" width="1920" height="1080" alt="Actual SleetPOS register with café products, a three-item cart and one discounted Latte" /></div></div><div class="view-card-copy"><h3>The software</h3></div></article></div><a class="text-link" href="/#showcase">Back to overview</a></section>
+<section class="more-services shell" id="services" aria-labelledby="services-title"><div class="service-heading"><h2 id="services-title">More for your business.</h2><p>Your counter is just the start. We also design your presence online and in store.</p></div><div class="offering-grid"><article><figure class="service-visual web-visual">
+<div class="web-art" role="img" aria-label="Illustrative café website design shown on a desktop browser and a phone, with a latte, menu and visiting information">
+<div class="sample-browser"><div class="browser-bar"><i></i><i></i><i></i><span>Your business, online</span></div><div class="cafe-site"><div class="cafe-nav"><strong>Corner café</strong><span>Our menu &nbsp; Visit us</span></div><div class="cafe-body"><div><span class="cafe-kicker">Coffee. Something fresh.</span><h2>A little pause.<br />A better day.</h2><p>Your neighborhood spot for coffee and a bite.</p><span class="sample-button">Explore the menu</span></div><img src="/assets/service-latte.png" loading="lazy" width="1024" height="1024" alt="" /></div><div class="cafe-bottom"><span>Coffee &amp; fresh bakes</span><span>Made for your everyday.</span></div></div></div>
+<div class="sample-phone"><div class="phone-speaker"></div><strong>Corner café</strong><p>A little pause.<br />A better day.</p><img src="/assets/service-latte.png" loading="lazy" width="1024" height="1024" alt="" /><span class="sample-button">Our menu</span></div>
+</div><figcaption>Illustrative website concept. Your brand, your content.</figcaption></figure><h3>Websites</h3><p>For cafés, shops and other businesses. Your brand, made for every screen.</p><a class="text-link" href="/websites/">Explore website design</a></article><article><figure class="service-visual signage-visual"><div class="signage-art" role="img" aria-label="Illustrative café menu boards with coffee prices and a croissant feature, a matching illuminated café sign and branded shelving strip">
+<div class="sample-boards"><div class="coffee-board"><span class="board-brand">Corner café</span><h2>Something<br />to sip.</h2><dl><div><dt>Espresso</dt><dd>3.00</dd></div><div><dt>Latte</dt><dd>4.50</dd></div><div><dt>Iced latte</dt><dd>5.00</dd></div></dl><span class="board-note">Hot or iced. Your call.</span></div><div class="pastry-board"><span>Fresh from the oven</span><h2>Make it<br />a good morning.</h2><img src="/assets/service-croissant.png" loading="lazy" width="1024" height="1024" alt="" /><p>Butter croissant <b>3.50</b></p></div></div>
+<div class="sample-lightbox">Corner café <span>Coffee &amp; fresh bakes</span></div><div class="sample-shelfstrip"><span>Fresh picks</span><span>Find your next favorite.</span></div>
+</div><figcaption>Illustrative signage concepts with sample items and prices.</figcaption></figure><h3>Store Displays &amp; Signage</h3><p>Menu board designs, light boxes and shelving strips that fit your store.</p><a class="text-link" href="/store-signage/">Explore store signage</a></article></div></section>
 <section class="closing-section" id="getting-started"><div class="shell"><div><h2>Let’s walk through<br />your working day.</h2><p>Your business. Your questions. Your live demo.</p></div><a class="button button-white" href="/book/">Book your live demo</a></div></section>
+
+
 </div>
 <div id="pricing-view" class="page-view" hidden>
 <div class="pricing-top shell"><a class="back-overview" href="/">Back to the system</a><p>Hardware, processing and optional services. All in one place.</p></div>
@@ -364,7 +387,7 @@ function gtag_report_conversion(url) {
 
 </div>
 </main>
-<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Explore</h3><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#food-service">Kitchen &amp; menus</a><a href="/#store-setup">Store setup</a><a href="/#compare">Compare POS systems</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
+<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Products &amp; Services</h3><a href="/websites/">Websites</a><a href="/store-signage/">Store Displays &amp; Signage</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#food-service">Kitchen &amp; menus</a><a href="/#store-setup">Store setup</a><a href="/#compare">Compare POS systems</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
 <dialog class="screen-dialog" aria-labelledby="screen-dialog-title"><div class="screen-dialog-header"><h2 id="screen-dialog-title">SleetPOS screen</h2><button type="button" class="screen-dialog-close" aria-label="Close full-screen preview">Close <span aria-hidden="true">×</span></button></div><img alt="" /></dialog>
 </body>
 </html>

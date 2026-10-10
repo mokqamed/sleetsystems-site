@@ -1,14 +1,18 @@
 {
   "redirects": [
-    { "source": "/features", "destination": "https://www.sleetpos.com/features", "permanent": true },
-    { "source": "/features/", "destination": "https://www.sleetpos.com/features", "permanent": true },
-    { "source": "/signup", "destination": "https://www.sleetpos.com/signup", "permanent": true },
-    { "source": "/signup/", "destination": "https://www.sleetpos.com/signup", "permanent": true },
-    { "source": "/partnerships", "destination": "https://www.sleetpos.com/partnerships", "permanent": true },
-    { "source": "/partnerships/", "destination": "https://www.sleetpos.com/partnerships", "permanent": true },
-    { "source": "/book", "destination": "https://www.sleetpos.com/book", "permanent": true },
-    { "source": "/book/", "destination": "https://www.sleetpos.com/book", "permanent": true },
-    { "source": "/support", "destination": "https://www.sleetpos.com/support", "permanent": true },
-    { "source": "/support/", "destination": "https://www.sleetpos.com/support", "permanent": true }
+    {"source": "/features", "destination": "https://www.sleetpos.com/features", "permanent": true},
+    {"source": "/features/", "destination": "https://www.sleetpos.com/features", "permanent": true},
+    {"source": "/signup", "destination": "https://www.sleetpos.com/signup", "permanent": true},
+    {"source": "/signup/", "destination": "https://www.sleetpos.com/signup", "permanent": true},
+    {"source": "/partnerships", "destination": "https://www.sleetpos.com/partnerships", "permanent": true},
+    {"source": "/partnerships/", "destination": "https://www.sleetpos.com/partnerships", "permanent": true},
+    {"source": "/book", "destination": "https://www.sleetpos.com/book", "permanent": true},
+    {"source": "/book/", "destination": "https://www.sleetpos.com/book", "permanent": true},
+    {"source": "/support", "destination": "https://www.sleetpos.com/support", "permanent": true},
+    {"source": "/support/", "destination": "https://www.sleetpos.com/support", "permanent": true},
+    {"source": "/websites", "destination": "https://www.sleetpos.com/websites", "permanent": true},
+    {"source": "/websites/", "destination": "https://www.sleetpos.com/websites", "permanent": true},
+    {"source": "/store-signage", "destination": "https://www.sleetpos.com/store-signage", "permanent": true},
+    {"source": "/store-signage/", "destination": "https://www.sleetpos.com/store-signage", "permanent": true}
   ]
 }

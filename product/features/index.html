@@ -71,13 +71,24 @@ function gtag_report_conversion(url) {
 <script src="/assets/merchant-shell.js" defer></script>
 <meta name="google-site-verification" content="xqmrzdfFpGR3f4cwdjIoa0PygFE5FzW4LtJEWn3XnU0" />
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/assets/services-nav.css" />
 </head>
 <body class="merchant-subpage">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="shell header-inner">
 <a class="brand" href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" /></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
-<nav id="site-nav" aria-label="Main navigation"><a href="/" data-main-tab="overview">Overview</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#features">See it in action</a><a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a></nav>
+<nav id="site-nav" aria-label="Main navigation">
+<a href="/" data-main-tab="overview">Overview</a>
+<div class="services-menu">
+<button class="services-toggle" type="button" aria-expanded="false" aria-controls="services-panel">Products &amp; Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></button>
+<div class="services-panel" id="services-panel" hidden>
+<a href="/features/"><strong>POS Systems</strong><span>Checkout, equipment &amp; kitchen displays</span></a>
+<a href="/websites/"><strong>Websites</strong><span>For cafés, shops &amp; other businesses</span></a>
+<a href="/store-signage/"><strong>Store Displays &amp; Signage</strong><span>Menu boards, light boxes &amp; shelving strips</span></a>
+</div></div>
+<a href="/#businesses">Your business</a><a href="/?view=pricing" data-main-tab="pricing">Pricing</a><a class="login-link" href="/login/">Log in</a><a class="button button-small" href="/book/">Book a demo</a>
+</nav>
 </div></header>
 <main id="main" class="subpage-main">
 
@@ -336,7 +347,7 @@ function gtag_report_conversion(url) {
 
 
 </main>
-<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Explore</h3><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#food-service">Kitchen &amp; menus</a><a href="/#store-setup">Store setup</a><a href="/#compare">Compare POS systems</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
+<footer class="site-footer"><div class="shell footer-top"><div class="footer-brand"><a href="/" aria-label="SleetPOS home"><img src="/assets/sleetpos-logo-dark-nav.png" width="170" height="38" alt="SleetPOS" loading="lazy" /></a><p>POS and business software<br />by Sleet Systems, New York.</p></div><div><h3>Products &amp; Services</h3><a href="/websites/">Websites</a><a href="/store-signage/">Store Displays &amp; Signage</a><a href="/#dual-price-labels">Dual-price labels</a><a href="/#difference">Why SleetPOS</a><a href="/#customer-promotions">Customer promotions</a><a href="/#product-views">Product views</a><a href="/features/">POS features</a><a href="/#food-service">Kitchen &amp; menus</a><a href="/#store-setup">Store setup</a><a href="/#compare">Compare POS systems</a><a href="/#businesses">Your business</a><a href="/?view=pricing">Pricing</a></div><div><h3>Let’s talk</h3><a href="/book/">Book a demo</a><a href="/support">Support</a><a href="/partnerships/">Partnerships</a><a href="mailto:support@sleetsystems.com">Email our team</a></div><div><h3>Your account</h3><a href="/login/">Log in</a><a href="/signup/">Sign up</a><a href="https://sleetsystems.com/">About Sleet Systems</a></div></div><div class="shell footer-bottom"><p>© 2026 Sleet Systems Inc. 218 Roberts Avenue, Yonkers, NY 10703.</p><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/sms-disclosure">SMS disclosure</a></div></div></footer>
 <script>
 (() => {
   const links = [...document.querySelectorAll('.lib-nav a')];

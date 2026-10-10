@@ -1,24 +1,4 @@
 (() => {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.getElementById('site-nav');
-  const closeMenu = () => {
-    toggle?.setAttribute('aria-expanded', 'false');
-    nav?.classList.remove('is-open');
-  };
-  toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav?.classList.toggle('is-open', !expanded);
-  });
-  nav?.addEventListener('click', event => {
-    if (event.target.closest('a')) closeMenu();
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
-      closeMenu();
-      toggle.focus();
-    }
-  });
   const tabs = [...document.querySelectorAll('[role="tab"]')];
   const activateTab = tab => {
     tabs.forEach(item => {
@@ -127,8 +107,5 @@
       const bounds = dialog.getBoundingClientRect();
       if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
     }
-  });
-  matchMedia('(min-width: 921px)').addEventListener('change', event => {
-    if (event.matches) closeMenu();
   });
 })();
