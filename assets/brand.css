@@ -1,0 +1,28 @@
+/* The existing snowflake with the owner's requested lighter Manrope wordmark. */
+.sleet-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #152532;
+  font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 29px;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.sleet-wordmark img {
+  display: block;
+  width: 30px;
+  height: 34px;
+  object-fit: contain;
+  flex: none;
+}
+.sleet-wordmark-inverse { color: #fff; }
+.brand:has(.sleet-wordmark), .footer-brand a:has(.sleet-wordmark) { text-decoration: none; }
+.footer-brand .sleet-wordmark img { width: 30px; }
+@media (max-width: 680px) {
+  .sleet-wordmark { font-size: 27px; gap: 8px; }
+  .sleet-wordmark img, .footer-brand .sleet-wordmark img { width: 28px; height: 32px; }
+}

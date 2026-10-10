@@ -124,7 +124,6 @@
 .connected-copy h2 { font-size: var(--type-section-title); margin-block: 20px 24px; }
 .connected-copy p { color: var(--slate); max-width: 480px; margin-bottom: 20px; }
 .service-status { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; color: #285f7d; }
-.service-status:before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #1478b8; }
 .connected-visual { margin: 0; padding: 24px 40px 0; }
 .connected-visual .pos-product { max-width: 410px; margin-inline: auto; }
 .connected-visual figcaption { color: var(--slate); font-size: 12px; text-align: center; margin-top: 18px; }

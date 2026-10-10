@@ -2,7 +2,7 @@
 
 Approved merchant website direction · October 6, 2026
 
-The typeface is **Manrope**. Use it for page headings, body text, navigation, buttons and forms. The logo is artwork; do not recreate it with typed text. POS screenshots retain the actual software's typography. Printed label samples retain the label renderer's Roboto fonts.
+The typeface is **Manrope**. Use it for page headings, body text, navigation, buttons and forms. The owner requested a lighter website wordmark on October 10. Pair the existing snowflake artwork with live Manrope lettering at weight 400, with balanced spacing and proportions; use `assets/brand.css`. Keep the snowflake artwork intact. POS screenshots retain the actual software's typography. Printed label samples retain the label renderer's Roboto fonts.
 
 ## Family and weights
 
