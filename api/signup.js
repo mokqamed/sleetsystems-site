@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   }
   const {
     name, store, email, phone, password,
-    storeType, registers, currentPos, timeline, notes, website,
+    storeType, registers, currentPos, timeline, websiteInterest, notes, website,
   } = req.body || {};
 
   // honeypot field: real people never fill it in
@@ -48,6 +48,11 @@ export default async function handler(req, res) {
   }
   if (String(phone || "").length > 50 || String(notes || "").length > 5000) {
     return res.status(400).json({ ok: false, error: "field too long" });
+  }
+
+  const websiteAnswer = websiteInterest ?? "";
+  if (!["", "Yes", "I have one that needs updating", "Not sure yet", "No"].includes(websiteAnswer)) {
+    return res.status(400).json({ ok: false, error: "invalid website interest" });
   }
 
   ensureApp();
@@ -85,6 +90,7 @@ export default async function handler(req, res) {
     registers: String(registers || ""),
     currentPos: String(currentPos || ""),
     timeline: String(timeline || ""),
+    websiteInterest: websiteAnswer,
     notes: String(notes || ""),
     status: "pending",
     createdAt: Date.now(),
@@ -110,6 +116,7 @@ export default async function handler(req, res) {
       <p><strong>Store type:</strong> ${esc(storeType) || "— (skipped)"}</p>
       <p><strong>Registers needed:</strong> ${esc(registers) || "—"}</p>
       <p><strong>Using today:</strong> ${esc(currentPos) || "—"}</p>
+      <p><strong>Do they need a website?</strong> ${esc(websiteAnswer) || "— (skipped)"}</p>
       <p><strong>When they want to start:</strong> ${esc(timeline) || "—"}</p>
       <p><strong>Anything else:</strong></p>
       <p>${esc(notes || "—").replace(/\n/g, "<br>")}</p>

@@ -1,0 +1,20 @@
+{
+  "created": "2026-10-10",
+  "tool": "image_gen.imagegen",
+  "purpose": "Illustrative store design concepts. These are not client projects.",
+  "conversion": "Original PNGs retained; WebP quality 88 for website delivery, no compositing or creative edits.",
+  "images": [
+    {
+      "name": "cafe",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide landscape editorial website image, 3:2 composition. Create a premium but believable independent neighborhood cafe interior in New York: light oak counter, pale warm stone, muted forest-green details, fresh croissants in a glass display, espresso machine, two ceramic coffee cups, attractive large wall menu boards and a small pickup shelf with neatly prepared kraft takeaway bags. Natural soft morning window light, realistic materials, an inviting practical small business rather than a luxury restaurant. Camera straight-on three-quarter view, wide enough to show the whole counter and wall signage. Menu boards have very restrained large readable headings 'Coffee' and 'Fresh bakes', clean simple short menu lines; no dense small typography. Small pickup shelf sign reads 'Pickup'. No POS screen, no computer, no people, no logos or other brand names, no watermark, no collage, no outer frame. This is a clearly illustrative store design concept, not a photograph of a real client. Keep the main counter and menu boards within the central 80% for responsive crops.",
+      "original": "cafe-original.png",
+      "webAsset": "assets/custom-cafe-concept-20261010.webp"
+    },
+    {
+      "name": "retail",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide landscape editorial website photo, 3:2 composition. Create a realistic independent neighborhood grocery and deli store interior with an intentional custom visual identity: navy and pale-blue aisle markers, tidy shelves of produce, colorful generic food packages and glass drinks bottles, coordinated branded-looking shelf-edge strips, one glowing rectangular lightbox above the deli counter that reads 'Fresh daily', and a well-presented refrigerated deli display. A clear central aisle invites customers in. Warm natural daylight, realistic modest store scale, detailed real surfaces, professionally photographed with restrained color grading. Use only generic non-branded packages, no recognizable corporate logos; words should be sparse, clean and readable, no fake dense text. No people, no touchscreen, no computer, no graphs, no revenue claims, no watermark, no collage, no outer frame. This is a store design concept for a website, not a real client project. Keep the lightbox, counter and shelves visible within the central 80%.",
+      "original": "retail-original.png",
+      "webAsset": "assets/custom-retail-concept-20261010.webp"
+    }
+  ]
+}

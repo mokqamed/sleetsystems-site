@@ -3,5 +3,8 @@
   "private": true,
   "dependencies": {
     "firebase-admin": "13.8.0"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules --test tests/*.test.cjs"
   }
 }

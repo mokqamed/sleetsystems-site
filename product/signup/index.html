@@ -174,6 +174,17 @@ function gtag_report_conversion(url) {
           </div>
 
           <div class="step" data-step="3">
+            <h3 id="website-question">Do you need a website?</h3>
+            <p class="card-sub">A custom website for your business, with options to connect to SleetPOS. We’ll talk through what you need.</p>
+            <div class="opts" data-key="websiteInterest" role="group" aria-labelledby="website-question">
+              <button type="button" class="opt">Yes</button>
+              <button type="button" class="opt">I have one that needs updating</button>
+              <button type="button" class="opt">Not sure yet</button>
+              <button type="button" class="opt">No</button>
+            </div>
+          </div>
+
+          <div class="step" data-step="4">
             <h3>When do you want to start?</h3>
             <div class="opts" data-key="timeline">
               <button type="button" class="opt">As soon as possible</button>
@@ -183,7 +194,7 @@ function gtag_report_conversion(url) {
             </div>
           </div>
 
-          <div class="step" data-step="4">
+          <div class="step" data-step="5">
             <h3>Create your account</h3>
             <p class="card-sub">Your login for the SleetPOS dashboard.</p>
             <form id="signupForm" novalidate>
@@ -264,8 +275,8 @@ function gtag_report_conversion(url) {
     var answers = {};
     var current = 0;
     var firstStep = true;
-    var TOTAL = 5;
     var steps = document.querySelectorAll(".step");
+    var TOTAL = steps.length;
     var fill = document.getElementById("progressFill");
     var backBtn = document.getElementById("backBtn");
     var otherWrap = document.getElementById("otherWrap");
@@ -279,6 +290,11 @@ function gtag_report_conversion(url) {
       const activeHeading = document.querySelector('.step.active h3');
       if (activeHeading && !firstStep) { activeHeading.tabIndex = -1; activeHeading.focus({ preventScroll: true }); }
       firstStep = false;
+      document.querySelectorAll('.opts').forEach(function (group) {
+        group.querySelectorAll('.opt').forEach(function (button) {
+          button.setAttribute('aria-pressed', String(answers[group.dataset.key] === button.textContent.trim()));
+        });
+      });
       fill.style.width = ((n + 1) / TOTAL * 100) + "%";
       backBtn.classList.toggle("show", n > 0);
       document.getElementById("skipBtn").classList.toggle("hide", n === TOTAL - 1);
@@ -333,7 +349,8 @@ function gtag_report_conversion(url) {
         storeType: answers.storeType || "",
         registers: answers.registers || "",
         currentPos: answers.currentPos || "",
-        timeline: answers.timeline || ""
+        timeline: answers.timeline || "",
+        websiteInterest: answers.websiteInterest || ""
       };
       status.className = "form-status";
       if (!data.name || !data.store || !data.email || !data.phone || !data.password) {

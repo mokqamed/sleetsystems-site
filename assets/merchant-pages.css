@@ -121,3 +121,5 @@ button:disabled { cursor: wait; opacity: .65; }
 .lib-nav a.on { color: var(--ink); font-weight: 600; }
 #cal-embed:has(iframe) .cal-fallback { display: none; }
 #cal-embed iframe { border: 0; width: 100%; }
+
+.opt[aria-pressed="true"] { border-color: var(--ink); background: var(--mist); box-shadow: inset 0 0 0 1px var(--ink); }

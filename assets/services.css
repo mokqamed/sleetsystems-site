@@ -102,12 +102,75 @@
 .offering-grid .coffee-board, .offering-grid .pastry-board { padding: 2.5cqw; aspect-ratio: .83; }
 .offering-grid .coffee-board h2 { margin-block: 2cqw; }
 .offering-grid .pastry-board img { height: 17cqw; width: 24cqw; margin-block: 1cqw; }
+.custom-examples { padding-bottom: 90px; }
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.concept { margin: 0; min-width: 0; }
+.concept-site { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #f4f2e9; color: #294938; }
+.concept-site.retail-concept { background: #f1f5fa; color: #223a57; }
+.concept-top { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; gap: 20px; }
+.concept-top strong { font-size: 19px; letter-spacing: -.04em; }
+.concept-top span { font-size: 12px; }
+.concept-picture { position: relative; }
+.concept-picture img { width: 100%; aspect-ratio: 1.5; object-fit: cover; display: block; }
+.concept-caption { padding: 23px 24px 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.concept-caption strong { font-size: 26px; font-weight: 500; line-height: 1.15; letter-spacing: -.045em; }
+.concept-caption span { font-size: 12px; white-space: nowrap; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.concept figcaption { margin-top: 19px; }
+.concept figcaption strong { display: block; font-size: 18px; font-weight: 500; }
+.concept figcaption p { color: var(--slate); font-size: 14px; line-height: 1.7; margin-top: 8px; }
+.concept-disclosure { font-size: 12px; color: var(--slate); margin-top: 22px; }
+.connected-section { background: var(--mist); padding-block: 78px; }
+.connected-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
+.connected-copy h2 { font-size: var(--type-section-title); margin-block: 20px 24px; }
+.connected-copy p { color: var(--slate); max-width: 480px; margin-bottom: 20px; }
+.service-status { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; color: #285f7d; }
+.service-status:before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #1478b8; }
+.connected-visual { margin: 0; padding: 24px 40px 0; }
+.connected-visual .pos-product { max-width: 410px; margin-inline: auto; }
+.connected-visual figcaption { color: var(--slate); font-size: 12px; text-align: center; margin-top: 18px; }
+.order-flow { display: grid; grid-template-columns: repeat(4,1fr); list-style: none; padding: 0; margin: 50px 0 0; gap: 24px; }
+.order-flow li { border-top: 1px solid #c8d8e5; padding-top: 24px; position: relative; }
+.order-flow li:not(:last-child):after { content: '→'; color: #53788d; position: absolute; right: 0; top: 24px; }
+.flow-number { display: block; font-size: 13px; color: #53788d; margin-bottom: 24px; }
+.order-flow h3 { font-size: 20px; letter-spacing: -.035em; }
+.order-flow p { color: var(--slate); margin-top: 12px; font-size: 14px; }
+.connected-note { font-size: 13px; color: var(--slate); margin-top: 32px; max-width: 880px; }
+.sales-section { display: grid; grid-template-columns: .85fr 1.15fr; gap: 90px; align-items: center; padding-block: 90px; }
+.sales-image { position: relative; margin: 0; background: #f4f0e9; border-radius: 14px; overflow: hidden; }
+.sales-image img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.sales-image figcaption { position: absolute; bottom: 22px; left: 22px; right: 22px; padding: 17px 20px; background: #fff; border-radius: 8px; font-size: 13px; display: flex; justify-content: space-between; gap: 15px; }
+.sales-copy h2 { font-size: var(--type-section-title); margin-bottom: 30px; }
+.sales-copy h3 { font-size: 20px; margin-top: 24px; }
+.sales-copy p { color: var(--slate); font-size: 15px; margin-top: 9px; }
+.store-scenes { padding-block: 55px 70px; }
+.store-scene { margin: 0; min-width: 0; }
+.store-scene img { display: block; width: 100%; aspect-ratio: 1.5; object-fit: cover; border-radius: 12px; }
+.store-scene figcaption { padding-top: 24px; }
+.store-scene h3 { font-size: 24px; letter-spacing: -.04em; }
+.store-scene p { font-size: 15px; color: var(--slate); margin-top: 12px; max-width: 490px; }
+.scene-details { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; color: var(--slate); font-size: 12px; }
+.scene-details span { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
 @media (max-width: 1120px) {
   .service-hero { gap: 32px; }
   .service-hero .actions { align-items: flex-start; flex-direction: column; gap: 15px; }
   .service-process-layout { gap: 50px; }
 }
 @media (max-width: 800px) {
+  .connected-layout, .sales-section { grid-template-columns: 1fr; gap: 32px; }
+  .connected-section { padding-block: 55px; }
+  .connected-visual { padding: 10px 32px 0; }
+  .connected-visual .pos-product { max-width: 340px; }
+  .order-flow { grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 36px; }
+  .order-flow li:nth-child(2):after { content: none; }
+  .concept-grid { gap: 24px; }
+  .concept-top { padding: 15px; }
+  .concept-top strong { font-size: 16px; }
+  .concept-top span { font-size: 10px; }
+  .concept-caption { padding: 18px 15px; flex-wrap: wrap; }
+  .concept-caption strong { font-size: 23px; }
+  .sales-section { padding-block: 60px; }
+  .sales-image { max-width: 420px; }
+  .custom-examples { padding-bottom: 60px; }
   .service-hero { grid-template-columns: 1fr; padding-block: 37px 45px; gap: 32px; }
   .service-hero-copy { padding-block: 0; }
   .service-hero h1 { font-size: clamp(38px,8vw,56px); }
@@ -130,6 +193,16 @@
   .more-services { padding-block: 60px; }
 }
 @media (max-width: 580px) {
+  .concept-grid { grid-template-columns: 1fr; gap: 40px; }
+  .concept-top { padding: 18px 20px; }
+  .concept-caption { padding: 20px; }
+  .concept-caption strong { font-size: 25px; }
+  .connected-copy h2, .sales-copy h2 { font-size: 36px; }
+  .order-flow { gap: 24px; }
+  .order-flow h3 { font-size: 18px; }
+  .order-flow p { font-size: 13px; }
+  .flow-number { margin-bottom: 18px; }
+  .store-scenes { padding-block: 50px; }
   .service-category { margin-bottom: 20px; font-size: 13px; }
   .service-lead { font-size: 16px; margin-top: 20px; }
   .service-hero .text-link { font-size: 14px; }
