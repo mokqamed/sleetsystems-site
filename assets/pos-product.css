@@ -1,0 +1,28 @@
+/* Owner-supplied 6140 x 4912 composition. Frame transparent margins in CSS;
+   keep the hardware and its screen together without a perspective overlay. */
+.pos-product {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3908 / 3630;
+  overflow: hidden;
+}
+.pos-product > .pos-product-image {
+  position: absolute;
+  display: block;
+  left: -25.639713%;
+  top: -20.413223%;
+  width: 157.113613%;
+  height: auto;
+  max-width: none;
+  margin: 0;
+}
+.terminal-crop > .pos-product { width: 100%; }
+.food-visual-pos {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 2688 / 1520;
+  border-radius: 14px;
+  background: #f5f7f8;
+}
+.food-visual-pos > .pos-product { width: 58%; }
+.view-card-image > .pos-product { width: 80%; margin-inline: auto; }
