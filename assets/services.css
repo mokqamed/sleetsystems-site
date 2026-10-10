@@ -215,3 +215,5 @@
   .signage-option h2 { font-size: 26px; }
   .service-related h2 { font-size: 23px; }
 }
+
+.offering-demo-image { width:100%; aspect-ratio:1.32; object-fit:cover; object-position:left; border-radius:16px; border:1px solid var(--line); }

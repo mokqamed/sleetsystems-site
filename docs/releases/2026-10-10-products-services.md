@@ -5,7 +5,7 @@ Local preview for the owner's approved slot 2 work. Not deployed.
 ## Current result
 
 - Shared merchant navigation groups POS Systems, Websites and Store Displays & Signage. It opens on pointer hover, click or keyboard activation; the phone menu uses tap. Escape, focus leaving the submenu and outside clicks dismiss it.
-- `/websites` presents custom branding, pages and workflows; café and grocery concepts; a real POS image; and the planned phone-to-register pickup ordering flow. Product discovery and less manual order-taking explain the value without promising guaranteed or effortless revenue.
+- `/websites` presents custom branding, pages and workflows, an animated interactive café demonstration, a real POS image, and the planned phone-to-register pickup ordering flow. Product discovery and less manual order-taking explain the value without promising guaranteed or effortless revenue.
 - Connected pickup ordering is clearly marked **in development**. Copy follows the slot 1 design: website link to ordering page, item selection/payment/pickup time, designated register acceptance, ready/picked-up status and completed sale recording. It does not advertise live inventory syncing, item modifiers or automatic kitchen routing. A standalone website can be scoped separately.
 - `/store-signage` shows menu board designs, light boxes and shelving strips, plus two complete store concepts and custom-fit details. Production, installation and artwork updates are scoped explicitly; static artwork is not advertised as automatically synced with POS prices.
 - The POS homepage previews both services; merchant footers and company homepage link to them. Existing public route mappings, sitemap, static redirects and dashboard proxy/CSP allowlist include both pages.
@@ -13,13 +13,24 @@ Local preview for the owner's approved slot 2 work. Not deployed.
 
 ## Images
 
+The website service page now uses screenshots of its working demo for the homepage, food menu, product details and promotional pop-up. Separate phone screenshots keep the homepage and menu readable on small screens. The four product photographs reuse the owner's café samples as optimized WebP files. These are real HTML interfaces, not generated screenshots. The original captures are in `Design/review/website-demo-2026-10-10/` in the parent workspace.
+
 Two store concept images were generated with `image_gen.imagegen`, then converted to 1536 × 1024 WebP assets (approximately 268 and 286 KiB). Captions identify them as AI-generated concepts, not client work. Original PNGs and full prompts are retained in `Design/creatives/custom-services-2026-10-10/` in the parent SleetSystems workspace; `2026-10-10-service-image-provenance.json` also records the prompts in this repository.
 
 Café latte and croissant pictures reuse the owner's October 6 samples. The website mockups and ordering steps use actual HTML text. The owner-supplied POS composition is unchanged and shown with its real screen.
 
 ## Validation
 
-Current revision:
+Latest interactive demo revision:
+
+- `/websites/?demo=cafe` opens the full café concept. `scene=menu`, `scene=product` and `scene=offer` open specific examples. It uses the existing public route and asset proxy; dashboard code is unchanged.
+- A finite entrance sequence reveals the brand, headline and café image. Replay and Skip work. Reduced-motion handling skips the entrance and disables transitions; it was inspected in code, not tested by changing the system accessibility preference.
+- Menu filters show the correct drinks and bakery items. Product details show photography, prices, descriptions, sample ingredients and quantity controls. The bag supports quantity changes and a sample breakfast discount. The confirmation is explicitly a preview. There are no fetch calls, payment requests or order submissions in the demo.
+- Browser checks at 1440px and 390px: automatic entrance completion, Replay/Skip, menu categories, product quantity and bag count, offer discount and total, confirmation, gallery launch buttons, modal focus wrapping, Escape closing only the top view, and restoring the service page when closed. Phone product/offer layouts fit, responsive preview images load, and no horizontal overflow was found in checked views.
+- `npm test`: 15 tests pass (4 cart/offer model tests plus the existing 11 signup-handler tests). Static checks cover all 8 merchant pages and 19 inline scripts; new scripts and stylesheets parse, all referenced assets exist, and there are no duplicate IDs, missing same-page anchors or whitespace errors.
+- Proof and captures: `Design/review/website-demo-2026-10-10/`. The earlier basic café/grocery website cards have been replaced; store signage examples are retained.
+
+Previous visual/questionnaire revision:
 
 - `npm test`: 11 tests pass against the actual signup handler with in-memory Firebase/email adapters. Covers all four answers, omitted answers, invalid values, and separation from the spam honeypot. No accounts, Firestore records or emails were created in production.
 - All eight merchant HTML pages checked: no duplicate IDs, missing referenced assets or broken same-page anchors. All 19 inline scripts pass JavaScript syntax checks. Both changed stylesheets parse; git whitespace check passes.
