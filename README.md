@@ -41,15 +41,23 @@ above-the-fold eager images, and fonts; analytics, offscreen images, and embeds 
 not hold the opening open. It disappears as soon as those are ready, without a
 minimum display time. Image errors also count as settled.
 
-The intro plays once and then holds its last frame. It is removed after at most
+The 160 CSS px logo is the only visible opening content, with an accessible
+"Loading website" status. The two-second intro plays once and then holds its last
+frame. It is removed after at most
 8 seconds from navigation, or immediately on keyboard/pointer interaction or
 leaving the tab/page. Reduced-motion preferences use a still image. Fast first
 visits, subsequent pages, reloads, history restores, and browsers that block
 session storage do not show it. A session is scoped to each site's origin and tab;
 this is not a permanent first-ever-visitor cookie.
 
-The 128 px website copy is about 292 KB, retains the approved 1.5× / 60 fps timing,
-and is fetched only after a slow first visit is detected. Regenerate it with
-`python3 tools/export-opening.py` (Pillow required). The canonical 384 px files and
-the queued POS/iPhone work are unchanged. Run `npm test` to verify the fast, slow,
+The 320 px website artwork is about 831 KB, renders at 160 CSS px for sharpness on
+2× displays, retains the approved 1.5× / 60 fps timing, and is fetched only after
+a slow first visit is detected. Regenerate it with `python3 tools/export-opening.py` (Pillow
+required). The canonical intro remains 384 px.
+
+Standalone pending states use a 96 CSS px logo with accessible loading copy.
+Ready/error text and the calendar fallback link remain visible. Submit buttons
+keep their compact 28 px indicator and action text. The shared 3.317-second loop
+reverses 50 ms after its shine, matching the approved quick-reverse revision.
+Reduced motion uses the still artwork. Run `npm test` to verify the fast, slow,
 repeat, accessibility, failure and cleanup cases.

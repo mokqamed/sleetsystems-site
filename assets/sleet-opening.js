@@ -40,12 +40,12 @@
     overlay.setAttribute('role', 'status');
     overlay.setAttribute('aria-label', 'Loading website');
     // Self-contained styles avoid another stylesheet request on a slow connection.
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#f5f9fb;color:#587080;font:14px system-ui,sans-serif;pointer-events:none';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#f5f9fb;pointer-events:none';
     const logo = document.createElement('img');
-    logo.width = 128;
-    logo.height = 128;
+    logo.width = 160;
+    logo.height = 160;
     logo.alt = '';
-    logo.style.cssText = 'width:128px;height:128px;visibility:hidden';
+    logo.style.cssText = 'width:160px;height:160px;visibility:hidden';
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     function setStill() { logo.src = '/assets/sleet-motion/sleet-opening-still.webp'; }
     logo.onload = () => { logo.style.visibility = 'visible'; };
@@ -55,10 +55,7 @@
       : '/assets/sleet-motion/sleet-opening-intro.webp';
     // Turning motion back on never replays an intro that has already started.
     listen(reducedMotion, 'change', event => { if (event.matches) setStill(); });
-    const label = document.createElement('span');
-    label.textContent = 'Loading\u2026';
-    label.setAttribute('aria-hidden', 'true');
-    overlay.append(logo, label);
+    overlay.append(logo);
     document.documentElement.append(overlay);
   }
   function checkContent() {

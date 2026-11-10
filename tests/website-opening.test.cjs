@@ -101,7 +101,7 @@ test('the public entry pages all use the non-blocking opening script', () => {
     assert.equal((html.match(/<script async src="\/assets\/sleet-opening.js"><\/script>/g) || []).length, 1, name);
   }
 });
-test('the lightweight opening is a two-second single play with 60 fps movement', () => {
+test('the 2x opening is a two-second single play with 60 fps movement', () => {
   const data = fs.readFileSync(path.join(__dirname, '../assets/sleet-motion/sleet-opening-intro.webp'));
   let frames = 0, duration = 0, loop;
   for (let offset = 12; offset + 8 <= data.length;) {
@@ -112,5 +112,5 @@ test('the lightweight opening is a two-second single play with 60 fps movement',
   }
   assert.equal(loop, 1); assert.equal(duration, 2000);
   assert.ok(frames > 80); // Static holds are coalesced; moving frames retain the 60 fps timeline.
-  assert.ok(data.length < 350000, 'opening must stay small for slow connections');
+  assert.ok(data.length < 900000, '2x opening must stay below 900 KB for slow connections');
 });

@@ -6,13 +6,16 @@
     384
   ],
   "intro_seconds": 2.0,
-  "loop_seconds": 4.4,
+  "loop_seconds": 3.317,
   "source_sha256": "3640e74d951ded5588b3f4d27287c3f357e3ff16c8137f86cdce645d87225282",
   "icon_sha256": "8d085cf7d3768f1bd40f59cb12a7a915ccebf6bcdd6a2c35e80efafd1f1d3e50",
   "files": {
     "sleet-loading-intro.webp": "762d61b95b3c6535689e7a18acd25bcaffdc5ccb024e9ff3d41592bf0c68dd85",
-    "sleet-loading-loop.webp": "dd289cd7b1ac5021d3706e0fde83829b786fcc64776f77f1a8178fffaecaa054",
+    "sleet-loading-loop.webp": "323a06a42fc8efce7ecb049fb7a901fbc031354e3d062dab37f59e75983fea48",
     "sleet-loading-seed.png": "cb12179c3b2280db725ff251d92a25f6671bc157181b4ff26e35f75251bb3a8d",
     "sleet-loading-still.png": "707f5eb0fe4071d949489d23a255ce5036832cdd5de4dcf141cc635387312bd4"
-  }
+  },
+  "post_shine_hold_ms": 50,
+  "revision": "2026-11-10-quick-reverse",
+  "timing_sha256": "ff3961ca4de134aa63616d3559cd72eeddb538e8da346c08a975a9eb601ce49f"
 }
