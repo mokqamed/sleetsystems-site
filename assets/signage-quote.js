@@ -104,6 +104,7 @@ form.addEventListener('submit', async event => {
   // Preserve answers while awaiting a response, and prevent accidental duplicate requests.
   const controls = [...form.querySelectorAll('input:not(:disabled), select:not(:disabled), textarea:not(:disabled), button:not(:disabled)')];
   controls.forEach(control => { control.disabled = true; });
+  next.setAttribute('aria-busy', 'true');
   next.textContent = 'Sending…';
   error.hidden = true;
   try {
@@ -126,6 +127,7 @@ form.addEventListener('submit', async event => {
   } finally {
     sending = false;
     form.removeAttribute('aria-busy');
+    next.removeAttribute('aria-busy');
     controls.forEach(control => { control.disabled = false; });
     next.textContent = 'Send quote request';
   }

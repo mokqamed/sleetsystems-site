@@ -217,6 +217,7 @@ function gtag_report_conversion(url) {
 <meta name="google-site-verification" content="xqmrzdfFpGR3f4cwdjIoa0PygFE5FzW4LtJEWn3XnU0" />
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="stylesheet" href="/assets/merchant-documents.css" />
+<link rel="stylesheet" href="/assets/sleet-loading.css">
 </head>
 <body>
 
@@ -345,8 +346,10 @@ function gtag_report_conversion(url) {
         return;
       }
       btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
       btn.textContent = 'Submitting…';
       setTimeout(function () {
+        btn.removeAttribute('aria-busy');
         confirmation.classList.add('show');
         btn.textContent = 'Signed up';
       }, 400);

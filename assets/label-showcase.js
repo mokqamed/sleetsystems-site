@@ -98,11 +98,13 @@ if (root) {
       return button;
     }));
     root.classList.add('is-ready');
+    description.classList.remove('sleet-loading');
     root.setAttribute('aria-busy', 'false');
     pause.hidden = false;
     show(0);
   } catch {
     root.classList.add('has-error');
+    description.classList.remove('sleet-loading');
     root.setAttribute('aria-busy', 'false');
     description.textContent = 'The animated preview could not load. See the real printed labels below.';
     stage.hidden = true;

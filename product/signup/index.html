@@ -68,6 +68,7 @@ function gtag_report_conversion(url) {
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="stylesheet" href="/assets/services-nav.css" />
 <link rel="stylesheet" href="/assets/brand.css" />
+<link rel="stylesheet" href="/assets/sleet-loading.css">
 </head>
 <body class="merchant-subpage">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -381,6 +382,7 @@ function gtag_report_conversion(url) {
         return;
       }
       btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
       btn.textContent = "Creating your account…";
       fetch("/api/signup", {
         method: "POST",
@@ -391,6 +393,7 @@ function gtag_report_conversion(url) {
         if (!r.ok) throw new Error("bad status " + r.status);
         return r.json();
       }).then(function () {
+        btn.removeAttribute('aria-busy');
         gtag_report_conversion(); // Google Ads "Contact" conversion: account created
         document.getElementById("quiz").style.display = "none";
         document.getElementById("cardFoot").style.display = "none";
@@ -405,6 +408,7 @@ function gtag_report_conversion(url) {
         }
         status.className = "form-status err";
         btn.disabled = false;
+        btn.removeAttribute('aria-busy');
         btn.textContent = "Create account";
       });
     });

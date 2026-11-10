@@ -1,0 +1,13 @@
+/* Shared 1.5× artwork; actual request state controls visibility. */
+button[aria-busy="true"] { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+button[aria-busy="true"]::before, .sleet-loading::before {
+  content: ""; display: inline-block; flex: none; width: 28px; height: 28px;
+  background: url('/assets/sleet-motion/sleet-loading-loop.webp') center / contain no-repeat;
+  vertical-align: middle;
+}
+.sleet-loading::before { margin-inline-end: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  button[aria-busy="true"]::before, .sleet-loading::before {
+    background-image: url('/assets/sleet-motion/sleet-loading-still.png');
+  }
+}
