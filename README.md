@@ -31,3 +31,25 @@ The root `vercel.json` redirects company-domain product links to `www.sleetpos.c
 The merchant website and matching dashboard auth styles are a coordinated release. Review proofs and verification records are in `../../Design/review/merchant-website-2026-10-06/`. The dashboard auth source is maintained in its own repository. Pushing `main` deploys each project through its existing Vercel integration; verify both production domains and the proxied merchant routes after release.
 
 Preserve form request contracts and authentication behavior while editing visuals. Use the typography guide rather than introducing page-local font stacks. Policy text has not changed in this revision; if it is changed later, synchronize the corresponding app legal documents.
+
+## First-visit opening
+
+All 14 public pages load `assets/sleet-opening.js` asynchronously. On the first
+navigation of a tab session, the approved snowflake opening appears only if the
+page is still preparing its visible content after 600 ms. Readiness means the DOM,
+above-the-fold eager images, and fonts; analytics, offscreen images, and embeds do
+not hold the opening open. It disappears as soon as those are ready, without a
+minimum display time. Image errors also count as settled.
+
+The intro plays once and then holds its last frame. It is removed after at most
+8 seconds from navigation, or immediately on keyboard/pointer interaction or
+leaving the tab/page. Reduced-motion preferences use a still image. Fast first
+visits, subsequent pages, reloads, history restores, and browsers that block
+session storage do not show it. A session is scoped to each site's origin and tab;
+this is not a permanent first-ever-visitor cookie.
+
+The 128 px website copy is about 292 KB, retains the approved 1.5× / 60 fps timing,
+and is fetched only after a slow first visit is detected. Regenerate it with
+`python3 tools/export-opening.py` (Pillow required). The canonical 384 px files and
+the queued POS/iPhone work are unchanged. Run `npm test` to verify the fast, slow,
+repeat, accessibility, failure and cleanup cases.
